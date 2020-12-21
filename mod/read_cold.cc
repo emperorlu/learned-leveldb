@@ -144,7 +144,7 @@ int main(int argc, char *argv[]) {
     adgMod::file_learning_enabled ^= change_file_learning;
     adgMod::load_level_model ^= change_level_load;
     adgMod::load_file_model ^= change_file_load;
-
+    cout << "[Debug] run 2" << endl;
    // adgMod::file_learning_enabled = false;
 
 
@@ -159,14 +159,17 @@ int main(int argc, char *argv[]) {
             string the_key = generate_key(key);
             keys.push_back(std::move(the_key));
         }
+        cout << "[Debug] run 3" << endl;
         //adgMod::key_size = (int) keys.front().size();
     } else {
+        cout << "[Debug] run 4" << endl;
         std::uniform_int_distribution<uint64_t> udist_key(0, 999999999999999);
         for (int i = 0; i < 10000000; ++i) {
             keys.push_back(generate_key(to_string(udist_key(e2))));
         }
+        cout << "[Debug] run 5" << endl;
     }
-    cout << "[Debug] run 2" << endl;
+    cout << "[Debug] run 6" << endl;
     if (!distribution_filename.empty()) {
         use_distribution = true;
         ifstream input(distribution_filename);
@@ -175,7 +178,7 @@ int main(int argc, char *argv[]) {
             distribution.push_back(index);
         }
     }
-    cout << "[Debug] run 3" << endl;
+
     if (!ycsb_filename.empty()) {
         use_ycsb = true;
         use_distribution = true;
@@ -188,20 +191,20 @@ int main(int argc, char *argv[]) {
         }
     }
     bool copy_out = num_mix != 0 || use_ycsb;
-    cout << "[Debug] run 4" << endl;
+
     adgMod::Stats* instance = adgMod::Stats::GetInstance();
     vector<vector<size_t>> times(20);
     string values(1024 * 1024, '0');
-    cout << "[Debug] run 5" << endl;
+
     if (copy_out) {
         system("sync; echo 3 | sudo tee /proc/sys/vm/drop_caches");
     }
-    cout << "[Debug] run 6" << endl;
+
     if (num_mix > 1000) {
         mix_base = 1000;
         num_mix -= 1000;
     }
-    cout << "[Debug] run 7" << endl;
+    
     for (size_t iteration = 0; iteration < num_iteration; ++iteration) {
         if (copy_out) {
             system("sudo fstrim -a -v");
@@ -527,7 +530,7 @@ int main(int argc, char *argv[]) {
         delete db_iter;
         delete db;
     }
-    cout << "[Debug] run 8" << endl;
+
 
     for (int s = 0; s < times.size(); ++s) {
         vector<uint64_t>& time = times[s];
@@ -541,7 +544,7 @@ int main(int argc, char *argv[]) {
 
         printf("Timer %d MEAN: %lu, STDDEV: %f\n", s, (uint64_t) mean, stdev);
     }
-    cout << "[Debug] run 9" << endl;
+
     if (num_iteration > 1) {
         cout << "Data Without the First Item" << endl;
         for (int s = 0; s < times.size(); ++s) {
