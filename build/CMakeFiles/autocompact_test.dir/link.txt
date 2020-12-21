@@ -1,0 +1,1 @@
+/opt/rh/devtoolset-9/root/usr/bin/c++  -O2 -DNDEBUG   CMakeFiles/autocompact_test.dir/util/testharness.cc.o CMakeFiles/autocompact_test.dir/util/testutil.cc.o CMakeFiles/autocompact_test.dir/db/autocompact_test.cc.o  -o autocompact_test  libleveldb.a -lsnappy -lpthread 

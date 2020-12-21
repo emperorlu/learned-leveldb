@@ -1,0 +1,1 @@
+/opt/rh/devtoolset-9/root/usr/bin/c++  -O2 -DNDEBUG   CMakeFiles/read_cold.dir/util/testharness.cc.o CMakeFiles/read_cold.dir/util/testutil.cc.o CMakeFiles/read_cold.dir/mod/read_cold.cc.o  -o read_cold  libleveldb.a -lsnappy -lpthread 

@@ -1,0 +1,1 @@
+/opt/rh/devtoolset-9/root/usr/bin/c++  -O2 -DNDEBUG   CMakeFiles/leveldbutil.dir/db/leveldbutil.cc.o  -o leveldbutil  libleveldb.a -lsnappy -lpthread 

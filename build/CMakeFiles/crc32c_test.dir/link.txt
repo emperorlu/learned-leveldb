@@ -1,0 +1,1 @@
+/opt/rh/devtoolset-9/root/usr/bin/c++  -O2 -DNDEBUG   CMakeFiles/crc32c_test.dir/util/testharness.cc.o CMakeFiles/crc32c_test.dir/util/testutil.cc.o CMakeFiles/crc32c_test.dir/util/crc32c_test.cc.o  -o crc32c_test  libleveldb.a -lsnappy -lpthread 

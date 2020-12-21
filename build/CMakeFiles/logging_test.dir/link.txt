@@ -1,0 +1,1 @@
+/opt/rh/devtoolset-9/root/usr/bin/c++  -O2 -DNDEBUG   CMakeFiles/logging_test.dir/util/testharness.cc.o CMakeFiles/logging_test.dir/util/testutil.cc.o CMakeFiles/logging_test.dir/util/logging_test.cc.o  -o logging_test  libleveldb.a -lsnappy -lpthread 

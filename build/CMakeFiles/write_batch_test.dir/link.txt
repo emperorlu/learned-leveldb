@@ -1,0 +1,1 @@
+/opt/rh/devtoolset-9/root/usr/bin/c++  -O2 -DNDEBUG   CMakeFiles/write_batch_test.dir/util/testharness.cc.o CMakeFiles/write_batch_test.dir/util/testutil.cc.o CMakeFiles/write_batch_test.dir/db/write_batch_test.cc.o  -o write_batch_test  libleveldb.a -lsnappy -lpthread 

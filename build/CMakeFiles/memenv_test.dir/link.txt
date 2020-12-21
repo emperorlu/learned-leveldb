@@ -1,0 +1,1 @@
+/opt/rh/devtoolset-9/root/usr/bin/c++  -O2 -DNDEBUG   CMakeFiles/memenv_test.dir/util/testharness.cc.o CMakeFiles/memenv_test.dir/util/testutil.cc.o CMakeFiles/memenv_test.dir/helpers/memenv/memenv_test.cc.o  -o memenv_test  libleveldb.a -lsnappy -lpthread 

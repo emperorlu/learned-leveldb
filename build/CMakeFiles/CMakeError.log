@@ -1,0 +1,190 @@
+Determining if the function crc32c_value exists in the crc32c failed with the following output:
+Change Dir: /home/lk/learned_index/learned-leveldb/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_d8547/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_d8547.dir/build.make CMakeFiles/cmTC_d8547.dir/build
+gmake[1]: Entering directory `/home/lk/learned_index/learned-leveldb/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_d8547.dir/CheckFunctionExists.c.o
+/opt/rh/devtoolset-9/root/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=crc32c_value   -o CMakeFiles/cmTC_d8547.dir/CheckFunctionExists.c.o   -c /usr/share/cmake3/Modules/CheckFunctionExists.c
+Linking C executable cmTC_d8547
+/usr/bin/cmake3 -E cmake_link_script CMakeFiles/cmTC_d8547.dir/link.txt --verbose=1
+/opt/rh/devtoolset-9/root/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=crc32c_value    CMakeFiles/cmTC_d8547.dir/CheckFunctionExists.c.o  -o cmTC_d8547  -lcrc32c 
+/opt/rh/devtoolset-9/root/usr/libexec/gcc/x86_64-redhat-linux/9/ld: cannot find -lcrc32c
+collect2: error: ld returned 1 exit status
+gmake[1]: *** [cmTC_d8547] Error 1
+gmake[1]: Leaving directory `/home/lk/learned_index/learned-leveldb/build/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_d8547/fast] Error 2
+
+
+
+Determining if the F_FULLFSYNC exist failed with the following output:
+Change Dir: /home/lk/learned_index/learned-leveldb/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_d376c/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_d376c.dir/build.make CMakeFiles/cmTC_d376c.dir/build
+gmake[1]: Entering directory `/home/lk/learned_index/learned-leveldb/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_d376c.dir/CheckSymbolExists.cxx.o
+/opt/rh/devtoolset-9/root/usr/bin/c++     -o CMakeFiles/cmTC_d376c.dir/CheckSymbolExists.cxx.o -c /home/lk/learned_index/learned-leveldb/build/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx
+/home/lk/learned_index/learned-leveldb/build/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx: In function ‘int main(int, char**)’:
+/home/lk/learned_index/learned-leveldb/build/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:8:19: error: ‘F_FULLFSYNC’ was not declared in this scope
+    8 |   return ((int*)(&F_FULLFSYNC))[argc];
+      |                   ^~~~~~~~~~~
+gmake[1]: *** [CMakeFiles/cmTC_d376c.dir/CheckSymbolExists.cxx.o] Error 1
+gmake[1]: Leaving directory `/home/lk/learned_index/learned-leveldb/build/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_d376c/fast] Error 2
+
+
+File /home/lk/learned_index/learned-leveldb/build/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:
+/* */
+#include <fcntl.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef F_FULLFSYNC
+  return ((int*)(&F_FULLFSYNC))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Performing C++ SOURCE FILE Test HAVE_CLANG_THREAD_SAFETY failed with the following output:
+Change Dir: /home/lk/learned_index/learned-leveldb/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_3943f/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_3943f.dir/build.make CMakeFiles/cmTC_3943f.dir/build
+gmake[1]: Entering directory `/home/lk/learned_index/learned-leveldb/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_3943f.dir/src.cxx.o
+/opt/rh/devtoolset-9/root/usr/bin/c++    -DHAVE_CLANG_THREAD_SAFETY -Werror   -o CMakeFiles/cmTC_3943f.dir/src.cxx.o -c /home/lk/learned_index/learned-leveldb/build/CMakeFiles/CMakeTmp/src.cxx
+/home/lk/learned_index/learned-leveldb/build/CMakeFiles/CMakeTmp/src.cxx:2:34: error: ‘lockable’ attribute directive ignored [-Werror=attributes]
+    2 | struct __attribute__((lockable)) Lock {
+      |                                  ^~~~
+/home/lk/learned_index/learned-leveldb/build/CMakeFiles/CMakeTmp/src.cxx:3:59: error: ‘exclusive_lock_function’ attribute directive ignored [-Werror=attributes]
+    3 |   void Acquire() __attribute__((exclusive_lock_function()));
+      |                                                           ^
+/home/lk/learned_index/learned-leveldb/build/CMakeFiles/CMakeTmp/src.cxx:4:51: error: ‘unlock_function’ attribute directive ignored [-Werror=attributes]
+    4 |   void Release() __attribute__((unlock_function()));
+      |                                                   ^
+/home/lk/learned_index/learned-leveldb/build/CMakeFiles/CMakeTmp/src.cxx:8:46: error: ‘guarded_by’ attribute directive ignored [-Werror=attributes]
+    8 |   int data_ __attribute__((guarded_by(lock_)));
+      |                                              ^
+cc1plus: all warnings being treated as errors
+gmake[1]: *** [CMakeFiles/cmTC_3943f.dir/src.cxx.o] Error 1
+gmake[1]: Leaving directory `/home/lk/learned_index/learned-leveldb/build/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_3943f/fast] Error 2
+
+
+Source file was:
+
+struct __attribute__((lockable)) Lock {
+  void Acquire() __attribute__((exclusive_lock_function()));
+  void Release() __attribute__((unlock_function()));
+};
+struct ThreadSafeType {
+  Lock lock_;
+  int data_ __attribute__((guarded_by(lock_)));
+};
+int main() { return 0; }
+
+Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
+Change Dir: /home/lk/learned_index/learned-leveldb/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_125a7/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_125a7.dir/build.make CMakeFiles/cmTC_125a7.dir/build
+gmake[1]: Entering directory `/home/lk/learned_index/learned-leveldb/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_125a7.dir/src.c.o
+/opt/rh/devtoolset-9/root/usr/bin/cc   -DCMAKE_HAVE_LIBC_PTHREAD -Werror   -o CMakeFiles/cmTC_125a7.dir/src.c.o   -c /home/lk/learned_index/learned-leveldb/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_125a7
+/usr/bin/cmake3 -E cmake_link_script CMakeFiles/cmTC_125a7.dir/link.txt --verbose=1
+/opt/rh/devtoolset-9/root/usr/bin/cc  -DCMAKE_HAVE_LIBC_PTHREAD -Werror    CMakeFiles/cmTC_125a7.dir/src.c.o  -o cmTC_125a7 
+/opt/rh/devtoolset-9/root/usr/libexec/gcc/x86_64-redhat-linux/9/ld: CMakeFiles/cmTC_125a7.dir/src.c.o: in function `main':
+src.c:(.text+0x2d): undefined reference to `pthread_create'
+/opt/rh/devtoolset-9/root/usr/libexec/gcc/x86_64-redhat-linux/9/ld: src.c:(.text+0x39): undefined reference to `pthread_detach'
+/opt/rh/devtoolset-9/root/usr/libexec/gcc/x86_64-redhat-linux/9/ld: src.c:(.text+0x45): undefined reference to `pthread_cancel'
+/opt/rh/devtoolset-9/root/usr/libexec/gcc/x86_64-redhat-linux/9/ld: src.c:(.text+0x56): undefined reference to `pthread_join'
+/opt/rh/devtoolset-9/root/usr/libexec/gcc/x86_64-redhat-linux/9/ld: src.c:(.text+0x6a): undefined reference to `pthread_atfork'
+collect2: error: ld returned 1 exit status
+gmake[1]: *** [cmTC_125a7] Error 1
+gmake[1]: Leaving directory `/home/lk/learned_index/learned-leveldb/build/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_125a7/fast] Error 2
+
+
+Source file was:
+#include <pthread.h>
+
+void* test_func(void* data)
+{
+  return data;
+}
+
+int main(void)
+{
+  pthread_t thread;
+  pthread_create(&thread, NULL, test_func, NULL);
+  pthread_detach(thread);
+  pthread_cancel(thread);
+  pthread_join(thread, NULL);
+  pthread_atfork(NULL, NULL, NULL);
+  pthread_exit(NULL);
+
+  return 0;
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/lk/learned_index/learned-leveldb/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_49b7b/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_49b7b.dir/build.make CMakeFiles/cmTC_49b7b.dir/build
+gmake[1]: Entering directory `/home/lk/learned_index/learned-leveldb/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_49b7b.dir/CheckFunctionExists.c.o
+/opt/rh/devtoolset-9/root/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create -Werror   -o CMakeFiles/cmTC_49b7b.dir/CheckFunctionExists.c.o   -c /usr/share/cmake3/Modules/CheckFunctionExists.c
+Linking C executable cmTC_49b7b
+/usr/bin/cmake3 -E cmake_link_script CMakeFiles/cmTC_49b7b.dir/link.txt --verbose=1
+/opt/rh/devtoolset-9/root/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=pthread_create -Werror    CMakeFiles/cmTC_49b7b.dir/CheckFunctionExists.c.o  -o cmTC_49b7b  -lpthreads 
+/opt/rh/devtoolset-9/root/usr/libexec/gcc/x86_64-redhat-linux/9/ld: cannot find -lpthreads
+collect2: error: ld returned 1 exit status
+gmake[1]: *** [cmTC_49b7b] Error 1
+gmake[1]: Leaving directory `/home/lk/learned_index/learned-leveldb/build/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_49b7b/fast] Error 2
+
+
+
+Determining if the function sqlite3_open exists in the sqlite3 failed with the following output:
+Change Dir: /home/lk/learned_index/learned-leveldb/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_420c2/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_420c2.dir/build.make CMakeFiles/cmTC_420c2.dir/build
+gmake[1]: Entering directory `/home/lk/learned_index/learned-leveldb/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_420c2.dir/CheckFunctionExists.c.o
+/opt/rh/devtoolset-9/root/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=sqlite3_open -Werror   -o CMakeFiles/cmTC_420c2.dir/CheckFunctionExists.c.o   -c /usr/share/cmake3/Modules/CheckFunctionExists.c
+Linking C executable cmTC_420c2
+/usr/bin/cmake3 -E cmake_link_script CMakeFiles/cmTC_420c2.dir/link.txt --verbose=1
+/opt/rh/devtoolset-9/root/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=sqlite3_open -Werror    CMakeFiles/cmTC_420c2.dir/CheckFunctionExists.c.o  -o cmTC_420c2  -lsqlite3 
+/opt/rh/devtoolset-9/root/usr/libexec/gcc/x86_64-redhat-linux/9/ld: cannot find -lsqlite3
+collect2: error: ld returned 1 exit status
+gmake[1]: *** [cmTC_420c2] Error 1
+gmake[1]: Leaving directory `/home/lk/learned_index/learned-leveldb/build/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_420c2/fast] Error 2
+
+
+
+Performing C++ SOURCE FILE Test HAVE_KYOTOCABINET failed with the following output:
+Change Dir: /home/lk/learned_index/learned-leveldb/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_c7228/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_c7228.dir/build.make CMakeFiles/cmTC_c7228.dir/build
+gmake[1]: Entering directory `/home/lk/learned_index/learned-leveldb/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_c7228.dir/src.cxx.o
+/opt/rh/devtoolset-9/root/usr/bin/c++    -DHAVE_KYOTOCABINET -Werror   -o CMakeFiles/cmTC_c7228.dir/src.cxx.o -c /home/lk/learned_index/learned-leveldb/build/CMakeFiles/CMakeTmp/src.cxx
+/home/lk/learned_index/learned-leveldb/build/CMakeFiles/CMakeTmp/src.cxx:2:10: fatal error: kcpolydb.h: No such file or directory
+    2 | #include <kcpolydb.h>
+      |          ^~~~~~~~~~~~
+compilation terminated.
+gmake[1]: *** [CMakeFiles/cmTC_c7228.dir/src.cxx.o] Error 1
+gmake[1]: Leaving directory `/home/lk/learned_index/learned-leveldb/build/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_c7228/fast] Error 2
+
+
+Source file was:
+
+#include <kcpolydb.h>
+
+int main() {
+  kyotocabinet::TreeDB* db = new kyotocabinet::TreeDB();
+  delete db;
+  return 0;
+}
+  

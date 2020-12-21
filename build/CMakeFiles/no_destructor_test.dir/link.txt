@@ -1,0 +1,1 @@
+/opt/rh/devtoolset-9/root/usr/bin/c++  -O2 -DNDEBUG   CMakeFiles/no_destructor_test.dir/util/testharness.cc.o CMakeFiles/no_destructor_test.dir/util/testutil.cc.o CMakeFiles/no_destructor_test.dir/util/no_destructor_test.cc.o  -o no_destructor_test  libleveldb.a -lsnappy -lpthread 
