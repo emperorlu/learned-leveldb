@@ -80,7 +80,11 @@ namespace adgMod {
 
 
     string generate_key(const string& key) {
-        string result = string(key_size - key.length(), '0') + key;
+        string result = key;
+        if (key.length() <= key_size){
+            result = string(key_size - key.length(), '0') + key;
+        }
+        //string result = string(key_size - key.length(), '0') + key;
         return std::move(result);
     }
 

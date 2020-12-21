@@ -153,33 +153,23 @@ int main(int argc, char *argv[]) {
     vector<int> ycsb_is_write;
     //keys.reserve(100000000000 / adgMod::value_size);
     if (!input_filename.empty()) {
-        //cout << "[Debug] run 3" << endl;
         ifstream input(input_filename);
         string key;
-        //cout << "[Debug] run 3.1" << endl;
-        //int num = 0;
         while (input >> key) {
-            //num++;
-            //cout << num << ";key_size: "<< key_size << endl;
-            if(key.length() <= key_size ){
-                string the_key = generate_key(key);
-                //cout << "key: " << key << " ;the_key: " << the_key << endl;
-                keys.push_back(std::move(the_key));
-                //cout << "size: " << keys.size() << endl;
-            }
+            // if(key.length() <= key_size ){
+            //     string the_key = generate_key(key);
+            //     keys.push_back(std::move(the_key));
+            // }
+            string the_key = generate_key(key);
+            keys.push_back(std::move(the_key));
         }
-        //cout << "[Debug] run 3.2" << endl;
         //adgMod::key_size = (int) keys.front().size();
     } else {
-        //cout << "[Debug] run 4" << endl;
         std::uniform_int_distribution<uint64_t> udist_key(0, 999999999999999);
-        //cout << "[Debug] run 4.1" << endl;
         for (int i = 0; i < 10000000; ++i) {
             keys.push_back(generate_key(to_string(udist_key(e2))));
         }
-        //cout << "[Debug] run 5" << endl;
     }
- //cout << "[Debug] run 6" << endl;
     if (!distribution_filename.empty()) {
         use_distribution = true;
         ifstream input(distribution_filename);
@@ -322,6 +312,10 @@ int main(int argc, char *argv[]) {
                 ifstream input(input_filename);
                 string key;
                 while (input >> key) {
+                    // if(key.length() <= key_size ){
+                    //     string the_key = generate_key(key);
+                    //     keys.push_back(std::move(the_key));
+                    // }
                     string the_key = generate_key(key);
                     keys.push_back(std::move(the_key));
                 }
@@ -352,20 +346,20 @@ int main(int argc, char *argv[]) {
         adgMod::db->WaitForBackground();
         Iterator* db_iter = length_range == 0 ? nullptr : db->NewIterator(read_options);
         assert(status.ok() && "Open Error");
-//            for (int s = 12; s < 20; ++s) {
-//                instance->ResetTimer(s);
-//            }
+  //            for (int s = 12; s < 20; ++s) {
+  //                instance->ResetTimer(s);
+  //            }
 
-//        if (adgMod::MOD == 6 || adgMod::MOD == 7) {
-//            for (int i = 1; i < config::kNumLevels; ++i) {
-//                Version* current = adgMod::db->versions_->current();
-//                LearnedIndexData::Learn(new VersionAndSelf{current, adgMod::db->version_count, current->learned_index_data_[i].get(), i});
-//            }
-//        }
-//        cout << "Shutting down" << endl;
-//        adgMod::db->WaitForBackground();
-//        delete db;
-//        return 0;
+  //        if (adgMod::MOD == 6 || adgMod::MOD == 7) {
+  //            for (int i = 1; i < config::kNumLevels; ++i) {
+  //                Version* current = adgMod::db->versions_->current();
+  //                LearnedIndexData::Learn(new VersionAndSelf{current, adgMod::db->version_count, current->learned_index_data_[i].get(), i});
+  //            }
+  //        }
+  //        cout << "Shutting down" << endl;
+  //        adgMod::db->WaitForBackground();
+  //        delete db;
+  //        return 0;
 
         uint64_t last_read = 0, last_write = 0;
         int last_level = 0, last_file = 0, last_baseline = 0, last_succeeded = 0, last_false = 0, last_compaction = 0, last_learn = 0;
