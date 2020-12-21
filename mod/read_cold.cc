@@ -159,10 +159,10 @@ int main(int argc, char *argv[]) {
         cout << "[Debug] run 3.1" << endl;
         int num = 0;
         while (input >> key) {
-            string the_key = generate_key(key);
-            keys.push_back(std::move(the_key));
             num++;
-            cout << num << ": key;" << key << "the_key: " << the_key << endl;
+            string the_key = generate_key(key);
+            cout << num << "; key: " << key << " ;the_key: " << the_key << endl;
+            keys.push_back(std::move(the_key));
             cout << "size: " << keys.size() << endl;
         }
         cout << "[Debug] run 3.2" << endl;
