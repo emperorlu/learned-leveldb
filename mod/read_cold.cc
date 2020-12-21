@@ -153,17 +153,23 @@ int main(int argc, char *argv[]) {
     vector<int> ycsb_is_write;
     //keys.reserve(100000000000 / adgMod::value_size);
     if (!input_filename.empty()) {
+        cout << "[Debug] run 3" << endl;
         ifstream input(input_filename);
         string key;
+        cout << "[Debug] run 3.1" << endl;
+        int num = 0;
         while (input >> key) {
+            cout << num << endl;
             string the_key = generate_key(key);
             keys.push_back(std::move(the_key));
+            num++;
         }
-        cout << "[Debug] run 3" << endl;
+        cout << "[Debug] run 3.2" << endl;
         //adgMod::key_size = (int) keys.front().size();
     } else {
         cout << "[Debug] run 4" << endl;
         std::uniform_int_distribution<uint64_t> udist_key(0, 999999999999999);
+        cout << "[Debug] run 4.1" << endl;
         for (int i = 0; i < 10000000; ++i) {
             keys.push_back(generate_key(to_string(udist_key(e2))));
         }
