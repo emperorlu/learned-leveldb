@@ -37,8 +37,7 @@ namespace adgMod {
     extern int block_restart_interval;
     extern uint32_t test_num_level_segments;
     extern uint32_t test_num_file_segments;
-    //extern int key_size;
-    extern uint32_t key_size;
+    extern int key_size;
     extern int value_size;
     extern leveldb::Env* env;
     extern leveldb::DBImpl* db;
