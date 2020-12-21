@@ -132,7 +132,7 @@ int main(int argc, char *argv[]) {
         printf("%s", commandline_options.help().c_str());
         exit(0);
     }
-    cout << "[Debug] run 1" << endl;
+    //cout << "[Debug] run 1" << endl;
     std::default_random_engine e1(0), e2(255), e3(0);
     srand(0);
     num_operations *= num_pairs_base;
@@ -144,7 +144,7 @@ int main(int argc, char *argv[]) {
     adgMod::file_learning_enabled ^= change_file_learning;
     adgMod::load_level_model ^= change_level_load;
     adgMod::load_file_model ^= change_file_load;
-    cout << "[Debug] run 2" << endl;
+    //cout << "[Debug] run 2" << endl;
    // adgMod::file_learning_enabled = false;
 
 
@@ -153,31 +153,33 @@ int main(int argc, char *argv[]) {
     vector<int> ycsb_is_write;
     //keys.reserve(100000000000 / adgMod::value_size);
     if (!input_filename.empty()) {
-        cout << "[Debug] run 3" << endl;
+        //cout << "[Debug] run 3" << endl;
         ifstream input(input_filename);
         string key;
-        cout << "[Debug] run 3.1" << endl;
-        int num = 0;
+        //cout << "[Debug] run 3.1" << endl;
+        //int num = 0;
         while (input >> key) {
-            num++;
-            cout << num << ";key_size: "<< key_size << endl;
-            string the_key = generate_key(key);
-            cout << "key: " << key << " ;the_key: " << the_key << endl;
-            keys.push_back(std::move(the_key));
-            cout << "size: " << keys.size() << endl;
+            //num++;
+            //cout << num << ";key_size: "<< key_size << endl;
+            if(key.length() <= key_size ){
+                string the_key = generate_key(key);
+                //cout << "key: " << key << " ;the_key: " << the_key << endl;
+                keys.push_back(std::move(the_key));
+                //cout << "size: " << keys.size() << endl;
+            }
         }
-        cout << "[Debug] run 3.2" << endl;
+        //cout << "[Debug] run 3.2" << endl;
         //adgMod::key_size = (int) keys.front().size();
     } else {
-        cout << "[Debug] run 4" << endl;
+        //cout << "[Debug] run 4" << endl;
         std::uniform_int_distribution<uint64_t> udist_key(0, 999999999999999);
-        cout << "[Debug] run 4.1" << endl;
+        //cout << "[Debug] run 4.1" << endl;
         for (int i = 0; i < 10000000; ++i) {
             keys.push_back(generate_key(to_string(udist_key(e2))));
         }
-        cout << "[Debug] run 5" << endl;
+        //cout << "[Debug] run 5" << endl;
     }
-    cout << "[Debug] run 6" << endl;
+ //cout << "[Debug] run 6" << endl;
     if (!distribution_filename.empty()) {
         use_distribution = true;
         ifstream input(distribution_filename);
