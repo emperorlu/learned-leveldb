@@ -6,7 +6,7 @@
 #include "util.h"
 #include "learned_index.h"
 #include <x86intrin.h>
-#include <iostream>
+
 using std::to_string;
 
 namespace adgMod {
@@ -80,7 +80,6 @@ namespace adgMod {
 
 
     string generate_key(const string& key) {
-        std::cout << "key_size: " << key_size << ";key.length: " << key.length() << std::endl;
         string result = string(key_size - key.length(), '0') + key;
         return std::move(result);
     }
