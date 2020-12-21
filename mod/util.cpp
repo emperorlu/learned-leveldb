@@ -1,7 +1,7 @@
 //
 // Created by daiyi on 2020/02/02.
 //
-
+#include <iostream>
 #include <util/mutexlock.h>
 #include "util.h"
 #include "learned_index.h"
@@ -83,6 +83,8 @@ namespace adgMod {
         string result = key;
         if (key.length() <= key_size){
             result = string(key_size - key.length(), '0') + key;
+        }else{
+            std::cout << "[Debug]key: " << key << std::endl;
         }
         //string result = string(key_size - key.length(), '0') + key;
         return std::move(result);
