@@ -442,6 +442,7 @@ int main(int argc, char *argv[]) {
                     status = db->Get(read_options, generate_key(to_string(distribution[i])), &value);
                     instance->PauseTimer(4);
                     if (!status.ok()) {
+                        cout << "Not Found 1" << endl;
                         cout << distribution[i] << " Not Found" << endl;
                         //assert(status.ok() && "File Get Error");
                     }
