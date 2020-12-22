@@ -243,6 +243,7 @@ int main(int argc, char *argv[]) {
             instance->StartTimer(9);
             int cut_size = keys.size() / 100000;
             std::vector<std::pair<int, int>> chunks;
+            cout << "[Debug]load_type: " << load_type << endl;
             switch (load_type) {
                 case Ordered: {
                     for (int cut = 0; cut < cut_size; ++cut) {
@@ -278,7 +279,7 @@ int main(int argc, char *argv[]) {
 
 
                     //cout << keys[i] << endl;
-
+            
                     status = db->Put(write_options, keys[i], {values.data() + uniform_dist_value(e2), (uint64_t) adgMod::value_size});
 
                     assert(status.ok() && "File Put Error");

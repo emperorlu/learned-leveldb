@@ -63,21 +63,26 @@ int counter = 0;
 
 Segment
 GreedyPLR::process(const struct point& pt) {
+    cout << "[Debug] process_0: " << endl;
     this->last_pt = pt;
     if (this->state.compare("need2") == 0) {
+        cout << "[Debug] process_1: " << endl;
         this->s0 = pt;
         this->state = "need1";
     } else if (this->state.compare("need1") == 0) {
+        cout << "[Debug] process_2: " << endl;
         this->s1 = pt;
         setup();
         this->state = "ready";
     } else if (this->state.compare("ready") == 0) {
+        cout << "[Debug] process_3: " << endl;
         return process__(pt);
     } else {
         // impossible
         std::cout << "ERROR in process" << std::endl;
     }
     Segment s = {0, 0, 0, 0};
+    cout << "[Debug] process_4: " << endl;
     return s;
 }
 
@@ -154,6 +159,7 @@ PLR::train(std::vector<string>& keys, bool file) {
     cout << "[Debug] train_1, size: " << size << endl;
     for (int i = 0; i < size; ++i) {
         cout << "[Debug] keys[i]: " << keys[i] << "; " << i << endl;
+        cout << "[Debug] stoull(keys[i]): " << (double) stoull(keys[i]) << endl;
         Segment seg = plr.process(point((double) stoull(keys[i]), i));
         cout << "[Debug] train_0: " << i << endl;
         if (seg.x != 0 ||
