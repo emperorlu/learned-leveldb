@@ -151,7 +151,7 @@ PLR::train(std::vector<string>& keys, bool file) {
     GreedyPLR plr(this->gamma);
     int count = 0;
     size_t size = keys.size();
-    cout << "[Debug] train_1" << endl;
+    cout << "[Debug] train_1, size: " << size << endl;
     for (int i = 0; i < size; ++i) {
         Segment seg = plr.process(point((double) stoull(keys[i]), i));
         if (seg.x != 0 ||
@@ -159,11 +159,12 @@ PLR::train(std::vector<string>& keys, bool file) {
             seg.b != 0) {
             this->segments.push_back(seg);
         }
-
+        cout << "[Debug] train_1: " << i << endl;
         if (!file && ++count % 10 == 0 && adgMod::env->compaction_awaiting.load() != 0) {
             segments.clear();
             return segments;
         }
+        cout << "[Debug] train_2: " << i << endl;
     }
     cout << "[Debug] train_2" << endl;
     Segment last = plr.finish();
