@@ -156,12 +156,12 @@ int main(int argc, char *argv[]) {
         ifstream input(input_filename);
         string key;
         while (input >> key) {
-            // if(key.length() <= key_size ){
-            //     string the_key = generate_key(key);
-            //     keys.push_back(std::move(the_key));
-            // }
-            string the_key = generate_key(key);
-            keys.push_back(std::move(the_key));
+            if(key.length() <= key_size ){
+                string the_key = generate_key(key);
+                keys.push_back(std::move(the_key));
+            }
+            // string the_key = generate_key(key);
+            // keys.push_back(std::move(the_key));
         }
         //adgMod::key_size = (int) keys.front().size();
     } else {
@@ -315,12 +315,12 @@ int main(int argc, char *argv[]) {
                 ifstream input(input_filename);
                 string key;
                 while (input >> key) {
-                    // if(key.length() <= key_size ){
-                    //     string the_key = generate_key(key);
-                    //     keys.push_back(std::move(the_key));
-                    // }
-                    string the_key = generate_key(key);
-                    keys.push_back(std::move(the_key));
+                    if(key.length() <= key_size ){
+                        string the_key = generate_key(key);
+                        keys.push_back(std::move(the_key));
+                    }
+                    // string the_key = generate_key(key);
+                    // keys.push_back(std::move(the_key));
                 }
                 adgMod::key_size = (int) keys.front().size();
             }
