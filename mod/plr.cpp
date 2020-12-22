@@ -151,33 +151,33 @@ PLR::train(std::vector<string>& keys, bool file) {
     GreedyPLR plr(this->gamma);
     int count = 0;
     size_t size = keys.size();
-    cout << "[Debug] train_1, size: " << size << endl;
+    //cout << "[Debug] train_1, size: " << size << endl;
     for (int i = 0; i < size; ++i) {
-        cout << "[Debug] keys[i]: " << keys[i] << "; " << keys[i].length() << endl;
-       // cout << "[Debug] stoull(keys[i]）: " << (double) stoull(keys[i]) << endl;
-        cout << "[Debug] stoull(keys[i]）: " << stod(keys[i]) << endl;
+        //cout << "[Debug] keys[i]: " << keys[i] << "; " << keys[i].length() << endl;
+        //cout << "[Debug] stoull(keys[i]）: " << (double) stoull(keys[i]) << endl;
+        //cout << "[Debug] stoull(keys[i]）: " << stod(keys[i]) << endl;
 
         Segment seg = plr.process(point((double) stoull(keys[i]), i));
-        cout << "[Debug] train_0: " << i << endl;
+        //cout << "[Debug] train_0: " << i << endl;
         if (seg.x != 0 ||
             seg.k != 0 ||
             seg.b != 0) {
             this->segments.push_back(seg);
         }
-        cout << "[Debug] train_1: " << i << endl;
+        //cout << "[Debug] train_1: " << i << endl;
         if (!file && ++count % 10 == 0 && adgMod::env->compaction_awaiting.load() != 0) {
             segments.clear();
             return segments;
         }
-        cout << "[Debug] train_2: " << i << endl;
+        //cout << "[Debug] train_2: " << i << endl;
     }
-    cout << "[Debug] train_2" << endl;
+    //cout << "[Debug] train_2" << endl;
     Segment last = plr.finish();
     if (last.x != 0 ||
         last.k != 0 ||
         last.b != 0) {
         this->segments.push_back(last);
     }
-    cout << "[Debug] train_3" << endl;
+    //cout << "[Debug] train_3" << endl;
     return this->segments;
 }
