@@ -445,8 +445,10 @@ int main(int argc, char *argv[]) {
                     const string& key = keys[index];
                     instance->StartTimer(4);
                     if (insert_bound != 0 && index > insert_bound) {
+                        cout << "[Get] index found" << endl;
                         status = db->Get(read_options, generate_key(to_string(10000000000 + index)), &value);
                     } else {
+                        cout << "[Get] not_index found" << endl;
                         status = db->Get(read_options, key, &value);
                     }
                     instance->PauseTimer(4);

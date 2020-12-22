@@ -84,7 +84,7 @@ namespace adgMod {
         if (key.length() < key_size){
             result = string(key_size - key.length(), '0') + key;
         }
-        std::cout << "[Debug]key: " << std::move(result) << std::endl;
+        //std::cout << "[Debug]key: " << std::move(result) << std::endl;
         //string result = string(key_size - key.length(), '0') + key;
         return std::move(result);
     }
