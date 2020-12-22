@@ -154,7 +154,9 @@ PLR::train(std::vector<string>& keys, bool file) {
     cout << "[Debug] train_1, size: " << size << endl;
     for (int i = 0; i < size; ++i) {
         cout << "[Debug] keys[i]: " << keys[i] << "; " << keys[i].length() << endl;
-        cout << "[Debug] stoull(keys[i]）: " << (double) stoull(keys[i]) << endl;
+       // cout << "[Debug] stoull(keys[i]）: " << (double) stoull(keys[i]) << endl;
+        cout << "[Debug] stoull(keys[i]）: " << stod(keys[i]) << endl;
+
         Segment seg = plr.process(point((double) stoull(keys[i]), i));
         cout << "[Debug] train_0: " << i << endl;
         if (seg.x != 0 ||
