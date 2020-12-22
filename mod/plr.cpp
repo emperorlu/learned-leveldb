@@ -4,7 +4,8 @@
 #include <iostream>
 #include <string>
 #include <vector>
-
+using std::cout;
+using std::endl;
 
 // Code modified from https://github.com/RyanMarcus/plr
 
@@ -150,6 +151,7 @@ PLR::train(std::vector<string>& keys, bool file) {
     GreedyPLR plr(this->gamma);
     int count = 0;
     size_t size = keys.size();
+    cout << "[Debug] train_1" << endl;
     for (int i = 0; i < size; ++i) {
         Segment seg = plr.process(point((double) stoull(keys[i]), i));
         if (seg.x != 0 ||
@@ -163,13 +165,13 @@ PLR::train(std::vector<string>& keys, bool file) {
             return segments;
         }
     }
-
+    cout << "[Debug] train_2" << endl;
     Segment last = plr.finish();
     if (last.x != 0 ||
         last.k != 0 ||
         last.b != 0) {
         this->segments.push_back(last);
     }
-
+    cout << "[Debug] train_3" << endl;
     return this->segments;
 }

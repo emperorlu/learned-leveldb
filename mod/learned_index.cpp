@@ -59,21 +59,22 @@ namespace adgMod {
     bool LearnedIndexData::Learn() {
         // FILL IN GAMMA (error)
         PLR plr = PLR(error);
-
+        cout << "[Debug] inLearn_1" << endl;
         if (string_keys.empty()) assert(false);
 
-
+        cout << "[Debug] inLearn_2" << endl;
         uint64_t temp = atoll(string_keys.back().c_str());
         min_key = atoll(string_keys.front().c_str());
         max_key = atoll(string_keys.back().c_str());
         size = string_keys.size();
-
+        cout << "[Debug] inLearn_3" << endl;
 
         std::vector<Segment> segs = plr.train(string_keys, !is_level);
+        cout << "[Debug] inLearn_4" << endl;
         if (segs.empty()) return false;
         segs.push_back((Segment) {temp, 0, 0, 0});
         string_segments = std::move(segs);
-
+        cout << "[Debug] inLearn_5" << endl;
         for (auto& str: string_segments) {
             //printf("%s %f\n", str.first.c_str(), str.second);
         }
