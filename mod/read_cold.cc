@@ -289,17 +289,19 @@ int main(int argc, char *argv[]) {
             cout << "Put Complete" << endl;
 
             keys.clear();
-
+            
             if (print_file_info && iteration == 0) db->PrintFileInfo();
             adgMod::db->WaitForBackground();
             delete db;
             status = DB::Open(options, db_location, &db);
+            cout << "[Debug] Put_1" << endl;
             adgMod::db->WaitForBackground();
             if (adgMod::MOD == 6 || adgMod::MOD == 7) {
                 Version* current = adgMod::db->versions_->current();
-
+                cout << "[Debug] Put_2" << endl;
                 for (int i = 1; i < config::kNumLevels; ++i) {
                     LearnedIndexData::Learn(new VersionAndSelf{current, adgMod::db->version_count, current->learned_index_data_[i].get(), i});
+                    cout << "[Debug] Put: " << i << endl;
                 }
                 current->FileLearn();
             }
