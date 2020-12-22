@@ -13,6 +13,8 @@
 #include "util.h"
 #include "db/version_set.h"
 
+using std::cout;
+using std::endl;
 namespace adgMod {
 
     std::pair<uint64_t, uint64_t> LearnedIndexData::GetPosition(const Slice& target_x) const {
@@ -86,18 +88,20 @@ namespace adgMod {
         bool success = false;
         bool entered = false;
         instance->StartTimer(8);
-
+        cout << "[Debug] Learned_1" << endl;
         VersionAndSelf* vas = reinterpret_cast<VersionAndSelf*>(arg);
         LearnedIndexData* self = vas->self;
         self->is_level = true;
         self->level = vas->level;
-
+        cout << "[Debug] Learned_2" << endl;
         Version* c = db->GetCurrentVersion();
         if (db->version_count == vas->v_count) {
             entered = true;
             if (vas->version->FillLevel(adgMod::read_options, vas->level)) {
+                cout << "[Debug] Learned_2.1" << endl;
                 self->filled = true;
                 if (db->version_count == vas->v_count) {
+                    cout << "[Debug] Learned_2.2" << endl;
                     if (env->compaction_awaiting.load() == 0 && self->Learn()) {
                         success = true;
                     } else {
@@ -105,16 +109,19 @@ namespace adgMod {
                     }
                 }
             }
+            cout << "[Debug] Learned_2.3" << endl;
         }
         adgMod::db->ReturnCurrentVersion(c);
-
+        cout << "[Debug] Learned_3" << endl;
 
         auto time = instance->PauseTimer(8, true);
-
+        
         if (entered) {
+            cout << "[Debug] Learned_4" << endl;
             self->cost = time.second - time.first;
             learn_counter_mutex.Lock();
             events[1].push_back(new LearnEvent(time, 0, self->level, success));
+            cout << "[Debug] Learned_5" << endl;
             levelled_counters[6].Increment(vas->level, time.second - time.first);
             learn_counter_mutex.Unlock();
         }
