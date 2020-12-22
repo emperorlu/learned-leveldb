@@ -346,20 +346,20 @@ int main(int argc, char *argv[]) {
         adgMod::db->WaitForBackground();
         Iterator* db_iter = length_range == 0 ? nullptr : db->NewIterator(read_options);
         assert(status.ok() && "Open Error");
-  //            for (int s = 12; s < 20; ++s) {
-  //                instance->ResetTimer(s);
-  //            }
+        //            for (int s = 12; s < 20; ++s) {
+        //                instance->ResetTimer(s);
+        //            }
 
-  //        if (adgMod::MOD == 6 || adgMod::MOD == 7) {
-  //            for (int i = 1; i < config::kNumLevels; ++i) {
-  //                Version* current = adgMod::db->versions_->current();
-  //                LearnedIndexData::Learn(new VersionAndSelf{current, adgMod::db->version_count, current->learned_index_data_[i].get(), i});
-  //            }
-  //        }
-  //        cout << "Shutting down" << endl;
-  //        adgMod::db->WaitForBackground();
-  //        delete db;
-  //        return 0;
+        //        if (adgMod::MOD == 6 || adgMod::MOD == 7) {
+        //            for (int i = 1; i < config::kNumLevels; ++i) {
+        //                Version* current = adgMod::db->versions_->current();
+        //                LearnedIndexData::Learn(new VersionAndSelf{current, adgMod::db->version_count, current->learned_index_data_[i].get(), i});
+        //            }
+        //        }
+        //        cout << "Shutting down" << endl;
+        //        adgMod::db->WaitForBackground();
+        //        delete db;
+        //        return 0;
 
         uint64_t last_read = 0, last_write = 0;
         int last_level = 0, last_file = 0, last_baseline = 0, last_succeeded = 0, last_false = 0, last_compaction = 0, last_learn = 0;
@@ -379,6 +379,7 @@ int main(int argc, char *argv[]) {
             length_range = use_ycsb && ycsb_is_write[i] > 2 ? ycsb_is_write[i] - 100 : length_range;
 
             if (write) {
+                cout << "Write begin" << endl;
                 if (input_filename.empty()) {
                     instance->StartTimer(10);
                     status = db->Put(write_options, generate_key(to_string(distribution[i])), {values.data() + uniform_dist_value(e3), (uint64_t) adgMod::value_size});
@@ -404,6 +405,7 @@ int main(int argc, char *argv[]) {
                     //cout << index << endl;
                 }
             } else if (length_range != 0) {
+                cout << "Seek begin" << endl;
                 // Seek
                 if (input_filename.empty()) {
                     instance->StartTimer(4);
@@ -418,6 +420,7 @@ int main(int argc, char *argv[]) {
                     instance->PauseTimer(4);
                 }
                 
+                cout << "Range begin" << endl;
                 // Range
                 instance->StartTimer(17);
                 for (int r = 0; r < length_range; ++r) {
@@ -445,10 +448,10 @@ int main(int argc, char *argv[]) {
                     const string& key = keys[index];
                     instance->StartTimer(4);
                     if (insert_bound != 0 && index > insert_bound) {
-                        cout << "[Get] index found" << endl;
+                        cout << "[index] Get" << endl;
                         status = db->Get(read_options, generate_key(to_string(10000000000 + index)), &value);
                     } else {
-                        cout << "[Get] not_index found" << endl;
+                        cout << "[not_index] Get" << endl;
                         status = db->Get(read_options, key, &value);
                     }
                     instance->PauseTimer(4);
