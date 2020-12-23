@@ -362,6 +362,7 @@ int main(int argc, char *argv[]) {
 
         cout << "Starting up" << endl;
         status = DB::Open(options, db_location, &db);
+        cout << "Starting up1" << endl;
         adgMod::db->WaitForBackground();
         cout << "Starting up2" << endl;
         Iterator* db_iter = length_range == 0 ? nullptr : db->NewIterator(read_options);

@@ -6,7 +6,7 @@
 
 #include <stdint.h>
 #include <stdio.h>
-
+#include <iostream>
 #include <algorithm>
 #include <atomic>
 #include <set>
@@ -1961,7 +1961,7 @@ namespace leveldb
   Status DB::Open(const Options &options, const std::string &dbname, DB **dbptr)
   {
     *dbptr = nullptr;
-
+    std::cout << "[Debug]db_impl.cc 1964: open" << std::endl;
     adgMod::env = options.env;
     adgMod::file_data = new adgMod::FileLearnedIndexData();
     adgMod::learn_cb_model = new CBModel_Learn();
