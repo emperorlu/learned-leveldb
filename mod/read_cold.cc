@@ -363,7 +363,7 @@ int main(int argc, char *argv[]) {
         cout << "Starting up" << endl;
         status = DB::Open(options, db_location, &db);
         adgMod::db->WaitForBackground();
-
+        cout << "Starting up2" << endl;
         Iterator* db_iter = length_range == 0 ? nullptr : db->NewIterator(read_options);
         assert(status.ok() && "Open Error");
         //            for (int s = 12; s < 20; ++s) {
@@ -380,12 +380,12 @@ int main(int argc, char *argv[]) {
         //        adgMod::db->WaitForBackground();
         //        delete db;
         //        return 0;
-
+        cout << "Starting up3" << endl;
         uint64_t last_read = 0, last_write = 0;
         int last_level = 0, last_file = 0, last_baseline = 0, last_succeeded = 0, last_false = 0, last_compaction = 0, last_learn = 0;
         std::vector<uint64_t> detailed_times;
         bool start_new_event = true;
-
+        cout << "Starting up4" << endl;
         instance->StartTimer(13);
         uint64_t write_i = 0;
         for (int i = 0; i < num_operations; ++i) {
@@ -394,7 +394,7 @@ int main(int argc, char *argv[]) {
                 detailed_times.push_back(instance->GetTime());
                 start_new_event = false;
             }
-
+            cout << "Starting up5" << endl;
             bool write = use_ycsb ? ycsb_is_write[i] == 1 || ycsb_is_write[i] == 2 : (i % mix_base) < num_mix;
             length_range = use_ycsb && ycsb_is_write[i] > 2 ? ycsb_is_write[i] - 100 : length_range;
 
