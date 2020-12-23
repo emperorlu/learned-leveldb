@@ -278,6 +278,7 @@ int main(int argc, char *argv[]) {
                 default: assert(false && "Unsupported load type.");
             }
 
+            cout << "[Debug]begin put" <<endl;
             for (int cut = 0; cut < chunks.size(); ++cut) {
                 for (int i = chunks[cut].first; i < chunks[cut].second; ++i) {
 
