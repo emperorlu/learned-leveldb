@@ -27,6 +27,7 @@ using std::string;
 
 int num_pairs_base = 1000;
 int mix_base = 20;
+int chunk_size = 100000;
 
 
 
@@ -245,7 +246,8 @@ int main(int argc, char *argv[]) {
 
 
             instance->StartTimer(9);
-            int cut_size = keys.size() / 100000;
+            int cut_size = keys.size() / chunk_size;
+            if (cut_size == 0) cut_size = 1; 
             std::vector<std::pair<int, int>> chunks;
             cout << "[Debug]load_type: " << load_type << endl;
             switch (load_type) {
