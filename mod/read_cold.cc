@@ -228,6 +228,10 @@ int main(int argc, char *argv[]) {
         write_options.sync = false;
         instance->ResetAll();
 
+        // cout << "[Debug] keys.size(): " << keys.size() << endl;
+        // for (int i = 0; i < keys.size(); ++i){
+        //     cout << "[Debug] keys." << i << ": " << keys[i] << endl;
+        // }
 
         if (fresh_write && iteration == 0) {
             string command = "rm -rf " + db_location;
@@ -278,8 +282,9 @@ int main(int argc, char *argv[]) {
                 for (int i = chunks[cut].first; i < chunks[cut].second; ++i) {
 
 
-                    //cout << keys[i] << endl;
-            
+                    // cout << "[Debug]chunks.cut: " << cut << ";chunks.i: " << i << ";keys[i]: " << keys[i] << endl;
+                    // cout << "[Debug]value: " << values.data() + uniform_dist_value(e2), (uint64_t) adgMod::value_size << endl;
+                    cout << "[Debug]read_cold.cc 287: put" << endl;
                     status = db->Put(write_options, keys[i], {values.data() + uniform_dist_value(e2), (uint64_t) adgMod::value_size});
 
                     assert(status.ok() && "File Put Error");
@@ -291,18 +296,22 @@ int main(int argc, char *argv[]) {
 
             keys.clear();
             
-            if (print_file_info && iteration == 0) db->PrintFileInfo();
+            //print_file_info
+            if (print_file_info && iteration == 0) db->PrintFileInfo(); 
+
+            //WaitForBackground
             adgMod::db->WaitForBackground();
             delete db;
+
             status = DB::Open(options, db_location, &db);
-            cout << "[Debug] Put_1" << endl;
             adgMod::db->WaitForBackground();
+
+            //Use Mod
             if (adgMod::MOD == 6 || adgMod::MOD == 7) {
                 Version* current = adgMod::db->versions_->current();
-                cout << "[Debug] Put_2" << endl;
                 for (int i = 1; i < config::kNumLevels; ++i) {
+                    cout << "[Debug]read_cold.cc 313: learn" << endl;
                     LearnedIndexData::Learn(new VersionAndSelf{current, adgMod::db->version_count, current->learned_index_data_[i].get(), i});
-                    cout << "[Debug] Put: " << i << endl;
                 }
                 current->FileLearn();
             }
@@ -347,6 +356,7 @@ int main(int argc, char *argv[]) {
         cout << "Starting up" << endl;
         status = DB::Open(options, db_location, &db);
         adgMod::db->WaitForBackground();
+
         Iterator* db_iter = length_range == 0 ? nullptr : db->NewIterator(read_options);
         assert(status.ok() && "Open Error");
         //            for (int s = 12; s < 20; ++s) {

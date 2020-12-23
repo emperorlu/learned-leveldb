@@ -1764,6 +1764,7 @@ bool Version::FillLevel(const ReadOptions &options, int level) {
         bool rt = adgMod::file_data->FillData(this, file);
         assert(rt);
         auto& file_data = adgMod::file_data->GetData(file);
+        std::cout<< "[Debug]version_set.cc 1767: string_keys in FillLevel" << std::endl;
         data->string_keys.insert(data->string_keys.end(), file_data.begin(), file_data.end());
         //file_data.clear();
 

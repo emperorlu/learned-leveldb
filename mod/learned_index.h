@@ -58,7 +58,7 @@ namespace adgMod {
     class LearnedIndexData {
         friend class leveldb::Version;
         friend class leveldb::VersionSet;
-    private:
+     private:
         double error;
         std::atomic<bool> learned;
         std::atomic<bool> aborted;
@@ -66,7 +66,7 @@ namespace adgMod {
         std::atomic<bool> learning;
         int allowed_seek;
         int current_seek;
-    public:
+     public:
         bool filled;
         bool is_level;
 
@@ -77,7 +77,7 @@ namespace adgMod {
 
 
 
-    public:
+     public:
         std::vector<std::string> string_keys;
         AccumulatedNumEntriesArray num_entries_accumulated;
 
@@ -85,15 +85,13 @@ namespace adgMod {
         mutable int served;
         uint64_t cost;
 
-//        int num_neg_model = 0, num_pos_model = 0, num_neg_baseline = 0, num_pos_baseline = 0;
-//        uint64_t time_neg_model = 0, time_pos_model = 0, time_neg_baseline = 0, time_pos_baseline = 0;
-//
-//        int num_neg_model_p = 0, num_pos_model_p = 0, num_neg_baseline_p = 0, num_pos_baseline_p = 0, num_files_p = 0;
-//        uint64_t time_neg_model_p = 0, time_pos_model_p = 0, time_neg_baseline_p = 0, time_pos_baseline_p = 0;
-//        double gain_p = 0;
-//        uint64_t file_size = 0;
-
-
+        //        int num_neg_model = 0, num_pos_model = 0, num_neg_baseline = 0, num_pos_baseline = 0;
+        //        uint64_t time_neg_model = 0, time_pos_model = 0, time_neg_baseline = 0, time_pos_baseline = 0;
+        //
+        //        int num_neg_model_p = 0, num_pos_model_p = 0, num_neg_baseline_p = 0, num_pos_baseline_p = 0, num_files_p = 0;
+        //        uint64_t time_neg_model_p = 0, time_pos_model_p = 0, time_neg_baseline_p = 0, time_pos_baseline_p = 0;
+        //        double gain_p = 0;
+        //        uint64_t file_size = 0;
 
 
         explicit LearnedIndexData(int allowed_seek) : error(adgMod::model_error), learned(false), aborted(false), learning(false),
@@ -117,10 +115,10 @@ namespace adgMod {
 
 
     class FileLearnedIndexData {
-    private:
+     private:
         leveldb::port::Mutex mutex;
         std::vector<LearnedIndexData*> file_learned_index_data;
-    public:
+     public:
         uint64_t watermark;
 
 
