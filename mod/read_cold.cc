@@ -453,6 +453,7 @@ int main(int argc, char *argv[]) {
                 }
                 instance->PauseTimer(17);
             } else {
+                cout << "[Debug]read_cold.cc 456: find" << endl;
                 string value;
                 if (input_filename.empty()) {
                     instance->StartTimer(4);
@@ -468,10 +469,10 @@ int main(int argc, char *argv[]) {
                     const string& key = keys[index];
                     instance->StartTimer(4);
                     if (insert_bound != 0 && index > insert_bound) {
-                        //cout << "[index] Get" << endl;
+                        cout << "[index] Get" << endl;
                         status = db->Get(read_options, generate_key(to_string(10000000000 + index)), &value);
                     } else {
-                        //cout << "[not_index] Get" << endl;
+                        cout << "[not_index] Get" << endl;
                         status = db->Get(read_options, key, &value);
                     }
                     instance->PauseTimer(4);
