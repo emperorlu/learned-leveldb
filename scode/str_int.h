@@ -38,7 +38,7 @@ vector<int> toCode(vector<string> keys){
         based_char.push_back(*min);
         pre_ba = *max-*min+1;
         cout << i << ": max;min;pre_ba " << *max <<  "; " << *min <<  "; " << pre_ba << endl;
-        if (i != max_lenth) ba *= pre_ba;
+        if (i != max_lenth-1) ba *= pre_ba;
         based.push_back(ba);
     }
     for (int i = 0; i < keys.size(); i++){
