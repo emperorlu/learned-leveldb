@@ -32,6 +32,7 @@ vector<int> toCode(vector<string> keys){
         vector<char>::iterator max = max_element(compare.begin(), compare.end());
         vector<char>::iterator min = min_element(compare.begin(), compare.end());
         based_char.push_back(*min);
+        cout << i << ": max;min " << *max << "; " << *min << endl;
         pre_ba = *max-*min+1;
         if (i != 0) ba *= pre_ba;
         based.push_back(ba);
