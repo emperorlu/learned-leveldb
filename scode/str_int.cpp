@@ -1,4 +1,5 @@
 #include "str_int.h"
+#include<algorithm>
 
 using namespace std;
 
