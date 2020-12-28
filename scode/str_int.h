@@ -44,8 +44,9 @@ vector<int> toCode(vector<string> keys){
     for (int i = 0; i < keys.size(); i++){
         int num = 0;
         for (int j = 0; j < keys[i].length(); j++){
-            cout << j << ": num+ " << num << endl;
             num += based[j] * (int)(keys[i][j] - based_char[j]);
+            cout << i << ": " << j << ":  num+ " << num << endl;
+            cout << based[j] << " ; " <<  (int)(keys[i][j] - based_char[j]);
         }
         
         turn.push_back(num);
