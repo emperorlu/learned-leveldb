@@ -4,10 +4,10 @@ deps = str_int.h code_test.cpp
 obj = str_int.o code_test.o
  
 $(prom): $(obj)
-    $(cc) -o $(prom) $(obj)
+	$(cc) -o $(prom) $(obj)
  
 %.o: %.c $(deps)
-    $(cc) -c $< -o $@
- 
+	$(cc) -c $< -o $@
+
 clean:
-    rm -rf $(obj) $(prom)
+	rm -rf $(obj) $(prom)
