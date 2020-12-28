@@ -12,7 +12,7 @@ using  namespace std;
 
 //vector<int> Code::toCode(vector<string> keys){
 
-vector<int> toCode(vector<string> keys){
+vector<int>& toCode(vector<string>& keys){
     vector<char[]> tmp;
     vector<char> based_char;
     vector<int> based;
