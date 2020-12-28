@@ -38,7 +38,7 @@ vector<int> toCode(vector<string> keys){
     }
     for (int i = 0; i < keys.size(); i++){
         int num = 0;
-        for (int j = 0; j < strlen(keys[i]); j++){
+        for (int j = 0; j < keys[i].length(); j++){
             num += based[j] * (int)(keys[i][j] - based_char[j]);
         }
         
