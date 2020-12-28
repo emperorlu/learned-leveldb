@@ -1,4 +1,4 @@
 #!/bin/bash
 git add .
-git commit -m "[Debug] Not Fount"
+git commit -m "[Debug] Add mod code"
 git push
