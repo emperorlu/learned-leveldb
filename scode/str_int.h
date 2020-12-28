@@ -12,8 +12,8 @@ using  namespace std;
 
 //vector<int> Code::toCode(vector<string> keys){
 
-vector<int>& toCode(vector<string>& keys){
-    vector<char[]> tmp;
+vector<int> toCode(vector<string> keys){
+    //vector<char*> tmp;
     vector<char> based_char;
     vector<int> based;
     int pre_ba;
@@ -23,11 +23,12 @@ vector<int>& toCode(vector<string>& keys){
     int max_lenth = 0;
     for (int i = 0; i < keys.size(); i++){
         if (keys[i].length() > max_lenth) max_lenth = keys[i].length();
-        strcpy(tmp[i],keys[i].c_str());
+        //strcpy(tmp[i],keys[i].c_str());
+
     }
     for (int i = 0; i < max_lenth; i++){
         vector<char> compare;
-        for (int j = 0; j < tmp.size(); j++) compare.push_back(tmp[j][i]);
+        for (int j = 0; j < keys.size(); j++) compare.push_back(keys[j][i]);
         vector<char>::iterator max = max_element(compare.begin(), compare.end());
         vector<char>::iterator min = min_element(compare.begin(), compare.end());
         based_char.push_back(*min);
@@ -35,10 +36,10 @@ vector<int>& toCode(vector<string>& keys){
         if (i != 0) ba *= pre_ba;
         based.push_back(ba);
     }
-    for (int i = 0; i < tmp.size(); i++){
+    for (int i = 0; i < keys.size(); i++){
         int num = 0;
-        for (int j = 0; j < strlen(tmp[i]); j++){
-            num += based[j] * (int)(tmp[i][j] - based_char[j]);
+        for (int j = 0; j < strlen(keys[i]); j++){
+            num += based[j] * (int)(keys[i][j] - based_char[j]);
         }
         
         turn.push_back(num);
