@@ -48,6 +48,6 @@ vector<int> toCode(vector<string> keys){
     for (int i = 0; i < based_num.size(); i++)
         cout << i << "_based_num: " << based_num[i] << endl; 
     for (int i = 0; i < based_char.size(); i++)
-        cout << i << "_based_char: " << based_num[i] << endl; 
+        cout << i << "_based_char: " << based_char[i] << endl; 
     return turn;
 }
