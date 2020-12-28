@@ -12,6 +12,7 @@ int main(){
     vstr.push_back("aab");
     vstr.push_back("bdd");
     vstr.push_back("bcb");
+    vstr.push_back("bc!");
     // = ("aab", "bdd", "bcb");
     //vector<int> ack = test.toCode(vstr);
     vector<int> ack = toCode(vstr);
