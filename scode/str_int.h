@@ -14,9 +14,9 @@ using  namespace std;
 
 vector<int> toCode(vector<string> keys){
     vector<char> based_char;
-    vector<int> based;
+    vector<int> based_num;
     int pre_ba;
-    int ba = 1;
+    int based = 1;
 
     vector<int> turn;
     int max_lenth = 0;
@@ -33,19 +33,21 @@ vector<int> toCode(vector<string> keys){
         vector<char>::iterator min = min_element(compare.begin(), compare.end());
         based_char.push_back(*min);
 
-        if (i != 0) ba *= pre_ba;
+        if (i != 0) based *= pre_ba;
         pre_ba = *max-*min+1;
-        based.push_back(ba);
+        based_num.push_back(based);
     }
     for (int i = 0; i < keys.size(); i++){
         int num = 0;
         for (int j = 0; j < keys[i].length(); j++){
-            num += based[j] * (int)(keys[i][j] - based_char[j]);
+            num += based_num[j] * (int)(keys[i][j] - based_char[j]);
         }
         
         turn.push_back(num);
     }
-    for (int i = 0; i < based.size(); i++)
-        cout << i << "_based: " << based[i] << endl; 
+    for (int i = 0; i < based_num.size(); i++)
+        cout << i << "_based_num: " << based_num[i] << endl; 
+    for (int i = 0; i < based_char.size(); i++)
+        cout << i << "_based_char: " << based_num[i] << endl; 
     return turn;
 }
