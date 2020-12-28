@@ -1,7 +1,7 @@
 cc = g++
 prom = test
 deps = str_int.h code_test.cpp
-obj = str_int.o code_test.o
+obj = code_test.o str_int.o 
  
 $(prom): $(obj)
 	$(cc) -o $(prom) $(obj)
