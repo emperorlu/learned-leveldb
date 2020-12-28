@@ -23,7 +23,7 @@ vector<int> toCode(vector<string> keys){
     int max_lenth = 0;
     for (int i = 0; i < keys.size(); i++){
         //strrev(keys[i]);
-        reverse(keys.begin(),keys.end());
+        reverse(keys[i].begin(),keys[i].end());
         if (keys[i].length() > max_lenth) max_lenth = keys[i].length();
         //strcpy(tmp[i],keys[i].c_str());
 
