@@ -1,8 +1,6 @@
-
-#ifndef STR_INT_H
-#define STR_INT_H
-
-#include <string>
+#include <string.h>
+#include <vector>
+#include <iostream>
 
 using  namespace std;
 

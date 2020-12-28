@@ -1,6 +1,3 @@
-#include <string.h>
-#include <vector>
-#include <iostream>
 #include "str_int.h"
 
 using namespace std;
