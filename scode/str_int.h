@@ -27,7 +27,7 @@ vector<int> toCode(vector<string> keys){
 
     }
     //for (int i = 0; i < max_lenth; i++){
-    for (int i = max_lenth; i >= 0; i--){
+    for (int i = max_lenth-1; i >= 0; i--){
         vector<char> compare;
         for (int j = 0; j < keys.size(); j++) {
             cout << i << ": " << j << ": " << keys[j][i] << endl;
