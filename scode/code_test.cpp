@@ -8,7 +8,7 @@ Code test;
 
 int main(){
 
-    vector<string> vstr = {"aab", "bdd", "bcb"};
+    vector<string> vstr = ("aab", "bdd", "bcb");
     vector<int> ack = test.toCode(vstr);
     
     for (int i = 0; i < ack.size(); i++)
