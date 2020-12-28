@@ -22,12 +22,13 @@ vector<int> toCode(vector<string> keys){
     vector<int> turn;
     int max_lenth = 0;
     for (int i = 0; i < keys.size(); i++){
+        strrev(keys[i]);
         if (keys[i].length() > max_lenth) max_lenth = keys[i].length();
         //strcpy(tmp[i],keys[i].c_str());
 
     }
-    //for (int i = 0; i < max_lenth; i++){
-    for (int i = max_lenth-1; i >= 0; i--){
+    for (int i = 0; i < max_lenth; i++){
+    //for (int i = max_lenth-1; i >= 0; i--){
         vector<char> compare;
         for (int j = 0; j < keys.size(); j++) {
             cout << i << ": " << j << ": " << keys[j][i] << endl;
@@ -37,14 +38,13 @@ vector<int> toCode(vector<string> keys){
         vector<char>::iterator min = min_element(compare.begin(), compare.end());
         based_char.push_back(*min);
         cout << i << ": max;min;pre_ba " << *max <<  "; " << *min <<  "; " << pre_ba << endl;
-        if (i != max_lenth-1) ba *= pre_ba;
+        if (i != 0) ba *= pre_ba;
         pre_ba = *max-*min+1;
         based.push_back(ba);
     }
     for (int i = 0; i < keys.size(); i++){
         int num = 0;
-        //for (int j = 0; j < keys[i].length(); j++){
-        for (int j = max_lenth-1; j >= 0; j--){
+        for (int j = 0; j < keys[i].length(); j++){
             num += based[j] * (int)(keys[i][j] - based_char[j]);
             cout << i << ": " << j << ":  num+ " << num << endl;
             cout << keys[i][j] << " ; " << based_char[j] << endl;
