@@ -1,7 +1,7 @@
 #include <string.h>
 #include <vector>
 #include <iostream>
-#include<algorithm>
+#include <algorithm>
 #include <cstring>  
 using  namespace std;
 
@@ -45,9 +45,9 @@ vector<int> toCode(vector<string> keys){
         
         turn.push_back(num);
     }
-    for (int i = 0; i < based_num.size(); i++)
-        cout << i << "_based_num: " << based_num[i] << endl; 
-    for (int i = 0; i < based_char.size(); i++)
-        cout << i << "_based_char: " << based_char[i] << endl; 
+    // for (int i = 0; i < based_num.size(); i++)
+    //     cout << i << "_based_num: " << based_num[i] << endl; 
+    // for (int i = 0; i < based_char.size(); i++)
+    //     cout << i << "_based_char: " << based_char[i] << endl; 
     return turn;
 }
