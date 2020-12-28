@@ -6,6 +6,6 @@ using  namespace std;
 
 class Code{
     public:
-        vector<int> Code::toCode(vector<string> key);
+        vector<int> toCode(vector<string> key);
 };
 
