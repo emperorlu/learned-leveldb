@@ -10,7 +10,7 @@ int main(){
 
     vector<string> vstr;
     vstr.push_back("aab");
-    vstr.push_back("bdd");
+    vstr.push_back("lbdd");
     vstr.push_back("bcb");
     vstr.push_back("bc");
     // = ("aab", "bdd", "bcb");
