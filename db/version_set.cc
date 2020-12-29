@@ -1788,20 +1788,22 @@ void Version::WriteLevelModel() {
 
 void Version::ReadLevelModel() {
     uint64_t file_max = 0;
-    std::cout << "[Debug]version.cc: ReadLevelModel" << std::endl;
+    std::cout << "[Debug]version.cc: ReadLevelModel begin" << std::endl;
     for (int i = 0; i < config::kNumLevels; ++i) {
-
+        std::cout << "[Debug]version.cc: ReadModel_" << i << std::endl;
         if (adgMod::load_level_model)
             learned_index_data_[i]->ReadModel(vset_->dbname_ + "/" + to_string(i) + ".model");
-
+        std::cout << "[Debug]version.cc: ReadFileModel_" << i << std::endl;
         for (FileMetaData* file_meta : files_[i]) {
             if (adgMod::load_file_model) {
+              std::cout << "[Debug]version.cc: FileModel" <<  std::endl;
                 adgMod::file_data->GetModel(file_meta->number)->ReadModel(vset_->dbname_ + "/" + to_string(file_meta->number) + ".fmodel");
             }
             file_max = file_max > file_meta->number ? file_max : file_meta->number;
         }
     }
     adgMod::file_data->watermark = file_max;
+    std::cout << "[Debug]version.cc: ReadLevelModel over" << std::endl;
 }
 
 void Version::ReadFileStats() {
