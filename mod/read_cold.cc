@@ -313,6 +313,7 @@ int main(int argc, char *argv[]) {
             adgMod::db->WaitForBackground();
             delete db;
 
+            cout << "[Debug] Open db to learn" << endl;
             status = DB::Open(options, db_location, &db);
             adgMod::db->WaitForBackground();
 
@@ -320,7 +321,7 @@ int main(int argc, char *argv[]) {
             if (adgMod::MOD == 6 || adgMod::MOD == 7) {
                 Version* current = adgMod::db->versions_->current();
                 for (int i = 1; i < config::kNumLevels; ++i) {
-                    // cout << "[Debug]read_cold.cc 313: learn" << endl;
+                    cout << "[Debug]learn mod" << endl;
                     LearnedIndexData::Learn(new VersionAndSelf{current, adgMod::db->version_count, current->learned_index_data_[i].get(), i});
                 }
                 current->FileLearn();
