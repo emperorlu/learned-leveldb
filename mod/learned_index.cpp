@@ -232,10 +232,13 @@ namespace adgMod {
     }
 
     void LearnedIndexData::ReadModel(const string &filename) {
+        std::cout << "[Debug]learned_index.cc: ReadModel" <<  std::endl;
         std::ifstream input_file(filename);
-
+        std::cout << "[Debug]learned_index.cc: ReadModel1" <<  std::endl;
         if (!input_file.good()) return;
+        std::cout << "[Debug]learned_index.cc: ReadModel2" <<  std::endl;
         input_file >> adgMod::block_num_entries >> adgMod::block_size >> adgMod::entry_size;
+        std::cout << "[Debug]learned_index.cc: ReadModel3" <<  std::endl;
         while (true) {
             string x;
             double k, b;
@@ -245,15 +248,18 @@ namespace adgMod {
             input_file >> k >> b >> x2;
             string_segments.emplace_back(atoll(x.c_str()), k, b, x2);
         }
+        std::cout << "[Debug]learned_index.cc: ReadModel4" <<  std::endl;
         input_file >> min_key >> max_key >> size >> level >> cost;
+        std::cout << "[Debug]learned_index.cc: ReadModel5" <<  std::endl;
         while (true) {
             uint64_t first;
             string second;
             if (!(input_file >> first >> second)) break;
             num_entries_accumulated.Add(first, std::move(second));
         }
-
+        std::cout << "[Debug]learned_index.cc: ReadModel6" <<  std::endl;
         learned.store(true);
+        std::cout << "[Debug]learned_index.cc: ReadModel7" <<  std::endl;
     }
 
     void LearnedIndexData::ReportStats() {

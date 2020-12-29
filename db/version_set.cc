@@ -1796,7 +1796,7 @@ void Version::ReadLevelModel() {
         std::cout << "[Debug]version.cc: ReadFileModel_" << i << std::endl;
         for (FileMetaData* file_meta : files_[i]) {
             if (adgMod::load_file_model) {
-              std::cout << "[Debug]version.cc: FileModel" <<  std::endl;
+                std::cout << "[Debug]version.cc: FileModel" <<  std::endl;
                 adgMod::file_data->GetModel(file_meta->number)->ReadModel(vset_->dbname_ + "/" + to_string(file_meta->number) + ".fmodel");
             }
             file_max = file_max > file_meta->number ? file_max : file_meta->number;
