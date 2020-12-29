@@ -1788,6 +1788,7 @@ void Version::WriteLevelModel() {
 
 void Version::ReadLevelModel() {
     uint64_t file_max = 0;
+    std::cout << "[Debug]version.cc: ReadLevelModel" << std::endl;
     for (int i = 0; i < config::kNumLevels; ++i) {
 
         if (adgMod::load_level_model)

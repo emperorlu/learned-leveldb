@@ -320,10 +320,10 @@ int main(int argc, char *argv[]) {
             //Use Mod
             if (adgMod::MOD == 6 || adgMod::MOD == 7) {
                 Version* current = adgMod::db->versions_->current();
-                for (int i = 1; i < config::kNumLevels; ++i) {
-                    cout << "[Debug]learn mod" << endl;
-                    LearnedIndexData::Learn(new VersionAndSelf{current, adgMod::db->version_count, current->learned_index_data_[i].get(), i});
-                }
+                // for (int i = 1; i < config::kNumLevels; ++i) {
+                //     cout << "[Debug]learn mod" << endl;
+                //     LearnedIndexData::Learn(new VersionAndSelf{current, adgMod::db->version_count, current->learned_index_data_[i].get(), i});
+                // }
                 current->FileLearn();
             }
             cout << "Shutting down" << endl;
