@@ -7,7 +7,7 @@
 #include "stats.h"
 #include "learned_index.h"
 #include <cstring>
-//#include "cxxopts.hpp"
+#include "cxxopts.hpp"
 #include <unistd.h>
 #include <fstream>
 #include "../db/version_set.h"
@@ -93,10 +93,11 @@ int main(int argc, char *argv[]) {
     bool change_level_load, change_file_load, change_level_learning, change_file_learning;
     int load_type, insert_bound, length_range;
     string db_location_copy;
-    /*
+    
     cout << "[Debug] run first" << endl;
     cxxopts::Options commandline_options("leveldb read test", "Testing leveldb read performance.");
     cout << "[Debug] run second" << endl;
+    /*
     commandline_options.add_options()
             ("n,get_number", "the number of gets (to be multiplied by 1024)", cxxopts::value<int>(num_operations)->default_value("1000"))
             ("s,step", "the step of the loop of the size of db", cxxopts::value<float>(num_pair_step)->default_value("1"))
