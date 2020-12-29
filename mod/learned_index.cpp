@@ -242,10 +242,13 @@ namespace adgMod {
         while (true) {
             string x;
             double k, b;
-            uint64_t x2;
+            double x2;
+            std::cout << "[Debug]learned_index.cc: ReadModel3.1" <<  std::endl;
             input_file >> x;
             if (x == "StartAcc") break;
+            std::cout << "[Debug]learned_index.cc: ReadModel3.2" <<  std::endl;
             input_file >> k >> b >> x2;
+            std::cout << "[Debug]learned_index.cc: ReadModel3.3" <<  std::endl;
             string_segments.emplace_back(atoll(x.c_str()), k, b, x2);
         }
         std::cout << "[Debug]learned_index.cc: ReadModel4" <<  std::endl;
