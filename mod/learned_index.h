@@ -71,8 +71,8 @@ namespace adgMod {
         bool is_level;
 
         std::vector<Segment> string_segments;
-        uint64_t min_key;
-        uint64_t max_key;
+        double min_key;
+        double max_key;
         uint64_t size;
 
 

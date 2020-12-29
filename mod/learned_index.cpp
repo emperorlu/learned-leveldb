@@ -12,6 +12,7 @@
 #include "learned_index.h"
 #include "util.h"
 #include "db/version_set.h"
+#include "../scode/str_int.h"
 
 namespace adgMod {
 
@@ -60,14 +61,17 @@ namespace adgMod {
 
         if (string_keys.empty()) assert(false);
 
-
-        uint64_t temp = atoll(string_keys.back().c_str());
-        min_key = atoll(string_keys.front().c_str());
-        max_key = atoll(string_keys.back().c_str());
+        vector<double> double_key = toCode(string_keys);
+        // uint64_t temp = atoll(string_keys.back().c_str());
+        // min_key = atoll(string_keys.front().c_str());
+        // max_key = atoll(string_keys.back().c_str());
+        double temp = double_key.back();
+        min_key = double_key.front();
+        max_key = double_key.back();
         size = string_keys.size();
 
 
-        std::vector<Segment> segs = plr.train(string_keys, !is_level);
+        std::vector<Segment> segs = plr.train(double_key, !is_level);
         if (segs.empty()) return false;
         segs.push_back((Segment) {temp, 0, 0, 0});
         string_segments = std::move(segs);
