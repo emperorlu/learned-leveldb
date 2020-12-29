@@ -60,9 +60,9 @@ namespace adgMod {
         PLR plr = PLR(error);
 
         if (string_keys.empty()) assert(false);
-        cout << "hear1" << endl;
+
         vector<double> double_key = toCode(string_keys);
-        cout << "now hear1" << endl;
+
         // uint64_t temp = atoll(string_keys.back().c_str());
         // min_key = atoll(string_keys.front().c_str());
         // max_key = atoll(string_keys.back().c_str());
@@ -71,9 +71,9 @@ namespace adgMod {
         max_key = double_key.back();
         size = string_keys.size();
 
-        cout << "hear2" << endl;
+
         std::vector<Segment> segs = plr.train(double_key, !is_level);
-        cout << "now hear2" <<endl;
+
         if (segs.empty()) return false;
         segs.push_back((Segment) {temp, 0, 0, 0});
         string_segments = std::move(segs);

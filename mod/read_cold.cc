@@ -160,8 +160,9 @@ int main(int argc, char *argv[]) {
         string key;
         while (input >> key) {
             if(key.length() <= key_size ){
-                string the_key = generate_key(key);
-                keys.push_back(std::move(the_key));
+                //string the_key = generate_key(key);
+                //keys.push_back(std::move(the_key));
+                keys.push_back(std::move(key));
             }
             // string the_key = generate_key(key);
             // keys.push_back(std::move(the_key));
@@ -251,7 +252,7 @@ int main(int argc, char *argv[]) {
             int cut_size = keys.size() / chunk_size;
             if (cut_size == 0) cut_size = 1; 
             std::vector<std::pair<int, int>> chunks;
-            cout << "[Debug]load_type: " << load_type << endl;
+            // cout << "[Debug]load_type: " << load_type << endl;
             switch (load_type) {
                 case Ordered: {
                     for (int cut = 0; cut < cut_size; ++cut) {
@@ -282,18 +283,18 @@ int main(int argc, char *argv[]) {
                 default: assert(false && "Unsupported load type.");
             }
 
-            cout << "[Debug]begin put" << endl;
+            // cout << "[Debug]begin put" << endl;
             for (int cut = 0; cut < chunks.size(); ++cut) {
-                cout << "[Debug]cut;chunks.size();chunks[cut].first;chunks[cut].second" 
-                        << cut << "; " << chunks.size() << "; "
-                        << chunks[cut].first << "; " << chunks[cut].second
-                        << endl;
+                // cout << "[Debug]cut;chunks.size();chunks[cut].first;chunks[cut].second" 
+                //         << cut << "; " << chunks.size() << "; "
+                //         << chunks[cut].first << "; " << chunks[cut].second
+                //         << endl;
                 for (int i = chunks[cut].first; i < chunks[cut].second; ++i) {
 
 
                     // cout << "[Debug]chunks.cut: " << cut << ";chunks.i: " << i << ";keys[i]: " << keys[i] << endl;
                     // cout << "[Debug]value: " << values.data() + uniform_dist_value(e2), (uint64_t) adgMod::value_size << endl;
-                    cout << "[Debug]read_cold.cc 287: put" << endl;
+                    // cout << "[Debug]read_cold.cc 287: put" << endl;
                     status = db->Put(write_options, keys[i], {values.data() + uniform_dist_value(e2), (uint64_t) adgMod::value_size});
 
                     assert(status.ok() && "File Put Error");
@@ -319,7 +320,7 @@ int main(int argc, char *argv[]) {
             if (adgMod::MOD == 6 || adgMod::MOD == 7) {
                 Version* current = adgMod::db->versions_->current();
                 for (int i = 1; i < config::kNumLevels; ++i) {
-                    cout << "[Debug]read_cold.cc 313: learn" << endl;
+                    // cout << "[Debug]read_cold.cc 313: learn" << endl;
                     LearnedIndexData::Learn(new VersionAndSelf{current, adgMod::db->version_count, current->learned_index_data_[i].get(), i});
                 }
                 current->FileLearn();
@@ -334,8 +335,9 @@ int main(int argc, char *argv[]) {
                 string key;
                 while (input >> key) {
                     if(key.length() <= key_size ){
-                        string the_key = generate_key(key);
-                        keys.push_back(std::move(the_key));
+                        //string the_key = generate_key(key);
+                        //keys.push_back(std::move(the_key));
+                        keys.push_back(std::move(key));
                     }
                     // string the_key = generate_key(key);
                     // keys.push_back(std::move(the_key));
@@ -455,14 +457,14 @@ int main(int argc, char *argv[]) {
                 }
                 instance->PauseTimer(17);
             } else {
-                cout << "[Debug]read_cold.cc 456: find" << endl;
+                // cout << "[Debug]read_cold.cc 456: find" << endl;
                 string value;
                 if (input_filename.empty()) {
                     instance->StartTimer(4);
                     status = db->Get(read_options, generate_key(to_string(distribution[i])), &value);
                     instance->PauseTimer(4);
                     if (!status.ok()) {
-                        cout << "[Not Found 1] ";
+                        // cout << "[Not Found 1] ";
                         cout << distribution[i] << " Not Found" << endl;
                         //assert(status.ok() && "File Get Error");
                     }
@@ -479,7 +481,7 @@ int main(int argc, char *argv[]) {
 
                     //cout << "[Get] " << key << " : " << value << endl;
                     if (!status.ok()) {
-                        cout << "[Not Found 2] ";
+                        // cout << "[Not Found 2] ";
                         cout << key << " Not Found" << endl;
                         //assert(status.ok() && "File Get Error");
                     }
