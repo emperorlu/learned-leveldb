@@ -248,7 +248,7 @@ namespace adgMod {
             input_file >> x;
             if (x == "StartAcc") break;
             input_file >> k >> b >> x2;
-            cout << "[Debug] current_num: " << num << endl;
+            cout << "[Debug] current_num: " << num++ << endl;
             string_segments.emplace_back(atoll(x.c_str()), k, b, x2);
         }
         std::cout << "[Debug]learned_index.cc: ReadModel4" <<  std::endl;
