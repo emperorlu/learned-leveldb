@@ -7,7 +7,7 @@
 #include "stats.h"
 #include "learned_index.h"
 #include <cstring>
-//#include "cxxopts.hpp"
+#include "cxxopts.hpp"
 #include <unistd.h>
 #include <fstream>
 #include "../db/version_set.h"
