@@ -41,8 +41,8 @@ namespace adgMod {
         uint64_t upper = (uint64_t) std::ceil(result + error);
         assert(lower < size); // return std::make_pair(size, size);
         upper = upper < size ? upper : size - 1;
-        // printf("%s %s %s\n", string_keys[lower].c_str(), string(target_x.data(), target_x.size()).c_str(), string_keys[upper].c_str());
-        // assert(target_x >= string_keys[lower] && target_x <= string_keys[upper]);
+//                printf("%s %s %s\n", string_keys[lower].c_str(), string(target_x.data(), target_x.size()).c_str(), string_keys[upper].c_str());
+//                assert(target_x >= string_keys[lower] && target_x <= string_keys[upper]);
         return std::make_pair(lower, upper);
     }
 
@@ -152,11 +152,11 @@ namespace adgMod {
         }
 
 
-        //        if (fresh_write) {
-        //            self->WriteModel(adgMod::db->versions_->dbname_ + "/" + to_string(mas->meta->number) + ".fmodel");
-        //            self->string_keys.clear();
-        //            self->num_entries_accumulated.array.clear();
-        //        }
+//        if (fresh_write) {
+//            self->WriteModel(adgMod::db->versions_->dbname_ + "/" + to_string(mas->meta->number) + ".fmodel");
+//            self->string_keys.clear();
+//            self->num_entries_accumulated.array.clear();
+//        }
 
 
         if (!fresh_write) delete mas->meta;

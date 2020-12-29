@@ -5,20 +5,13 @@
 #include <cstring>  
 using  namespace std;
 
-// class Code{
-//     public:
-//         vector<int> toCode(vector<string> keys);
-// };
-
-//vector<int> Code::toCode(vector<string> keys){
-
-vector<int> toCode(vector<string> keys){
+vector<double> toCode(vector<string> keys){
     vector<char> based_char;
-    vector<int> based_num;
-    int pre_ba;
-    int based = 1;
+    vector<double> based_num;
+    double pre_ba;
+    double based = 1;
 
-    vector<int> turn;
+    vector<double> turn;
     int max_lenth = 0;
     for (int i = 0; i < keys.size(); i++){
         reverse(keys[i].begin(),keys[i].end());
@@ -38,16 +31,13 @@ vector<int> toCode(vector<string> keys){
         based_num.push_back(based);
     }
     for (int i = 0; i < keys.size(); i++){
-        int num = 0;
+        double num = 0;
         for (int j = 0; j < keys[i].length(); j++){
-            num += based_num[j] * (int)(keys[i][j] - based_char[j]);
+            num += based_num[j] * (double)(keys[i][j] - based_char[j]);
         }
         
         turn.push_back(num);
     }
-    // for (int i = 0; i < based_num.size(); i++)
-    //     cout << i << "_based_num: " << based_num[i] << endl; 
-    // for (int i = 0; i < based_char.size(); i++)
-    //     cout << i << "_based_char: " << based_char[i] << endl; 
+
     return turn;
 }

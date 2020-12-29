@@ -316,7 +316,6 @@ void Table::FillData(const ReadOptions& options, adgMod::LearnedIndexData* data)
     int num_entries_this_block = 0;
     for (block_iter->SeekToRestartPoint(0); block_iter->ParseNextKey(); ++num_entries_this_block) {
         ParseInternalKey(block_iter->key(), &parsed_key);
-        std::cout<< "[Debug]table.cc 319: string_keys in FillData" << std::endl;
         data->string_keys.emplace_back(parsed_key.user_key.data(), parsed_key.user_key.size());
     }
     //num_points += num_entries_this_block;
