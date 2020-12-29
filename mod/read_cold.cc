@@ -84,6 +84,7 @@ enum LoadType {
 };
 
 int main(int argc, char *argv[]) {
+    cout << "Run begin" << endl;
     int num_operations, num_iteration, num_mix;
     float test_num_segments_base;
     float num_pair_step;
