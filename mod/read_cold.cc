@@ -97,7 +97,6 @@ int main(int argc, char *argv[]) {
     cout << "[Debug] run first" << endl;
     cxxopts::Options commandline_options("leveldb read test", "Testing leveldb read performance.");
     cout << "[Debug] run second" << endl;
-    /*
     commandline_options.add_options()
             ("n,get_number", "the number of gets (to be multiplied by 1024)", cxxopts::value<int>(num_operations)->default_value("1000"))
             ("s,step", "the step of the loop of the size of db", cxxopts::value<float>(num_pair_step)->default_value("1"))
@@ -593,7 +592,5 @@ int main(int argc, char *argv[]) {
             printf("Timer %d MEAN: %lu, STDDEV: %f\n", s, (uint64_t) mean, stdev);
         }
     }
-
-    */
 }
 
