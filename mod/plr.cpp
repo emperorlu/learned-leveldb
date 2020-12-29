@@ -92,7 +92,7 @@ GreedyPLR::setup() {
 
 Segment
 GreedyPLR::current_segment() {
-    uint64_t segment_start = this->s0.x;
+    double segment_start = this->s0.x;
     double avg_slope = (this->rho_lower.a + this->rho_upper.a) / 2.0;
     double intercept = -avg_slope * this->sint.x + this->sint.y;
     Segment s = {segment_start, avg_slope, intercept, last_pt.x};
