@@ -367,6 +367,7 @@ int main(int argc, char *argv[]) {
 
         cout << "Starting up" << endl;
         status = DB::Open(options, db_location, &db);
+        cout << "[Debug] open db to find" << endl;
         adgMod::db->WaitForBackground();
 
         Iterator* db_iter = length_range == 0 ? nullptr : db->NewIterator(read_options);
@@ -458,7 +459,7 @@ int main(int argc, char *argv[]) {
                 }
                 instance->PauseTimer(17);
             } else {
-                // cout << "[Debug]read_cold.cc 456: find" << endl;
+                cout << "[Debug] find begin" << endl;
                 string value;
                 if (input_filename.empty()) {
                     instance->StartTimer(4);
@@ -488,6 +489,8 @@ int main(int argc, char *argv[]) {
                     }
                 }
             }
+
+            cout << "[Debug] Over" << endl;
 
             if (pause) {
                 if ((i + 1) % (num_operations / 10000) == 0) ::usleep(800000);
