@@ -65,7 +65,7 @@ private:
 
 public:
     PLR(double gamma);
-    std::vector<Segment>& train(std::vector<std::double>& keys, bool file);
+    std::vector<Segment>& train(std::vector<double>& keys, bool file);
 //    std::vector<double> predict(std::vector<double> xx);
 //    double mae(std::vector<double> y_true, std::vector<double> y_pred);
 };
