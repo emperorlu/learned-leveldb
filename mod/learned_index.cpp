@@ -239,16 +239,16 @@ namespace adgMod {
         std::cout << "[Debug]learned_index.cc: ReadModel2" <<  std::endl;
         input_file >> adgMod::block_num_entries >> adgMod::block_size >> adgMod::entry_size;
         std::cout << "[Debug]learned_index.cc: ReadModel3" <<  std::endl;
+        int num = 0;
+        cout << "[Debug] string_segments_max_size: " << string_segments.max_size() << endl; 
         while (true) {
             string x;
             double k, b;
             double x2;
-            std::cout << "[Debug]learned_index.cc: ReadModel3.1" <<  std::endl;
             input_file >> x;
             if (x == "StartAcc") break;
-            std::cout << "[Debug]learned_index.cc: ReadModel3.2" <<  std::endl;
             input_file >> k >> b >> x2;
-            std::cout << "[Debug]learned_index.cc: ReadModel3.3" <<  std::endl;
+            cout << "[Debug] current_num: " << num << endl;
             string_segments.emplace_back(atoll(x.c_str()), k, b, x2);
         }
         std::cout << "[Debug]learned_index.cc: ReadModel4" <<  std::endl;
