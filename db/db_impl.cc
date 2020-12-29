@@ -1992,22 +1992,24 @@ namespace leveldb
         impl->mem_->Ref();
       }
     }
-    std::cout << "[Debug]db_impl.cc: Recover2" << std::endl;
+    std::cout << "[Debug]db_impl.cc: point1" << std::endl;
     if (s.ok() && save_manifest)
     {
       edit.SetPrevLogNumber(0); // No older logs needed after recovery.
       edit.SetLogNumber(impl->logfile_number_);
       s = impl->versions_->LogAndApply(&edit, &impl->mutex_);
     }
-    std::cout << "[Debug]db_impl.cc: Recover3" << std::endl;
+    std::cout << "[Debug]db_impl.cc: point2" << std::endl;
     if (s.ok())
     {
       impl->DeleteObsoleteFiles();
+      std::cout << "[Debug]db_impl.cc: DeleteObsoleteFiles" << std::endl;
       //impl->MaybeScheduleCompaction();
       impl->versions_->current()->ReadLevelModel();
+      std::cout << "[Debug]db_impl.cc: ReadLevelModel" << std::endl;
       impl->versions_->current()->ReadFileStats();
     }
-    std::cout << "[Debug]db_impl.cc: Recover4" << std::endl;
+    std::cout << "[Debug]db_impl.cc: point3" << std::endl;
     impl->mutex_.Unlock();
     if (s.ok())
     {
