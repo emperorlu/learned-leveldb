@@ -7,7 +7,7 @@
 #include "stats.h"
 #include "learned_index.h"
 #include <cstring>
-#include "cxxopts.hpp"
+// #include "cxxopts.hpp"
 #include <unistd.h>
 #include <fstream>
 #include "../db/version_set.h"
@@ -94,42 +94,42 @@ int main(int argc, char *argv[]) {
     int load_type, insert_bound, length_range;
     string db_location_copy;
     cout << "[Debug] run first" << endl;
-    cxxopts::Options commandline_options("leveldb read test", "Testing leveldb read performance.");
-    cout << "[Debug] run second" << endl;
-    commandline_options.add_options()
-            ("n,get_number", "the number of gets (to be multiplied by 1024)", cxxopts::value<int>(num_operations)->default_value("1000"))
-            ("s,step", "the step of the loop of the size of db", cxxopts::value<float>(num_pair_step)->default_value("1"))
-            ("i,iteration", "the number of iterations of a same size", cxxopts::value<int>(num_iteration)->default_value("1"))
-            ("m,modification", "if set, run our modified version", cxxopts::value<int>(adgMod::MOD)->default_value("0"))
-            ("h,help", "print help message", cxxopts::value<bool>()->default_value("false"))
-            ("d,directory", "the directory of db", cxxopts::value<string>(db_location)->default_value("/mnt/ssd/testdb"))
-            ("k,key_size", "the size of key", cxxopts::value<int>(adgMod::key_size)->default_value("8"))
-            ("v,value_size", "the size of value", cxxopts::value<int>(adgMod::value_size)->default_value("8"))
-            ("single_timing", "print the time of every single get", cxxopts::value<bool>(print_single_timing)->default_value("false"))
-            ("file_info", "print the file structure info", cxxopts::value<bool>(print_file_info)->default_value("false"))
-            ("test_num_segments", "test: number of segments per level", cxxopts::value<float>(test_num_segments_base)->default_value("1"))
-            ("string_mode", "test: use string or int in model", cxxopts::value<bool>(adgMod::string_mode)->default_value("false"))
-            ("e,model_error", "error in modesl", cxxopts::value<uint32_t>(adgMod::model_error)->default_value("8"))
-            ("f,input_file", "the filename of input file", cxxopts::value<string>(input_filename)->default_value(""))
-            ("multiple", "test: use larger keys", cxxopts::value<uint64_t>(adgMod::key_multiple)->default_value("1"))
-            ("w,write", "writedb", cxxopts::value<bool>(fresh_write)->default_value("false"))
-            ("c,uncache", "evict cache", cxxopts::value<bool>(evict)->default_value("false"))
-            ("u,unlimit_fd", "unlimit fd", cxxopts::value<bool>(unlimit_fd)->default_value("false"))
-            ("x,dummy", "dummy option")
-            ("l,load_type", "load type", cxxopts::value<int>(load_type)->default_value("0"))
-            ("filter", "use filter", cxxopts::value<bool>(adgMod::use_filter)->default_value("false"))
-            ("mix", "mix read and write", cxxopts::value<int>(num_mix)->default_value("0"))
-            ("distribution", "operation distribution", cxxopts::value<string>(distribution_filename)->default_value(""))
-            ("change_level_load", "load level model", cxxopts::value<bool>(change_level_load)->default_value("false"))
-            ("change_file_load", "enable level learning", cxxopts::value<bool>(change_file_load)->default_value("false"))
-            ("change_level_learning", "load file model", cxxopts::value<bool>(change_level_learning)->default_value("false"))
-            ("change_file_learning", "enable file learning", cxxopts::value<bool>(change_file_learning)->default_value("false"))
-            ("p,pause", "pause between operation", cxxopts::value<bool>(pause)->default_value("false"))
-            ("policy", "learn policy", cxxopts::value<int>(adgMod::policy)->default_value("0"))
-            ("YCSB", "use YCSB trace", cxxopts::value<string>(ycsb_filename)->default_value(""))
-            ("insert", "insert new value", cxxopts::value<int>(insert_bound)->default_value("0"))
-            ("range", "use range query and specify length", cxxopts::value<int>(length_range)->default_value("0"));
-    auto result = commandline_options.parse(argc, argv);
+    // cxxopts::Options commandline_options("leveldb read test", "Testing leveldb read performance.");
+    // cout << "[Debug] run second" << endl;
+    // commandline_options.add_options()
+    //         ("n,get_number", "the number of gets (to be multiplied by 1024)", cxxopts::value<int>(num_operations)->default_value("1000"))
+    //         ("s,step", "the step of the loop of the size of db", cxxopts::value<float>(num_pair_step)->default_value("1"))
+    //         ("i,iteration", "the number of iterations of a same size", cxxopts::value<int>(num_iteration)->default_value("1"))
+    //         ("m,modification", "if set, run our modified version", cxxopts::value<int>(adgMod::MOD)->default_value("0"))
+    //         ("h,help", "print help message", cxxopts::value<bool>()->default_value("false"))
+    //         ("d,directory", "the directory of db", cxxopts::value<string>(db_location)->default_value("/mnt/ssd/testdb"))
+    //         ("k,key_size", "the size of key", cxxopts::value<int>(adgMod::key_size)->default_value("8"))
+    //         ("v,value_size", "the size of value", cxxopts::value<int>(adgMod::value_size)->default_value("8"))
+    //         ("single_timing", "print the time of every single get", cxxopts::value<bool>(print_single_timing)->default_value("false"))
+    //         ("file_info", "print the file structure info", cxxopts::value<bool>(print_file_info)->default_value("false"))
+    //         ("test_num_segments", "test: number of segments per level", cxxopts::value<float>(test_num_segments_base)->default_value("1"))
+    //         ("string_mode", "test: use string or int in model", cxxopts::value<bool>(adgMod::string_mode)->default_value("false"))
+    //         ("e,model_error", "error in modesl", cxxopts::value<uint32_t>(adgMod::model_error)->default_value("8"))
+    //         ("f,input_file", "the filename of input file", cxxopts::value<string>(input_filename)->default_value(""))
+    //         ("multiple", "test: use larger keys", cxxopts::value<uint64_t>(adgMod::key_multiple)->default_value("1"))
+    //         ("w,write", "writedb", cxxopts::value<bool>(fresh_write)->default_value("false"))
+    //         ("c,uncache", "evict cache", cxxopts::value<bool>(evict)->default_value("false"))
+    //         ("u,unlimit_fd", "unlimit fd", cxxopts::value<bool>(unlimit_fd)->default_value("false"))
+    //         ("x,dummy", "dummy option")
+    //         ("l,load_type", "load type", cxxopts::value<int>(load_type)->default_value("0"))
+    //         ("filter", "use filter", cxxopts::value<bool>(adgMod::use_filter)->default_value("false"))
+    //         ("mix", "mix read and write", cxxopts::value<int>(num_mix)->default_value("0"))
+    //         ("distribution", "operation distribution", cxxopts::value<string>(distribution_filename)->default_value(""))
+    //         ("change_level_load", "load level model", cxxopts::value<bool>(change_level_load)->default_value("false"))
+    //         ("change_file_load", "enable level learning", cxxopts::value<bool>(change_file_load)->default_value("false"))
+    //         ("change_level_learning", "load file model", cxxopts::value<bool>(change_level_learning)->default_value("false"))
+    //         ("change_file_learning", "enable file learning", cxxopts::value<bool>(change_file_learning)->default_value("false"))
+    //         ("p,pause", "pause between operation", cxxopts::value<bool>(pause)->default_value("false"))
+    //         ("policy", "learn policy", cxxopts::value<int>(adgMod::policy)->default_value("0"))
+    //         ("YCSB", "use YCSB trace", cxxopts::value<string>(ycsb_filename)->default_value(""))
+    //         ("insert", "insert new value", cxxopts::value<int>(insert_bound)->default_value("0"))
+    //         ("range", "use range query and specify length", cxxopts::value<int>(length_range)->default_value("0"));
+    // auto result = commandline_options.parse(argc, argv);
     if (result.count("help")) {
         printf("%s", commandline_options.help().c_str());
         exit(0);
