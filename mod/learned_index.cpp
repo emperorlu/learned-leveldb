@@ -62,7 +62,9 @@ namespace adgMod {
         if (string_keys.empty()) assert(false);
 
         vector<double> double_key = toCode(string_keys);
-
+        for (int i = 0; i < double_key.size(); i++) {
+            cout << i << ": " << string_keys[i] << "->" << double_key[i] << endl;
+        }
         // uint64_t temp = atoll(string_keys.back().c_str());
         // min_key = atoll(string_keys.front().c_str());
         // max_key = atoll(string_keys.back().c_str());
@@ -234,11 +236,8 @@ namespace adgMod {
     void LearnedIndexData::ReadModel(const string &filename) {
         std::cout << "[Debug]learned_index.cc: ReadModel" <<  std::endl;
         std::ifstream input_file(filename);
-        std::cout << "[Debug]learned_index.cc: ReadModel1" <<  std::endl;
         if (!input_file.good()) return;
-        std::cout << "[Debug]learned_index.cc: ReadModel2" <<  std::endl;
         input_file >> adgMod::block_num_entries >> adgMod::block_size >> adgMod::entry_size;
-        std::cout << "[Debug]learned_index.cc: ReadModel3" <<  std::endl;
         int num = 0;
         cout << "[Debug] string_segments_max_size: " << string_segments.max_size() << endl; 
         while (true) {
@@ -250,18 +249,15 @@ namespace adgMod {
             input_file >> k >> b >> x2;
             string_segments.emplace_back(atoll(x.c_str()), k, b, x2);
         }
-        std::cout << "[Debug]learned_index.cc: ReadModel4" <<  std::endl;
+        std::cout << "[Debug]learned_index.cc: ReadModel2" <<  std::endl;
         input_file >> min_key >> max_key >> size >> level >> cost;
-        std::cout << "[Debug]learned_index.cc: ReadModel5" <<  std::endl;
         while (true) {
             uint64_t first;
             string second;
             if (!(input_file >> first >> second)) break;
             num_entries_accumulated.Add(first, std::move(second));
         }
-        std::cout << "[Debug]learned_index.cc: ReadModel6" <<  std::endl;
         learned.store(true);
-        std::cout << "[Debug]learned_index.cc: ReadModel7" <<  std::endl;
     }
 
     void LearnedIndexData::ReportStats() {
