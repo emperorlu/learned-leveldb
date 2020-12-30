@@ -311,12 +311,11 @@ int main(int argc, char *argv[]) {
 
             //WaitForBackground
             adgMod::db->WaitForBackground();
-            
-            // delete db;
+            delete db;
 
-            // cout << "[Debug] Open db to learn" << endl;
-            // status = DB::Open(options, db_location, &db);
-            // adgMod::db->WaitForBackground();
+            cout << "[Debug] Open db to learn" << endl;
+            status = DB::Open(options, db_location, &db);
+            adgMod::db->WaitForBackground();
 
             //Use Mod
             if (adgMod::MOD == 6 || adgMod::MOD == 7) {
@@ -329,7 +328,7 @@ int main(int argc, char *argv[]) {
             }
             cout << "Shutting down" << endl;
             adgMod::db->WaitForBackground();
-            delete db;
+            // delete db;
 
             //keys.reserve(100000000000 / adgMod::value_size);
             if (!input_filename.empty()) {
@@ -367,8 +366,8 @@ int main(int argc, char *argv[]) {
         if (evict) system("sync; echo 3 | sudo tee /proc/sys/vm/drop_caches");
 
         cout << "Starting up" << endl;
-        status = DB::Open(options, db_location, &db);
-        cout << "[Debug] open db to find" << endl;
+        // status = DB::Open(options, db_location, &db);
+        // cout << "[Debug] open db to find" << endl;
         adgMod::db->WaitForBackground();
 
         Iterator* db_iter = length_range == 0 ? nullptr : db->NewIterator(read_options);
@@ -460,7 +459,7 @@ int main(int argc, char *argv[]) {
                 }
                 instance->PauseTimer(17);
             } else {
-                cout << "[Debug] find begin" << endl;
+                // cout << "[Debug] find begin" << endl;
                 string value;
                 if (input_filename.empty()) {
                     instance->StartTimer(4);
@@ -491,7 +490,7 @@ int main(int argc, char *argv[]) {
                 }
             }
 
-            cout << "[Debug] Over" << endl;
+            // cout << "[Debug] Over" << endl;
 
             if (pause) {
                 if ((i + 1) % (num_operations / 10000) == 0) ::usleep(800000);
