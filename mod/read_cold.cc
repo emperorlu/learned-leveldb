@@ -328,7 +328,7 @@ int main(int argc, char *argv[]) {
             }
             cout << "Shutting down" << endl;
             adgMod::db->WaitForBackground();
-            // delete db;
+            delete db;
 
             //keys.reserve(100000000000 / adgMod::value_size);
             if (!input_filename.empty()) {
@@ -366,8 +366,8 @@ int main(int argc, char *argv[]) {
         if (evict) system("sync; echo 3 | sudo tee /proc/sys/vm/drop_caches");
 
         cout << "Starting up" << endl;
-        // status = DB::Open(options, db_location, &db);
-        // cout << "[Debug] open db to find" << endl;
+        status = DB::Open(options, db_location, &db);
+        cout << "[Debug] open db to find" << endl;
         adgMod::db->WaitForBackground();
 
         Iterator* db_iter = length_range == 0 ? nullptr : db->NewIterator(read_options);

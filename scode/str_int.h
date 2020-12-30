@@ -5,6 +5,8 @@
 #include <cstring>  
 using  namespace std;
 
+namespace adgMod {
+
 vector<double> toCode(vector<string> keys){
     vector<char> based_char;
     vector<double> based_num;
@@ -40,4 +42,14 @@ vector<double> toCode(vector<string> keys){
     }
 
     return turn;
+}
+
+double OnetoCode(string keys, vector<double> based_num, vector<char> based_char){
+    double num = 0;
+    for (int i = 0; i < keys.size(); i++){
+        num += based_num[i] * (double)(keys[i] - based_char[i]);
+    }
+    return num;
+}
+
 }
