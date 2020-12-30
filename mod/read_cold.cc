@@ -311,11 +311,12 @@ int main(int argc, char *argv[]) {
 
             //WaitForBackground
             adgMod::db->WaitForBackground();
-            delete db;
+            
+            // delete db;
 
-            cout << "[Debug] Open db to learn" << endl;
-            status = DB::Open(options, db_location, &db);
-            adgMod::db->WaitForBackground();
+            // cout << "[Debug] Open db to learn" << endl;
+            // status = DB::Open(options, db_location, &db);
+            // adgMod::db->WaitForBackground();
 
             //Use Mod
             if (adgMod::MOD == 6 || adgMod::MOD == 7) {
