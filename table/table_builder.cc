@@ -5,7 +5,8 @@
 #include "leveldb/table_builder.h"
 
 #include <assert.h>
-
+#include "../mod/util.h"
+#include "../mod/learned_index.h"
 #include "leveldb/comparator.h"
 #include "leveldb/env.h"
 #include "leveldb/filter_policy.h"
@@ -16,6 +17,7 @@
 #include "util/coding.h"
 #include "util/crc32c.h"
 
+using namespace adgMod;
 namespace leveldb {
 
 struct TableBuilder::Rep {
@@ -98,6 +100,18 @@ void TableBuilder::Add(const Slice& key, const Slice& value) {
   if (r->num_entries > 0) {
     assert(r->options.comparator->Compare(key, Slice(r->last_key)) > 0);
   }
+
+  //Google 
+  // if (adgMod::MOD == 6 || adgMod::MOD == 7) {
+  //   std::string handle_encoding;  
+  //   r->index_block.Add(r->last_key, Slice(handle_encoding));
+  //   r->filter_block->AddKey(r->last_key);
+  //   assert(r->data_block.empty());
+
+  //   r->pending_handle.EncodeTo(&handle_encoding);
+  //   LearnedIndexData::Learn(new VersionAndSelf{});
+  //   //LearnedIndexData::Learn(new VersionAndSelf{current, adgMod::db->version_count, current->learned_index_data_[i].get(), i});
+  // }
 
   if (r->pending_index_entry) {
     assert(r->data_block.empty());
