@@ -173,6 +173,7 @@ Status TableCache::Get(const ReadOptions& options, uint64_t file_number,
       if (learned || *file_learned) {
           std::cout << "[Debug] table_cache.cc: LevelRead" << std::endl;
           LevelRead(options, file_number, file_size, k, arg, handle_result, level, meta, lower, upper, learned, version);
+          std::cout << "[Debug] table_cache.cc: LevelRead over" << std::endl;
           return Status::OK();
       }
   }
