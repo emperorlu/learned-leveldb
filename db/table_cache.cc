@@ -416,10 +416,11 @@ void TableCache::LevelRead(const ReadOptions &options, uint64_t file_number,
     }
 
 
-    std::cout << "[Debug] table_cache.cc: LevelRead: BS" << std::endl;
+    std::cout << "[Debug] table_cache.cc: LevelRead: GetPosition" << std::endl;
     uint32_t shared, non_shared, value_length;
     const char* key_ptr = DecodeEntry(entries.data() + (left - pos_block_lower) * adgMod::entry_size,
             entries.data() + read_size, &shared, &non_shared, &value_length);
+    std::cout << "[Debug] table_cache.cc: LevelRead: DecodeEntry" << std::endl;
     assert(key_ptr != nullptr && shared == 0 && "Entry Corruption");
 #ifdef INTERNAL_TIMER
     if (!first_search) {
@@ -432,6 +433,7 @@ void TableCache::LevelRead(const ReadOptions &options, uint64_t file_number,
     handle_result(arg, key, value);
 
     //cache handle;
+    std::cout << "[Debug] table_cache.cc: LevelRead: Release" << std::endl;
     cache_->Release(cache_handle);
     std::cout << "[Debug] table_cache.cc: LevelRead: end" << std::endl;
 }
