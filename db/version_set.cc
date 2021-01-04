@@ -398,12 +398,14 @@ Status Version::Get(const ReadOptions& options, const LookupKey& k,
       num_files = tmp.size();
     } else {
         if (adgMod::MOD == 6 || adgMod::MOD == 7) {
+            std::cout << "[Debug] version_set.cc: Get begin model" << std::endl;
             adgMod::LearnedIndexData* learned_this_level = learned_index_data_[level].get();
             if (learned_this_level->Learned(this, adgMod::db->version_count, level)) {
                 //std::cout << "using model" << std::endl;
+                std::cout << "[Debug] version_set.cc: Get using model" << std::endl;
                 learned = true;
                 std::pair<uint64_t, uint64_t> bounds = learned_this_level->GetPosition(user_key);
-
+                std::cout << "[Debug] version_set.cc: GetPosition" << std::endl;
                 //printf("%lu %lu\n", bounds.first, bounds.second);
 
                 size_t index;
