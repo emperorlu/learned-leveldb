@@ -168,6 +168,7 @@ inline bool ParseInternalKey(const Slice& internal_key,
   std::cout<< "n: " << n << std::endl;
   if (n < 8) return false;
   uint64_t num = DecodeFixed64(internal_key.data() + n - 8);
+  std::cout<< "num: " << num << std::endl;
   unsigned char c = num & 0xff;
   result->sequence = num >> 8;
   result->type = static_cast<ValueType>(c);
