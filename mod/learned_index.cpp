@@ -181,6 +181,7 @@ namespace adgMod {
     }
 
     bool LearnedIndexData::Learned(Version* version, int v_count, int level) {
+        std::cout << "[Debug] learned_index.cc: Learned begin" << std::endl;
         if (learned_not_atomic) return true;
         else if (learned.load()) {
             learned_not_atomic = true;
