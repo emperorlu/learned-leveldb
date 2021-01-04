@@ -61,19 +61,20 @@ namespace adgMod {
 
         if (string_keys.empty()) assert(false);
 
-        vector<double> double_key = toCode(string_keys);
-        for (int i = 0; i < double_key.size(); i++) {
-            cout << i << ": " << string_keys[i] << "->" << double_key[i] << endl;
-        }
-        // uint64_t temp = atoll(string_keys.back().c_str());
-        // min_key = atoll(string_keys.front().c_str());
-        // max_key = atoll(string_keys.back().c_str());
-        double temp = double_key.back();
-        min_key = double_key.front();
-        max_key = double_key.back();
+        // vector<double> double_key = toCode(string_keys);
+        // for (int i = 0; i < double_key.size(); i++) {
+        //     cout << i << ": " << string_keys[i] << "->" << double_key[i] << endl;
+        // }
+        uint64_t temp = atoll(string_keys.back().c_str());
+        min_key = atoll(string_keys.front().c_str());
+        max_key = atoll(string_keys.back().c_str());
+        // double temp = double_key.back();
+        // min_key = double_key.front();
+        // max_key = double_key.back();
         size = string_keys.size();
 
-        std::vector<Segment> segs = plr.train(double_key, !is_level);
+        std::vector<Segment> segs = plr.train(string_keys, !is_level);
+        // std::vector<Segment> segs = plr.train(double_key, !is_level);
 
         if (segs.empty()) return false;
         segs.push_back((Segment) {temp, 0, 0, 0});
