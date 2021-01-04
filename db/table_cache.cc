@@ -409,6 +409,7 @@ void TableCache::LevelRead(const ReadOptions &options, uint64_t file_number,
 #endif
 
         Slice mid_key(key_ptr, non_shared);
+        std::cout << "[Debug] table_cache.cc: 412" << std::endl;
         int comp = tf->table->rep_->options.comparator->Compare(mid_key, k);
         if (comp < 0) {
             left = mid + 1;
