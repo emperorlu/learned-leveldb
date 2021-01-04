@@ -165,7 +165,7 @@ inline int InternalKeyComparator::Compare(const InternalKey& a,
 inline bool ParseInternalKey(const Slice& internal_key,
                              ParsedInternalKey* result) {
   const size_t n = internal_key.size();
-  std::cout<< "n: " << n << std::endl;
+  std::cout<< "n: " << n << " " << (void*)internal_key.data() <<std::endl;
   if (n < 8) return false;
   uint64_t num = DecodeFixed64(internal_key.data() + n - 8);
   std::cout<< "num: " << num << std::endl;
