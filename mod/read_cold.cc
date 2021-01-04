@@ -449,7 +449,7 @@ int main(int argc, char *argv[]) {
                 }
                 instance->PauseTimer(17);
             } else {
-                cout << "[Debug] find begin" << endl;
+                //cout << "[Debug] find begin" << endl;
                 string value;
                 if (input_filename.empty()) {
                     instance->StartTimer(4);
@@ -467,8 +467,8 @@ int main(int argc, char *argv[]) {
                     if (insert_bound != 0 && index > insert_bound) {
                         status = db->Get(read_options, generate_key(to_string(10000000000 + index)), &value);
                     } else {
-                        cout << "[Debug] db->Get begin" << endl;
-                        cout << "[Get] " << key  << endl;
+                        //cout << "[Debug] db->Get begin" << endl;
+                        //cout << "[Get] " << key  << endl;
                         status = db->Get(read_options, key, &value);
                         
                     }
