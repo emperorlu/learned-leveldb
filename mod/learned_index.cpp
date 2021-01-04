@@ -182,17 +182,22 @@ namespace adgMod {
 
     bool LearnedIndexData::Learned(Version* version, int v_count, int level) {
         std::cout << "[Debug] learned_index.cc: Learned begin" << std::endl;
-        if (learned_not_atomic) return true;
+        if (learned_not_atomic) {
+            std::cout << "[Debug] learned_index.cc: learned_not_atomic" << std::endl;
+            return true;
+        }
         else if (learned.load()) {
+            std::cout << "[Debug] learned_index.cc: Learned load" << std::endl;
             learned_not_atomic = true;
             return true;
-        } return false;
-//        } else {
-//            if (level_learning_enabled && ++current_seek >= allowed_seek && !learning.exchange(true)) {
-//                env->ScheduleLearning(&LearnedIndexData::Learn, new VersionAndSelf{version, v_count, this, level}, 0);
-//            }
-//            return false;
-//        }
+        } 
+        return false;
+        //        } else {
+        //            if (level_learning_enabled && ++current_seek >= allowed_seek && !learning.exchange(true)) {
+        //                env->ScheduleLearning(&LearnedIndexData::Learn, new VersionAndSelf{version, v_count, this, level}, 0);
+        //            }
+        //            return false;
+        //        }
     }
 
     bool LearnedIndexData::Learned(Version* version, int v_count, FileMetaData *meta, int level) {
