@@ -477,7 +477,7 @@ int main(int argc, char *argv[]) {
                     //cout << "[Get] " << key << " : " << value << endl;
                     if (!status.ok()) {
                         // cout << "[Not Found 2] ";
-                        cout << key << " Not Found" << endl;
+                        // cout << key << " Not Found" << endl;
                         //assert(status.ok() && "File Get Error");
                     }
                 }
