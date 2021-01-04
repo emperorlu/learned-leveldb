@@ -285,18 +285,8 @@ int main(int argc, char *argv[]) {
 
             // cout << "[Debug]begin put" << endl;
             for (int cut = 0; cut < chunks.size(); ++cut) {
-                // cout << "[Debug]cut;chunks.size();chunks[cut].first;chunks[cut].second" 
-                //         << cut << "; " << chunks.size() << "; "
-                //         << chunks[cut].first << "; " << chunks[cut].second
-                //         << endl;
                 for (int i = chunks[cut].first; i < chunks[cut].second; ++i) {
-
-
-                    // cout << "[Debug]chunks.cut: " << cut << ";chunks.i: " << i << ";keys[i]: " << keys[i] << endl;
-                    // cout << "[Debug]value: " << values.data() + uniform_dist_value(e2), (uint64_t) adgMod::value_size << endl;
-                    // cout << "[Debug]read_cold.cc 287: put" << endl;
                     status = db->Put(write_options, keys[i], {values.data() + uniform_dist_value(e2), (uint64_t) adgMod::value_size});
-
                     assert(status.ok() && "File Put Error");
                 }
             }
@@ -459,7 +449,7 @@ int main(int argc, char *argv[]) {
                 }
                 instance->PauseTimer(17);
             } else {
-                // cout << "[Debug] find begin" << endl;
+                cout << "[Debug] find begin" << endl;
                 string value;
                 if (input_filename.empty()) {
                     instance->StartTimer(4);
