@@ -496,12 +496,15 @@ namespace leveldb
             //printf("%lu %lu\n", bounds.first, bounds.second);
 
             size_t index;
+            std::cout << "[Debug] version_set.cc: MaxPosition begin" << std::endl;
             if (bounds.first <= learned_this_level->MaxPosition())
             {
+              std::cout << "[Debug] version_set.cc: MaxPosition" << std::endl;
               learned_this_level->num_entries_accumulated.Search(user_key, bounds.first, bounds.second, &index, &position_lower, &position_upper);
-
+              std::cout << "[Debug] version_set.cc: Search" << std::endl;
               //printf("%lu %lu %lu\n", index, position_lower, position_upper);
               FileMetaData *file = files_[level][index];
+              std::cout << "[Debug] version_set.cc: Compare begin" << std::endl;
               if (ucmp->Compare(file->smallest.user_key(), user_key) <= 0)
               {
                 files = &files_[level][index];
