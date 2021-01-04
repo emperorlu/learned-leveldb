@@ -340,7 +340,7 @@ void TableCache::LevelRead(const ReadOptions &options, uint64_t file_number,
     size_t index_upper = upper / adgMod::block_num_entries;
 
     uint64_t i = index_lower;
-    std::cout << "[Debug] table_cache.cc: 343" << std::endl;
+    std::cout << "[Debug] table_cache.cc: LevelRead: GetPosition" << std::endl;
     if (index_lower != index_upper) {
         Block* index_block = tf->table->rep_->index_block;
         uint32_t mid_index_entry = DecodeFixed32(index_block->data_ + index_block->restart_offset_ + index_lower * sizeof(uint32_t));
@@ -353,7 +353,7 @@ void TableCache::LevelRead(const ReadOptions &options, uint64_t file_number,
         i = comp < 0 ? index_upper : index_lower;
     }
 
-    std::cout << "[Debug] table_cache.cc: 356" << std::endl;
+
     // Check Filter Block
     uint64_t block_offset = i * adgMod::block_size;
 #ifdef INTERNAL_TIMER
@@ -381,7 +381,6 @@ void TableCache::LevelRead(const ReadOptions &options, uint64_t file_number,
     static char scratch[4096];
     Slice entries;
     
-    std::cout << "[Debug] table_cache.cc: 384" << std::endl;
     s = file->Read(block_offset + pos_block_lower * adgMod::entry_size, read_size, &entries, scratch);
     assert(s.ok());
 
@@ -389,9 +388,8 @@ void TableCache::LevelRead(const ReadOptions &options, uint64_t file_number,
     bool first_search = true;
 #endif
 
-
+    std::cout << "[Debug] table_cache.cc: LevelRead: Check " << std::endl;
     // Binary Search
-    std::cout << "[Debug] table_cache.cc: 394" << std::endl;
     uint64_t left = pos_block_lower, right = pos_block_upper;
     while (left < right) {
         uint32_t mid = (left + right) / 2;
@@ -409,7 +407,6 @@ void TableCache::LevelRead(const ReadOptions &options, uint64_t file_number,
 #endif
 
         Slice mid_key(key_ptr, non_shared);
-        std::cout << "[Debug] table_cache.cc: 412" << std::endl;
         int comp = tf->table->rep_->options.comparator->Compare(mid_key, k);
         if (comp < 0) {
             left = mid + 1;
@@ -419,7 +416,7 @@ void TableCache::LevelRead(const ReadOptions &options, uint64_t file_number,
     }
 
 
-    std::cout << "[Debug] table_cache.cc: 421" << std::endl;
+    std::cout << "[Debug] table_cache.cc: LevelRead: BS" << std::endl;
     uint32_t shared, non_shared, value_length;
     const char* key_ptr = DecodeEntry(entries.data() + (left - pos_block_lower) * adgMod::entry_size,
             entries.data() + read_size, &shared, &non_shared, &value_length);
@@ -436,6 +433,7 @@ void TableCache::LevelRead(const ReadOptions &options, uint64_t file_number,
 
     //cache handle;
     cache_->Release(cache_handle);
+    std::cout << "[Debug] table_cache.cc: LevelRead: end" << std::endl;
 }
 
 
