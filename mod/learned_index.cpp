@@ -186,11 +186,14 @@ namespace adgMod {
             std::cout << "[Debug] learned_index.cc: learned_not_atomic" << std::endl;
             return true;
         }
-        else if (learned.load()) {
+        else{
+            std::cout << "[Debug] learned_index.cc: Learned load begin" << std::endl;
+            if (learned.load()) {
             std::cout << "[Debug] learned_index.cc: Learned load" << std::endl;
             learned_not_atomic = true;
             return true;
-        } 
+            }
+        }
         return false;
         //        } else {
         //            if (level_learning_enabled && ++current_seek >= allowed_seek && !learning.exchange(true)) {
