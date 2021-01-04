@@ -6,7 +6,7 @@
 #define STORAGE_LEVELDB_DB_DBFORMAT_H_
 
 #include <stdio.h>
-
+#include <iostream>
 #include "leveldb/comparator.h"
 #include "leveldb/db.h"
 #include "leveldb/filter_policy.h"
@@ -165,6 +165,7 @@ inline int InternalKeyComparator::Compare(const InternalKey& a,
 inline bool ParseInternalKey(const Slice& internal_key,
                              ParsedInternalKey* result) {
   const size_t n = internal_key.size();
+  std::cout<< "n: " << n << std::endl;
   if (n < 8) return false;
   uint64_t num = DecodeFixed64(internal_key.data() + n - 8);
   unsigned char c = num & 0xff;
