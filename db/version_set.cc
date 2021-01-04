@@ -333,16 +333,21 @@ namespace leveldb
   } // namespace
   static void SaveValue(void *arg, const Slice &ikey, const Slice &v)
   {
+    std::cout << "[Debug] version_set.cc: SaveValue begin" << std::endl;
     Saver *s = reinterpret_cast<Saver *>(arg);
     ParsedInternalKey parsed_key;
+    std::cout << "[Debug] version_set.cc: ParseInternalKey begin" << std::endl;
     if (!ParseInternalKey(ikey, &parsed_key))
     {
+      std::cout << "[Debug] version_set.cc: ParseInternalKey over" << std::endl;
       s->state = kCorrupt;
     }
     else
     {
+      std::cout << "[Debug] version_set.cc: Compare begin" << std::endl;
       if (s->ucmp->Compare(parsed_key.user_key, s->user_key) == 0)
       {
+        std::cout << "[Debug] version_set.cc: Compare over" << std::endl;
         s->state = (parsed_key.type == kTypeValue) ? kFound : kDeleted;
         if (s->state == kFound)
         {
