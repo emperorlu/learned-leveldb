@@ -180,15 +180,15 @@ namespace adgMod {
     }
 
     bool LearnedIndexData::Learned(Version* version, int v_count, int level) {
-        std::cout << "[Debug] learned_index.cc: Learned begin" << std::endl;
+        //std::cout << "[Debug] learned_index.cc: Learned begin" << std::endl;
         if (learned_not_atomic) {
-            std::cout << "[Debug] learned_index.cc: learned_not_atomic" << std::endl;
+            //std::cout << "[Debug] learned_index.cc: learned_not_atomic" << std::endl;
             return true;
         }
         else{
-            std::cout << "[Debug] learned_index.cc: Learned load begin" << std::endl;
+            //std::cout << "[Debug] learned_index.cc: Learned load begin" << std::endl;
             if (learned.load()) {
-            std::cout << "[Debug] learned_index.cc: Learned load" << std::endl;
+            //std::cout << "[Debug] learned_index.cc: Learned load" << std::endl;
             learned_not_atomic = true;
             return true;
             }
@@ -242,7 +242,7 @@ namespace adgMod {
     }
 
     void LearnedIndexData::ReadModel(const string &filename) {
-        std::cout << "[Debug]learned_index.cc: ReadModel" <<  std::endl;
+        //std::cout << "[Debug]learned_index.cc: ReadModel" <<  std::endl;
         std::ifstream input_file(filename);
         if (!input_file.good()) return;
         input_file >> adgMod::block_num_entries >> adgMod::block_size >> adgMod::entry_size;
@@ -257,7 +257,7 @@ namespace adgMod {
             input_file >> k >> b >> x2;
             string_segments.emplace_back(atoll(x.c_str()), k, b, x2);
         }
-        std::cout << "[Debug]learned_index.cc: ReadModel2" <<  std::endl;
+        //std::cout << "[Debug]learned_index.cc: ReadModel2" <<  std::endl;
         input_file >> min_key >> max_key >> size >> level >> cost;
         while (true) {
             uint64_t first;

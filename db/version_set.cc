@@ -333,21 +333,21 @@ namespace leveldb
   } // namespace
   static void SaveValue(void *arg, const Slice &ikey, const Slice &v)
   {
-    std::cout << "[Debug] version_set.cc: SaveValue begin" << std::endl;
+    //std::cout << "[Debug] version_set.cc: SaveValue begin" << std::endl;
     Saver *s = reinterpret_cast<Saver *>(arg);
     ParsedInternalKey parsed_key;
-    std::cout << "[Debug] version_set.cc: ParseInternalKey begin" << std::endl;
+    //std::cout << "[Debug] version_set.cc: ParseInternalKey begin" << std::endl;
     if (!ParseInternalKey(ikey, &parsed_key))
     {
-      std::cout << "[Debug] version_set.cc: ParseInternalKey over" << std::endl;
+      //std::cout << "[Debug] version_set.cc: ParseInternalKey over" << std::endl;
       s->state = kCorrupt;
     }
     else
     {
-      std::cout << "[Debug] version_set.cc: Compare begin" << std::endl;
+      //std::cout << "[Debug] version_set.cc: Compare begin" << std::endl;
       if (s->ucmp->Compare(parsed_key.user_key, s->user_key) == 0)
       {
-        std::cout << "[Debug] version_set.cc: Compare over" << std::endl;
+        //std::cout << "[Debug] version_set.cc: Compare over" << std::endl;
         s->state = (parsed_key.type == kTypeValue) ? kFound : kDeleted;
         if (s->state == kFound)
         {
@@ -430,7 +430,7 @@ namespace leveldb
   {
     adgMod::Stats *instance = adgMod::Stats::GetInstance();
     Slice ikey = k.internal_key();
-    std::cout << __func__ << " " << (void*)ikey.data() << std::endl;
+    //std::cout << __func__ << " " << (void*)ikey.data() << std::endl;
     Slice user_key = k.user_key();
     const Comparator *ucmp = vset_->icmp_.user_comparator();
     Status s;
@@ -490,15 +490,15 @@ namespace leveldb
       {
         if (adgMod::MOD == 6 || adgMod::MOD == 7)
         {
-          std::cout << "[Debug] version_set.cc: Get begin model" << std::endl;
+          //std::cout << "[Debug] version_set.cc: Get begin model" << std::endl;
           adgMod::LearnedIndexData *learned_this_level = learned_index_data_[level].get();
           if (learned_this_level->Learned(this, adgMod::db->version_count, level))
           {
-            //std::cout << "using model" << std::endl;
-            std::cout << "[Debug] version_set.cc: Get using model" << std::endl;
+            ////std::cout << "using model" << std::endl;
+            //std::cout << "[Debug] version_set.cc: Get using model" << std::endl;
             learned = true;
             std::pair<uint64_t, uint64_t> bounds = learned_this_level->GetPosition(user_key);
-            std::cout << "[Debug] version_set.cc: GetPosition" << std::endl;
+            //std::cout << "[Debug] version_set.cc: GetPosition" << std::endl;
             //printf("%lu %lu\n", bounds.first, bounds.second);
 
             size_t index;
@@ -507,10 +507,10 @@ namespace leveldb
               learned_this_level->num_entries_accumulated.Search(user_key, bounds.first, bounds.second, &index, &position_lower, &position_upper);
               //printf("%lu %lu %lu\n", index, position_lower, position_upper);
               FileMetaData *file = files_[level][index];
-              std::cout << "[Debug] version_set.cc: Compare begin" << std::endl;
+              //std::cout << "[Debug] version_set.cc: Compare begin" << std::endl;
               if (ucmp->Compare(file->smallest.user_key(), user_key) <= 0)
               {
-                std::cout << "[Debug] version_set.cc: Compare" << std::endl;
+                //std::cout << "[Debug] version_set.cc: Compare" << std::endl;
                 files = &files_[level][index];
                 num_files = 1;
               }
@@ -554,7 +554,7 @@ namespace leveldb
         }
         else
         {
-          std::cout << "[Debug] version_set.cc: Get not using model" << std::endl;
+          //std::cout << "[Debug] version_set.cc: Get not using model" << std::endl;
           // Binary search to find earliest index whose largest key >= ikey.
           uint32_t index = FindFile(vset_->icmp_, files_[level], ikey);
           if (index >= num_files)
@@ -590,7 +590,7 @@ namespace leveldb
           stats->seek_file = last_file_read;
           stats->seek_file_level = last_file_read_level;
         }
-        std::cout << "[Debug] version_set.cc: 587" << std::endl;
+        //std::cout << "[Debug] version_set.cc: 587" << std::endl;
         FileMetaData *f = files[i];
         last_file_read = f;
         last_file_read_level = level;
@@ -606,17 +606,17 @@ namespace leveldb
         instance->StartTimer(6);
         if (adgMod::MOD == 0 || adgMod::MOD == 8)
         {
-          //std::cout << "[Debug] version_set.cc: table_cache_->Get" << std::endl;
+          ////std::cout << "[Debug] version_set.cc: table_cache_->Get" << std::endl;
           s = vset_->table_cache_->Get(options, f->number, f->file_size, ikey,
                                        &saver, SaveValue, level, f);
         }
         else
         {
-          std::cout << "[Debug] version_set.cc: table_cache_->Get" << std::endl;
+          //std::cout << "[Debug] version_set.cc: table_cache_->Get" << std::endl;
           s = vset_->table_cache_->Get(options, f->number, f->file_size, ikey,
                                        &saver, SaveValue, level, f, position_lower, position_upper, learned, this, &model, &file_learned);
         }
-        std::cout << "[Debug] version_set.cc: table_cache_->Get over" << std::endl;
+        //std::cout << "[Debug] version_set.cc: table_cache_->Get over" << std::endl;
         auto temp = instance->PauseTimer(6, true);
 
         if (!s.ok())
@@ -2157,25 +2157,25 @@ namespace leveldb
   void Version::ReadLevelModel()
   {
     uint64_t file_max = 0;
-    std::cout << "[Debug]version.cc: ReadLevelModel begin" << std::endl;
+    //std::cout << "[Debug]version.cc: ReadLevelModel begin" << std::endl;
     for (int i = 0; i < config::kNumLevels; ++i)
     {
-      std::cout << "[Debug]version.cc: ReadModel_" << i << std::endl;
+      //std::cout << "[Debug]version.cc: ReadModel_" << i << std::endl;
       if (adgMod::load_level_model)
         learned_index_data_[i]->ReadModel(vset_->dbname_ + "/" + to_string(i) + ".model");
-      std::cout << "[Debug]version.cc: ReadFileModel_" << i << std::endl;
+      //std::cout << "[Debug]version.cc: ReadFileModel_" << i << std::endl;
       for (FileMetaData *file_meta : files_[i])
       {
         if (adgMod::load_file_model)
         {
-          std::cout << "[Debug]version.cc: FileModel" << std::endl;
+          //std::cout << "[Debug]version.cc: FileModel" << std::endl;
           adgMod::file_data->GetModel(file_meta->number)->ReadModel(vset_->dbname_ + "/" + to_string(file_meta->number) + ".fmodel");
         }
         file_max = file_max > file_meta->number ? file_max : file_meta->number;
       }
     }
     adgMod::file_data->watermark = file_max;
-    std::cout << "[Debug]version.cc: ReadLevelModel over" << std::endl;
+    //std::cout << "[Debug]version.cc: ReadLevelModel over" << std::endl;
   }
 
   void Version::ReadFileStats()

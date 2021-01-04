@@ -1961,20 +1961,20 @@ namespace leveldb
   Status DB::Open(const Options &options, const std::string &dbname, DB **dbptr)
   {
     *dbptr = nullptr;
-    std::cout << "[Debug]db_impl.cc: open begin" << std::endl;
+    //std::cout << "[Debug]db_impl.cc: open begin" << std::endl;
     adgMod::env = options.env;
-    std::cout << "[Debug]db_impl.cc: open env" << std::endl;
+    //std::cout << "[Debug]db_impl.cc: open env" << std::endl;
     adgMod::file_data = new adgMod::FileLearnedIndexData();
-    std::cout << "[Debug]db_impl.cc: open file_data" << std::endl;
+    //std::cout << "[Debug]db_impl.cc: open file_data" << std::endl;
     adgMod::learn_cb_model = new CBModel_Learn();
-    std::cout << "[Debug]db_impl.cc: open learn_cb_model" << std::endl;
+    //std::cout << "[Debug]db_impl.cc: open learn_cb_model" << std::endl;
     DBImpl *impl = new DBImpl(options, dbname);
     impl->mutex_.Lock();
     VersionEdit edit;
     // Recover handles create_if_missing, error_if_exists
     bool save_manifest = false;
     Status s = impl->Recover(&edit, &save_manifest);
-    std::cout << "[Debug]db_impl.cc: Recover" << std::endl;
+    //std::cout << "[Debug]db_impl.cc: Recover" << std::endl;
     if (s.ok() && impl->mem_ == nullptr)
     {
       // Create new log and a corresponding memtable.
@@ -1992,24 +1992,24 @@ namespace leveldb
         impl->mem_->Ref();
       }
     }
-    std::cout << "[Debug]db_impl.cc: point1" << std::endl;
+    //std::cout << "[Debug]db_impl.cc: point1" << std::endl;
     if (s.ok() && save_manifest)
     {
       edit.SetPrevLogNumber(0); // No older logs needed after recovery.
       edit.SetLogNumber(impl->logfile_number_);
       s = impl->versions_->LogAndApply(&edit, &impl->mutex_);
     }
-    std::cout << "[Debug]db_impl.cc: point2" << std::endl;
+    //std::cout << "[Debug]db_impl.cc: point2" << std::endl;
     if (s.ok())
     {
       impl->DeleteObsoleteFiles();
-      std::cout << "[Debug]db_impl.cc: DeleteObsoleteFiles" << std::endl;
+      //std::cout << "[Debug]db_impl.cc: DeleteObsoleteFiles" << std::endl;
       //impl->MaybeScheduleCompaction();
       impl->versions_->current()->ReadLevelModel();
-      std::cout << "[Debug]db_impl.cc: ReadLevelModel" << std::endl;
+      //std::cout << "[Debug]db_impl.cc: ReadLevelModel" << std::endl;
       impl->versions_->current()->ReadFileStats();
     }
-    std::cout << "[Debug]db_impl.cc: point3" << std::endl;
+    //std::cout << "[Debug]db_impl.cc: point3" << std::endl;
     impl->mutex_.Unlock();
     if (s.ok())
     {
