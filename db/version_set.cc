@@ -547,7 +547,7 @@ namespace leveldb
         }
         else
         {
-          std::cout << "[Debug] version_set.cc: Get not using model" << std::endl
+          std::cout << "[Debug] version_set.cc: Get not using model" << std::endl;
           // Binary search to find earliest index whose largest key >= ikey.
           uint32_t index = FindFile(vset_->icmp_, files_[level], ikey);
           if (index >= num_files)
