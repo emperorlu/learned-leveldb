@@ -318,7 +318,7 @@ int main(int argc, char *argv[]) {
             }
             cout << "Shutting down" << endl;
             adgMod::db->WaitForBackground();
-            delete db;
+            //delete db;
 
             //keys.reserve(100000000000 / adgMod::value_size);
             if (!input_filename.empty()) {
@@ -356,7 +356,7 @@ int main(int argc, char *argv[]) {
         if (evict) system("sync; echo 3 | sudo tee /proc/sys/vm/drop_caches");
 
         cout << "Starting up" << endl;
-        status = DB::Open(options, db_location, &db);
+        //status = DB::Open(options, db_location, &db);
         cout << "[Debug] open db to find" << endl;
         adgMod::db->WaitForBackground();
 
@@ -468,7 +468,9 @@ int main(int argc, char *argv[]) {
                         status = db->Get(read_options, generate_key(to_string(10000000000 + index)), &value);
                     } else {
                         cout << "[Debug] db->Get begin" << endl;
+                        cout << "[Get] " << key  << endl;
                         status = db->Get(read_options, key, &value);
+                        
                     }
                     instance->PauseTimer(4);
 

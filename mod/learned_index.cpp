@@ -73,7 +73,6 @@ namespace adgMod {
         max_key = double_key.back();
         size = string_keys.size();
 
-
         std::vector<Segment> segs = plr.train(double_key, !is_level);
 
         if (segs.empty()) return false;
