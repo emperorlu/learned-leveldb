@@ -496,17 +496,15 @@ namespace leveldb
             //printf("%lu %lu\n", bounds.first, bounds.second);
 
             size_t index;
-            std::cout << "[Debug] version_set.cc: MaxPosition begin" << std::endl;
             if (bounds.first <= learned_this_level->MaxPosition())
             {
-              std::cout << "[Debug] version_set.cc: MaxPosition" << std::endl;
               learned_this_level->num_entries_accumulated.Search(user_key, bounds.first, bounds.second, &index, &position_lower, &position_upper);
-              std::cout << "[Debug] version_set.cc: Search" << std::endl;
               //printf("%lu %lu %lu\n", index, position_lower, position_upper);
               FileMetaData *file = files_[level][index];
               std::cout << "[Debug] version_set.cc: Compare begin" << std::endl;
               if (ucmp->Compare(file->smallest.user_key(), user_key) <= 0)
               {
+                std::cout << "[Debug] version_set.cc: Compare" << std::endl;
                 files = &files_[level][index];
                 num_files = 1;
               }
@@ -586,7 +584,7 @@ namespace leveldb
           stats->seek_file = last_file_read;
           stats->seek_file_level = last_file_read_level;
         }
-
+        std::cout << "[Debug] version_set.cc: 587" << std::endl;
         FileMetaData *f = files[i];
         last_file_read = f;
         last_file_read_level = level;
@@ -602,6 +600,7 @@ namespace leveldb
         instance->StartTimer(6);
         if (adgMod::MOD == 0 || adgMod::MOD == 8)
         {
+          std::cout << "[Debug] version_set.cc: table_cache_->Get" << std::endl;
           s = vset_->table_cache_->Get(options, f->number, f->file_size, ikey,
                                        &saver, SaveValue, level, f);
         }
