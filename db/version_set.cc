@@ -430,7 +430,7 @@ namespace leveldb
   {
     adgMod::Stats *instance = adgMod::Stats::GetInstance();
     Slice ikey = k.internal_key();
-    std::cout << __func__ << (void*)ikey.data() << std::endl;
+    std::cout << __func__ << " " << (void*)ikey.data() << std::endl;
     Slice user_key = k.user_key();
     const Comparator *ucmp = vset_->icmp_.user_comparator();
     Status s;

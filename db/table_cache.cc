@@ -163,6 +163,7 @@ Status TableCache::Get(const ReadOptions& options, uint64_t file_number,
                        adgMod::LearnedIndexData** model, bool* file_learned) {
   Cache::Handle* handle = nullptr;
   adgMod::Stats* instance = adgMod::Stats::GetInstance();
+  std::cout << __func__ << " " << (void*)k.data() << std::endl;
 
   if ((adgMod::MOD == 6 || adgMod::MOD == 7)) {
       std::cout << "[Debug] table_cache.cc: GetModel" << std::endl;
