@@ -429,8 +429,9 @@ void TableCache::LevelRead(const ReadOptions &options, uint64_t file_number,
         instance->PauseTimer(5);
     }
 #endif
-    std::cout << "[Debug] table_cache.cc: LevelRead: DecodeEntry" << std::endl;
+    
     Slice key(key_ptr, non_shared), value(key_ptr + non_shared, value_length);
+    std::cout << "[Debug] table_cache.cc: LevelRead: DecodeEntry" << std::endl;
     handle_result(arg, key, value);
 
     //cache handle;
