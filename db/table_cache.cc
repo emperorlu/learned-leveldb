@@ -12,7 +12,7 @@
 #include "mod/stats.h"
 #include "table/block.h"
 #include "db/version_set.h"
-
+#include <iostream>
 
 namespace leveldb {
 
@@ -165,10 +165,13 @@ Status TableCache::Get(const ReadOptions& options, uint64_t file_number,
   adgMod::Stats* instance = adgMod::Stats::GetInstance();
 
   if ((adgMod::MOD == 6 || adgMod::MOD == 7)) {
+      std::cout << "[Debug] table_cache.cc: GetModel" << std::endl;
       *model = adgMod::file_data->GetModel(meta->number);
       assert(file_learned != nullptr);
+      std::cout << "[Debug] table_cache.cc: Learned" << std::endl;
       *file_learned = (*model)->Learned();
       if (learned || *file_learned) {
+          std::cout << "[Debug] table_cache.cc: LevelRead" << std::endl;
           LevelRead(options, file_number, file_size, k, arg, handle_result, level, meta, lower, upper, learned, version);
           return Status::OK();
       }

@@ -600,15 +600,17 @@ namespace leveldb
         instance->StartTimer(6);
         if (adgMod::MOD == 0 || adgMod::MOD == 8)
         {
-          std::cout << "[Debug] version_set.cc: table_cache_->Get" << std::endl;
+          //std::cout << "[Debug] version_set.cc: table_cache_->Get" << std::endl;
           s = vset_->table_cache_->Get(options, f->number, f->file_size, ikey,
                                        &saver, SaveValue, level, f);
         }
         else
         {
+          std::cout << "[Debug] version_set.cc: table_cache_->Get" << std::endl;
           s = vset_->table_cache_->Get(options, f->number, f->file_size, ikey,
                                        &saver, SaveValue, level, f, position_lower, position_upper, learned, this, &model, &file_learned);
         }
+        std::cout << "[Debug] version_set.cc: table_cache_->Get over" << std::endl;
         auto temp = instance->PauseTimer(6, true);
 
         if (!s.ok())
