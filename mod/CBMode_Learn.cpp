@@ -1,7 +1,7 @@
 #include <util/mutexlock.h>
 #include <iostream>
 #include "CBMode_Learn.h"
-#include "learned_index.h"
+#include "leveldb/learned_index.h"
 
 
 CBModel_Learn::CBModel_Learn() : negative_lookups_time(2), positive_lookups_time(2) {};

@@ -5,7 +5,8 @@
 #include "leveldb/comparator.h"
 #include "util.h"
 #include "stats.h"
-#include "learned_index.h"
+// #include "learned_index.h"
+#include "leveldb/learned_index.h"
 #include <cstring>
 #include "cxxopts.hpp"
 #include <unistd.h>
