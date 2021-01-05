@@ -9,7 +9,7 @@
 #include <iostream>
 #include <fstream>
 #include "util/mutexlock.h"
-#include "learned_index.h"
+#include "leveldb/learned_index.h"
 #include "util.h"
 #include "db/version_set.h"
 // #include "../scode/str_int.h"
