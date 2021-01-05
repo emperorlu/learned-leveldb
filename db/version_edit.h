@@ -11,8 +11,8 @@
 
 #include "db/dbformat.h"
 #include "mod/stats.h"
-#include "mod/learned_index.h"
-
+//#include "mod/learned_index.h"
+#include "leveldb/learned_index.h"
 using std::vector;
 
 namespace leveldb {

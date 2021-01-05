@@ -6,7 +6,7 @@
 
 #include <assert.h>
 #include "../mod/util.h"
-#include "../mod/learned_index.h"
+// #include "../mod/learned_index.h"
 #include "leveldb/comparator.h"
 #include "leveldb/env.h"
 #include "leveldb/filter_policy.h"
