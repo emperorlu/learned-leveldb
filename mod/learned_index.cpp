@@ -97,7 +97,7 @@ namespace adgMod {
 
         if (string_keys.empty()) assert(false);
 
-        vector<double> double_key = toCode(string_keys);
+        vector<double> double_key = toCode();
         // for (int i = 0; i < double_key.size(); i++) {
         //     cout << i << ": " << string_keys[i] << "->" << double_key[i] << endl;
         // }
@@ -325,7 +325,7 @@ namespace adgMod {
         if (!input_file.good()) return;
         input_file >> adgMod::block_num_entries >> adgMod::block_size >> adgMod::entry_size;
         int num = 0;
-        cout << "[Debug] string_segments_max_size: " << string_segments.max_size() << endl; 
+        //cout << "[Debug] string_segments_max_size: " << string_segments.max_size() << endl; 
         while (true) {
             string x;
             double k, b;
