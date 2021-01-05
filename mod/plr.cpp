@@ -160,7 +160,7 @@ PLR::train(std::vector<double>& keys, bool file) {
             seg.b != 0) {
             this->segments.push_back(seg);
         }
-        if (!file && ++count % 10 == 0 && leveldb::env->compaction_awaiting.load() != 0) {
+        if (!file && ++count % 10 == 0 && adgMod::env->compaction_awaiting.load() != 0) {
             segments.clear();
             return segments;
         }

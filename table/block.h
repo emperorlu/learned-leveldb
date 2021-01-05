@@ -181,7 +181,7 @@ public:
 
         uint32_t left = 0;
         uint32_t right = num_restarts_ - 1;
-        leveldb::Stats *instance = leveldb::Stats::GetInstance();
+        adgMod::Stats *instance = adgMod::Stats::GetInstance();
         while (left < right) {
             uint32_t mid = (left + right + 1) / 2;
             uint32_t region_offset = GetRestartPoint(mid);

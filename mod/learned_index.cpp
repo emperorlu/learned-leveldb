@@ -15,7 +15,7 @@
 // #include "../scode/str_int.h"
 #include <sstream>
 
-namespace leveldb {
+namespace adgMod {
     vector<double> LearnedIndexData::toCode(){
         
         double pre_ba;
@@ -139,7 +139,7 @@ namespace leveldb {
         Version* c = db->GetCurrentVersion();
         if (db->version_count == vas->v_count) {
             entered = true;
-            if (vas->version->FillLevel(leveldb::read_options, vas->level)) {
+            if (vas->version->FillLevel(adgMod::read_options, vas->level)) {
                 self->filled = true;
                 if (db->version_count == vas->v_count) {
                     if (env->compaction_awaiting.load() == 0 && self->Learn()) {
@@ -150,7 +150,7 @@ namespace leveldb {
                 }
             }
         }
-        leveldb::db->ReturnCurrentVersion(c);
+        adgMod::db->ReturnCurrentVersion(c);
 
 
         auto time = instance->PauseTimer(8, true);
@@ -193,7 +193,7 @@ namespace leveldb {
         // learned.store(true);
         //string_keys.clear(); 
         std::stringstream stream;
-        stream << leveldb::block_num_entries << " " << leveldb::block_size << " " << leveldb::entry_size << "\n";
+        stream << adgMod::block_num_entries << " " << adgMod::block_size << " " << adgMod::entry_size << "\n";
         for (Segment& item: string_segments) {
             stream << item.x << " " << item.k << " " << item.b << " " << item.x2 << "\n";
         }
@@ -223,7 +223,7 @@ namespace leveldb {
         } else {
             self->learning.store(false);
         }
-        leveldb::db->ReturnCurrentVersion(c);
+        adgMod::db->ReturnCurrentVersion(c);
 
 
         auto time = instance->PauseTimer(11, true);
@@ -238,7 +238,7 @@ namespace leveldb {
 
 
 //        if (fresh_write) {
-//            self->WriteModel(leveldb::db->versions_->dbname_ + "/" + to_string(mas->meta->number) + ".fmodel");
+//            self->WriteModel(adgMod::db->versions_->dbname_ + "/" + to_string(mas->meta->number) + ".fmodel");
 //            self->string_keys.clear();
 //            self->num_entries_accumulated.array.clear();
 //        }
@@ -297,7 +297,7 @@ namespace leveldb {
     bool LearnedIndexData::FillData(Version *version, FileMetaData *meta) {
         //if (filled) return true;
 
-        if (version->FillData(leveldb::read_options, meta, this)) {
+        if (version->FillData(adgMod::read_options, meta, this)) {
             //filled = true;
             return true;
         }
@@ -309,7 +309,7 @@ namespace leveldb {
 
         std::ofstream output_file(filename);
         output_file.precision(15);
-        output_file << leveldb::block_num_entries << " " << leveldb::block_size << " " << leveldb::entry_size << "\n";
+        output_file << adgMod::block_num_entries << " " << adgMod::block_size << " " << adgMod::entry_size << "\n";
         for (Segment& item: string_segments) {
             output_file << item.x << " " << item.k << " " << item.b << " " << item.x2 << "\n";
         }
@@ -323,7 +323,7 @@ namespace leveldb {
         //std::cout << "[Debug]learned_index.cc: ReadModel" <<  std::endl;
         std::ifstream input_file(filename);
         if (!input_file.good()) return;
-        input_file >> leveldb::block_num_entries >> leveldb::block_size >> leveldb::entry_size;
+        input_file >> adgMod::block_num_entries >> adgMod::block_size >> adgMod::entry_size;
         int num = 0;
         //cout << "[Debug] string_segments_max_size: " << string_segments.max_size() << endl; 
         while (true) {
@@ -422,7 +422,7 @@ namespace leveldb {
         leveldb::MutexLock l(&mutex);
 
         std::set<uint64_t> live_files;
-        leveldb::db->versions_->AddLiveFiles(&live_files);
+        adgMod::db->versions_->AddLiveFiles(&live_files);
 
         for (size_t i = 0; i < file_learned_index_data.size(); ++i) {
             auto pointer = file_learned_index_data[i];
@@ -448,7 +448,7 @@ namespace leveldb {
 
     bool AccumulatedNumEntriesArray::Search(const Slice& key, uint64_t lower, uint64_t upper, size_t* index,
                                             uint64_t* relative_lower, uint64_t* relative_upper) {
-        if (leveldb::MOD == 4) {
+        if (adgMod::MOD == 4) {
             uint64_t lower_pos = lower / array[0].first;
             uint64_t upper_pos = upper / array[0].first;
             if (lower_pos != upper_pos) {

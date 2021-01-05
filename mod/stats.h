@@ -16,7 +16,7 @@ using std::string;
 using std::to_string;
 
 
-namespace leveldb {
+namespace adgMod {
 
     class Timer;
     class Stats {

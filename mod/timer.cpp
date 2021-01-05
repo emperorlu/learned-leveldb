@@ -8,7 +8,7 @@
 #include <x86intrin.h>
 
 
-namespace leveldb {
+namespace adgMod {
 
     Timer::Timer() : time_accumulated(0), started(false) {}
 

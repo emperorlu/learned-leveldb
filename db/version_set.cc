@@ -429,7 +429,7 @@ namespace leveldb
   Status Version::Get(const ReadOptions &options, const LookupKey &k,
                       std::string *value, GetStats *stats)
   {
-    leveldb::Stats *instance = leveldb::Stats::GetInstance();
+    adgMod::Stats *instance = adgMod::Stats::GetInstance();
     Slice ikey = k.internal_key();
     //std::cout << __func__ << " " << (void*)ikey.data() << std::endl;
     Slice user_key = k.user_key();
@@ -489,11 +489,11 @@ namespace leveldb
       }
       else
       {
-        if (leveldb::MOD == 6 || leveldb::MOD == 7)
+        if (adgMod::MOD == 6 || adgMod::MOD == 7)
         {
           //std::cout << "[Debug] version_set.cc: Get begin model" << std::endl;
-          leveldb::LearnedIndexData *learned_this_level = learned_index_data_[level].get();
-          if (learned_this_level->Learned(this, leveldb::db->version_count, level))
+          adgMod::LearnedIndexData *learned_this_level = learned_index_data_[level].get();
+          if (learned_this_level->Learned(this, adgMod::db->version_count, level))
           {
             ////std::cout << "using model" << std::endl;
             //std::cout << "[Debug] version_set.cc: Get using model" << std::endl;
@@ -602,10 +602,10 @@ namespace leveldb
         saver.user_key = user_key;
         saver.value = value;
 
-        leveldb::LearnedIndexData *model = nullptr;
+        adgMod::LearnedIndexData *model = nullptr;
         bool file_learned = false;
         instance->StartTimer(6);
-        if (leveldb::MOD == 0 || leveldb::MOD == 8)
+        if (adgMod::MOD == 0 || adgMod::MOD == 8)
         {
           ////std::cout << "[Debug] version_set.cc: table_cache_->Get" << std::endl;
           s = vset_->table_cache_->Get(options, f->number, f->file_size, ikey,
@@ -626,7 +626,7 @@ namespace leveldb
         }
 
 #ifdef RECORD_LEVEL_INFO
-        leveldb::learn_cb_model->AddLookupData(level, saver.state == kFound, file_learned, temp.second - temp.first);
+        adgMod::learn_cb_model->AddLookupData(level, saver.state == kFound, file_learned, temp.second - temp.first);
 //        if (model != nullptr) {
 //            model->FillCBAStat(saver.state == kFound, file_learned, temp.second - temp.first);
 //        }
@@ -636,16 +636,16 @@ namespace leveldb
         case kNotFound:
         {
 #ifdef RECORD_LEVEL_INFO
-          leveldb::levelled_counters[4].Increment(level, temp.second - temp.first);
-          if (!leveldb::fresh_write)
+          adgMod::levelled_counters[4].Increment(level, temp.second - temp.first);
+          if (!adgMod::fresh_write)
           {
-            leveldb::file_stats_mutex.Lock();
-            auto iter = leveldb::file_stats.find(f->number);
-            if (iter != leveldb::file_stats.end())
+            adgMod::file_stats_mutex.Lock();
+            auto iter = adgMod::file_stats.find(f->number);
+            if (iter != adgMod::file_stats.end())
             {
               iter->second.num_lookup_neg += 1;
             }
-            leveldb::file_stats_mutex.Unlock();
+            adgMod::file_stats_mutex.Unlock();
           }
 #endif
           break; // Keep searching in other files
@@ -653,16 +653,16 @@ namespace leveldb
         case kFound:
         {
 #ifdef RECORD_LEVEL_INFO
-          leveldb::levelled_counters[3].Increment(level, temp.second - temp.first);
-          if (!leveldb::fresh_write)
+          adgMod::levelled_counters[3].Increment(level, temp.second - temp.first);
+          if (!adgMod::fresh_write)
           {
-            leveldb::file_stats_mutex.Lock();
-            auto iter = leveldb::file_stats.find(f->number);
-            if (iter != leveldb::file_stats.end())
+            adgMod::file_stats_mutex.Lock();
+            auto iter = adgMod::file_stats.find(f->number);
+            if (iter != adgMod::file_stats.end())
             {
               iter->second.num_lookup_pos += 1;
             }
-            leveldb::file_stats_mutex.Unlock();
+            adgMod::file_stats_mutex.Unlock();
           }
 #endif
           return s;
@@ -1103,7 +1103,7 @@ namespace leveldb
 
   VersionSet::~VersionSet()
   {
-    if (leveldb::fresh_write)
+    if (adgMod::fresh_write)
       current_->WriteLevelModel();
     current_->Unref();
 
@@ -1180,7 +1180,7 @@ namespace leveldb
     }
     Finalize(v);
     //ApplyToModel(edit, current_, v);
-    //leveldb::env->ClearPendingLearning();
+    //adgMod::env->ClearPendingLearning();
 
     // Initialize new descriptor log file if necessary by creating
     // a temporary file that contains a snapshot of the current version.
@@ -1235,7 +1235,7 @@ namespace leveldb
     if (s.ok())
     {
       ApplyToModel(edit, current_, v);
-      leveldb::db->version_count += 1;
+      adgMod::db->version_count += 1;
       AppendVersion(v);
       log_number_ = edit->log_number_;
       prev_log_number_ = edit->prev_log_number_;
@@ -2112,14 +2112,14 @@ namespace leveldb
     }
   }
 
-  bool Version::FillData(const ReadOptions &options, FileMetaData *meta, leveldb::LearnedIndexData *data)
+  bool Version::FillData(const ReadOptions &options, FileMetaData *meta, adgMod::LearnedIndexData *data)
   {
     return vset_->table_cache_->FillData(options, meta, data);
   }
 
   bool Version::FillLevel(const ReadOptions &options, int level)
   {
-    leveldb::LearnedIndexData *data = learned_index_data_[level].get();
+    adgMod::LearnedIndexData *data = learned_index_data_[level].get();
 
     if (files_[level].empty())
       return false;
@@ -2127,17 +2127,17 @@ namespace leveldb
     for (int j = 0; j < files_[level].size(); ++j)
     {
       FileMetaData *file = files_[level][j];
-      //leveldb::test_num_file_segments = leveldb::test_num_level_segments / (uint32_t) files_[level].size();
-      bool rt = leveldb::file_data->FillData(this, file);
+      //adgMod::test_num_file_segments = adgMod::test_num_level_segments / (uint32_t) files_[level].size();
+      bool rt = adgMod::file_data->FillData(this, file);
       assert(rt);
-      auto &file_data = leveldb::file_data->GetData(file);
+      auto &file_data = adgMod::file_data->GetData(file);
       data->string_keys.insert(data->string_keys.end(), file_data.begin(), file_data.end());
       //file_data.clear();
 
       uint64_t current_total = data->num_entries_accumulated.NumEntries();
       const Slice &largest_key = file->largest.user_key();
       data->num_entries_accumulated.Add(current_total + file_data.size(), string(largest_key.data(), largest_key.size()));
-      //leveldb::file_data->GetAccumulatedArray(file->number)->array.clear();
+      //adgMod::file_data->GetAccumulatedArray(file->number)->array.clear();
     }
     return true;
   }
@@ -2150,7 +2150,7 @@ namespace leveldb
       learned_index_data_[i]->WriteModel(vset_->dbname_ + "/" + to_string(i) + ".model");
       for (FileMetaData *file_meta : files_[i])
       {
-        leveldb::file_data->GetModel(file_meta->number)->WriteModel(vset_->dbname_ + "/" + to_string(file_meta->number) + ".fmodel");
+        adgMod::file_data->GetModel(file_meta->number)->WriteModel(vset_->dbname_ + "/" + to_string(file_meta->number) + ".fmodel");
       }
     }
   }
@@ -2162,37 +2162,37 @@ namespace leveldb
     for (int i = 0; i < config::kNumLevels; ++i)
     {
       //std::cout << "[Debug]version.cc: ReadModel_" << i << std::endl;
-      if (leveldb::load_level_model)
+      if (adgMod::load_level_model)
         learned_index_data_[i]->ReadModel(vset_->dbname_ + "/" + to_string(i) + ".model");
       //std::cout << "[Debug]version.cc: ReadFileModel_" << i << std::endl;
       for (FileMetaData *file_meta : files_[i])
       {
-        if (leveldb::load_file_model)
+        if (adgMod::load_file_model)
         {
           //std::cout << "[Debug]version.cc: FileModel" << std::endl;
-          leveldb::file_data->GetModel(file_meta->number)->ReadModel(vset_->dbname_ + "/" + to_string(file_meta->number) + ".fmodel");
+          adgMod::file_data->GetModel(file_meta->number)->ReadModel(vset_->dbname_ + "/" + to_string(file_meta->number) + ".fmodel");
         }
         file_max = file_max > file_meta->number ? file_max : file_meta->number;
       }
     }
-    leveldb::file_data->watermark = file_max;
+    adgMod::file_data->watermark = file_max;
     //std::cout << "[Debug]version.cc: ReadLevelModel over" << std::endl;
   }
 
   void Version::ReadFileStats()
   {
-    if (leveldb::fresh_write)
+    if (adgMod::fresh_write)
       return;
     uint64_t file_max = 0;
     for (int i = 0; i < config::kNumLevels; ++i)
     {
       for (FileMetaData *file_meta : files_[i])
       {
-        leveldb::file_stats.insert({file_meta->number, leveldb::FileStats(i, file_meta->file_size)});
+        adgMod::file_stats.insert({file_meta->number, adgMod::FileStats(i, file_meta->file_size)});
         file_max = file_max > file_meta->number ? file_max : file_meta->number;
       }
     }
-    leveldb::file_data->watermark = file_max;
+    adgMod::file_data->watermark = file_max;
   }
 
   void Version::FileLearn()
@@ -2201,7 +2201,7 @@ namespace leveldb
     {
       for (FileMetaData *file_meta : files_[i])
       {
-        leveldb::LearnedIndexData::FileLearn(new leveldb::MetaAndSelf{this, leveldb::db->version_count, file_meta, leveldb::file_data->GetModel(file_meta->number), i});
+        adgMod::LearnedIndexData::FileLearn(new adgMod::MetaAndSelf{this, adgMod::db->version_count, file_meta, adgMod::file_data->GetModel(file_meta->number), i});
       }
     }
   }

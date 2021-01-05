@@ -21,7 +21,7 @@ using leveldb::FileMetaData;
 
 
 
-namespace leveldb {
+namespace adgMod {
 
     class LearnedIndexData;
 
@@ -99,7 +99,7 @@ namespace leveldb {
         //        uint64_t file_size = 0;
 
 
-        explicit LearnedIndexData(int allowed_seek) : error(leveldb::model_error), learned(false), aborted(false), learning(false),
+        explicit LearnedIndexData(int allowed_seek) : error(adgMod::model_error), learned(false), aborted(false), learning(false),
             learned_not_atomic(false), allowed_seek(allowed_seek), current_seek(0), filled(false), is_level(false), level(0), served(0), cost(0),
             max_lenth(0) {};
         LearnedIndexData(const LearnedIndexData& other) = delete;

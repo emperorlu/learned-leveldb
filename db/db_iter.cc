@@ -69,14 +69,14 @@ class DBIter : public Iterator {
   virtual Slice value() const {
     assert(valid_);
     Slice vaddr = (direction_ == kForward) ? iter_->value() : saved_value_;
-    if (leveldb::MOD >= 7) {
+    if (adgMod::MOD >= 7) {
 #ifdef INTERNAL_TIMER
-      leveldb::Stats* instance = leveldb::Stats::GetInstance();
+      adgMod::Stats* instance = adgMod::Stats::GetInstance();
       instance->StartTimer(12);
 #endif
       uint64_t value_address = DecodeFixed64(vaddr.data());
       uint32_t value_size = DecodeFixed32(vaddr.data() + sizeof(uint64_t));
-      Slice value = leveldb::db->vlog->ReadRecord2(value_address, value_size);
+      Slice value = adgMod::db->vlog->ReadRecord2(value_address, value_size);
 #ifdef INTERNAL_TIMER
       instance->PauseTimer(12);
 #endif

@@ -16,7 +16,7 @@
 #include <random>
 
 using namespace leveldb;
-using namespace leveldb;
+using namespace adgMod;
 using std::string;
 using std::cout;
 using std::endl;
@@ -35,10 +35,10 @@ int chunk_size = 100000;
 class NumericalComparator : public Comparator {
 public:
     NumericalComparator() = default;
-    virtual const char* Name() const {return "leveldb:NumericalComparator";}
+    virtual const char* Name() const {return "adgMod:NumericalComparator";}
     virtual int Compare(const Slice& a, const Slice& b) const {
-        uint64_t ia = leveldb::ExtractInteger(a.data(), a.size());
-        uint64_t ib = leveldb::ExtractInteger(b.data(), b.size());
+        uint64_t ia = adgMod::ExtractInteger(a.data(), a.size());
+        uint64_t ib = adgMod::ExtractInteger(b.data(), b.size());
         if (ia < ib) return -1;
         else if (ia == ib) return 0;
         else return 1;
@@ -49,7 +49,7 @@ public:
 
 
 void PutAndPrefetch(int lower, int higher, vector<string>& keys) {
-    leveldb::Stats* instance = leveldb::Stats::GetInstance();
+    adgMod::Stats* instance = adgMod::Stats::GetInstance();
 
     Status status;
 
@@ -100,24 +100,24 @@ int main(int argc, char *argv[]) {
             ("n,get_number", "the number of gets (to be multiplied by 1024)", cxxopts::value<int>(num_operations)->default_value("1000"))
             ("s,step", "the step of the loop of the size of db", cxxopts::value<float>(num_pair_step)->default_value("1"))
             ("i,iteration", "the number of iterations of a same size", cxxopts::value<int>(num_iteration)->default_value("1"))
-            ("m,modification", "if set, run our modified version", cxxopts::value<int>(leveldb::MOD)->default_value("0"))
+            ("m,modification", "if set, run our modified version", cxxopts::value<int>(adgMod::MOD)->default_value("0"))
             ("h,help", "print help message", cxxopts::value<bool>()->default_value("false"))
             ("d,directory", "the directory of db", cxxopts::value<string>(db_location)->default_value("/mnt/ssd/testdb"))
-            ("k,key_size", "the size of key", cxxopts::value<int>(leveldb::key_size)->default_value("8"))
-            ("v,value_size", "the size of value", cxxopts::value<int>(leveldb::value_size)->default_value("8"))
+            ("k,key_size", "the size of key", cxxopts::value<int>(adgMod::key_size)->default_value("8"))
+            ("v,value_size", "the size of value", cxxopts::value<int>(adgMod::value_size)->default_value("8"))
             ("single_timing", "print the time of every single get", cxxopts::value<bool>(print_single_timing)->default_value("false"))
             ("file_info", "print the file structure info", cxxopts::value<bool>(print_file_info)->default_value("false"))
             ("test_num_segments", "test: number of segments per level", cxxopts::value<float>(test_num_segments_base)->default_value("1"))
-            ("string_mode", "test: use string or int in model", cxxopts::value<bool>(leveldb::string_mode)->default_value("false"))
-            ("e,model_error", "error in modesl", cxxopts::value<uint32_t>(leveldb::model_error)->default_value("8"))
+            ("string_mode", "test: use string or int in model", cxxopts::value<bool>(adgMod::string_mode)->default_value("false"))
+            ("e,model_error", "error in modesl", cxxopts::value<uint32_t>(adgMod::model_error)->default_value("8"))
             ("f,input_file", "the filename of input file", cxxopts::value<string>(input_filename)->default_value(""))
-            ("multiple", "test: use larger keys", cxxopts::value<uint64_t>(leveldb::key_multiple)->default_value("1"))
+            ("multiple", "test: use larger keys", cxxopts::value<uint64_t>(adgMod::key_multiple)->default_value("1"))
             ("w,write", "writedb", cxxopts::value<bool>(fresh_write)->default_value("false"))
             ("c,uncache", "evict cache", cxxopts::value<bool>(evict)->default_value("false"))
             ("u,unlimit_fd", "unlimit fd", cxxopts::value<bool>(unlimit_fd)->default_value("false"))
             ("x,dummy", "dummy option")
             ("l,load_type", "load type", cxxopts::value<int>(load_type)->default_value("0"))
-            ("filter", "use filter", cxxopts::value<bool>(leveldb::use_filter)->default_value("false"))
+            ("filter", "use filter", cxxopts::value<bool>(adgMod::use_filter)->default_value("false"))
             ("mix", "mix read and write", cxxopts::value<int>(num_mix)->default_value("0"))
             ("distribution", "operation distribution", cxxopts::value<string>(distribution_filename)->default_value(""))
             ("change_level_load", "load level model", cxxopts::value<bool>(change_level_load)->default_value("false"))
@@ -125,7 +125,7 @@ int main(int argc, char *argv[]) {
             ("change_level_learning", "load file model", cxxopts::value<bool>(change_level_learning)->default_value("false"))
             ("change_file_learning", "enable file learning", cxxopts::value<bool>(change_file_learning)->default_value("false"))
             ("p,pause", "pause between operation", cxxopts::value<bool>(pause)->default_value("false"))
-            ("policy", "learn policy", cxxopts::value<int>(leveldb::policy)->default_value("0"))
+            ("policy", "learn policy", cxxopts::value<int>(adgMod::policy)->default_value("0"))
             ("YCSB", "use YCSB trace", cxxopts::value<string>(ycsb_filename)->default_value(""))
             ("insert", "insert new value", cxxopts::value<int>(insert_bound)->default_value("0"))
             ("range", "use range query and specify length", cxxopts::value<int>(length_range)->default_value("0"));
@@ -142,27 +142,27 @@ int main(int argc, char *argv[]) {
     num_operations *= num_pairs_base;
     db_location_copy = db_location;
 
-    leveldb::fd_limit = unlimit_fd ? 1024 * 1024 : 1024;
-    leveldb::restart_read = true;
-    leveldb::level_learning_enabled ^= change_level_learning;
-    leveldb::file_learning_enabled ^= change_file_learning;
-    leveldb::load_level_model ^= change_level_load;
-    leveldb::load_file_model ^= change_file_load;
+    adgMod::fd_limit = unlimit_fd ? 1024 * 1024 : 1024;
+    adgMod::restart_read = true;
+    adgMod::level_learning_enabled ^= change_level_learning;
+    adgMod::file_learning_enabled ^= change_file_learning;
+    adgMod::load_level_model ^= change_level_load;
+    adgMod::load_file_model ^= change_file_load;
     //cout << "[Debug] run 2" << endl;
-   // leveldb::file_learning_enabled = false;
+   // adgMod::file_learning_enabled = false;
 
 
     vector<string> keys;
     vector<uint64_t> distribution;
     vector<int> ycsb_is_write;
-    //keys.reserve(100000000000 / leveldb::value_size);
+    //keys.reserve(100000000000 / adgMod::value_size);
     if (!input_filename.empty()) {
         ifstream input(input_filename);
         string key;
         while (input >> key) {
             keys.push_back(std::move(key));
         }
-        //leveldb::key_size = (int) keys.front().size();
+        //adgMod::key_size = (int) keys.front().size();
     } else {
         std::uniform_int_distribution<uint64_t> udist_key(0, 999999999999999);
         for (int i = 0; i < 10000000; ++i) {
@@ -191,7 +191,7 @@ int main(int argc, char *argv[]) {
     }
     bool copy_out = num_mix != 0 || use_ycsb;
 
-    leveldb::Stats* instance = leveldb::Stats::GetInstance();
+    adgMod::Stats* instance = adgMod::Stats::GetInstance();
     vector<vector<size_t>> times(20);
     string values(1024 * 1024, '0');
 
@@ -213,17 +213,17 @@ int main(int argc, char *argv[]) {
         db_location = db_location_copy;
         std::uniform_int_distribution<uint64_t > uniform_dist_file(0, (uint64_t) keys.size() - 1);
         std::uniform_int_distribution<uint64_t > uniform_dist_file2(0, (uint64_t) keys.size() - 1);
-        std::uniform_int_distribution<uint64_t > uniform_dist_value(0, (uint64_t) values.size() - leveldb::value_size - 1);
+        std::uniform_int_distribution<uint64_t > uniform_dist_value(0, (uint64_t) values.size() - adgMod::value_size - 1);
 
         DB* db;
         Options options;
-        ReadOptions& read_options = leveldb::read_options;
-        WriteOptions& write_options = leveldb::write_options;
+        ReadOptions& read_options = adgMod::read_options;
+        WriteOptions& write_options = adgMod::write_options;
         Status status;
 
         options.create_if_missing = true;
         //options.comparator = new NumericalComparator;
-        //leveldb::block_restart_interval = options.block_restart_interval = leveldb::MOD == 8 || leveldb::MOD == 7 ? 1 : leveldb::block_restart_interval;
+        //adgMod::block_restart_interval = options.block_restart_interval = adgMod::MOD == 8 || adgMod::MOD == 7 ? 1 : adgMod::block_restart_interval;
         //read_options.fill_cache = true;
         write_options.sync = false;
         instance->ResetAll();
@@ -280,12 +280,12 @@ int main(int argc, char *argv[]) {
             //put数据
             for (int cut = 0; cut < chunks.size(); ++cut) {
                 for (int i = chunks[cut].first; i < chunks[cut].second; ++i) {
-                    status = db->Put(write_options, keys[i], {values.data() + uniform_dist_value(e2), (uint64_t) leveldb::value_size});
+                    status = db->Put(write_options, keys[i], {values.data() + uniform_dist_value(e2), (uint64_t) adgMod::value_size});
 
                     assert(status.ok() && "File Put Error");
                 }
             }
-            leveldb::db->vlog->Sync();
+            adgMod::db->vlog->Sync();
             instance->PauseTimer(9, true);
             cout << "Put Complete" << endl;
 
@@ -295,33 +295,33 @@ int main(int argc, char *argv[]) {
             if (print_file_info && iteration == 0) db->PrintFileInfo(); 
 
             //WaitForBackground
-            leveldb::db->WaitForBackground();
+            adgMod::db->WaitForBackground();
             delete db;
 
             //2.2 训练模型
             status = DB::Open(options, db_location, &db);
-            leveldb::db->WaitForBackground();
+            adgMod::db->WaitForBackground();
 
             //Use Mod
-            if (leveldb::MOD == 6 || leveldb::MOD == 7) {
-                Version* current = leveldb::db->versions_->current();
+            if (adgMod::MOD == 6 || adgMod::MOD == 7) {
+                Version* current = adgMod::db->versions_->current();
                 for (int i = 1; i < config::kNumLevels; ++i) {
-                    LearnedIndexData::Learn(new VersionAndSelf{current, leveldb::db->version_count, current->learned_index_data_[i].get(), i});
+                    LearnedIndexData::Learn(new VersionAndSelf{current, adgMod::db->version_count, current->learned_index_data_[i].get(), i});
                 }
                 current->FileLearn();
             }
             cout << "Shutting down" << endl;
-            leveldb::db->WaitForBackground();
+            adgMod::db->WaitForBackground();
             delete db;
 
-            //keys.reserve(100000000000 / leveldb::value_size);
+            //keys.reserve(100000000000 / adgMod::value_size);
             if (!input_filename.empty()) {
                 ifstream input(input_filename);
                 string key;
                 while (input >> key) {
                     keys.push_back(std::move(key));
                 }
-                leveldb::key_size = (int) keys.front().size();
+                adgMod::key_size = (int) keys.front().size();
             }
             fresh_write = false;
         }
@@ -346,7 +346,7 @@ int main(int argc, char *argv[]) {
          //2.2 读写测试
         cout << "Starting up" << endl;
         status = DB::Open(options, db_location, &db);
-        leveldb::db->WaitForBackground();
+        adgMod::db->WaitForBackground();
 
         Iterator* db_iter = length_range == 0 ? nullptr : db->NewIterator(read_options);
         assert(status.ok() && "Open Error");
@@ -372,7 +372,7 @@ int main(int argc, char *argv[]) {
                 cout << "Write begin" << endl;
                 if (input_filename.empty()) {
                     instance->StartTimer(10);
-                    status = db->Put(write_options, generate_key(to_string(distribution[i])), {values.data() + uniform_dist_value(e3), (uint64_t) leveldb::value_size});
+                    status = db->Put(write_options, generate_key(to_string(distribution[i])), {values.data() + uniform_dist_value(e3), (uint64_t) adgMod::value_size});
                     instance->PauseTimer(10);
                 } else {
                     uint64_t index;
@@ -386,9 +386,9 @@ int main(int argc, char *argv[]) {
 
                     instance->StartTimer(10);
                     if (use_ycsb && ycsb_is_write[i] == 2) {
-                        status = db->Put(write_options, generate_key(to_string(10000000000 + index)), {values.data() + uniform_dist_value(e3), (uint64_t) leveldb::value_size});
+                        status = db->Put(write_options, generate_key(to_string(10000000000 + index)), {values.data() + uniform_dist_value(e3), (uint64_t) adgMod::value_size});
                     } else {
-                        status = db->Put(write_options, keys[index], {values.data() + uniform_dist_value(e3), (uint64_t) leveldb::value_size});
+                        status = db->Put(write_options, keys[index], {values.data() + uniform_dist_value(e3), (uint64_t) adgMod::value_size});
                     }
                     instance->PauseTimer(10);
                     assert(status.ok() && "Mix Put Error");
@@ -493,7 +493,7 @@ int main(int argc, char *argv[]) {
                 detailed_times.clear();
                 start_new_event = true;
                 cout << (i + 1) / (num_operations / 10) << endl;
-                Version* current = leveldb::db->versions_->current();
+                Version* current = adgMod::db->versions_->current();
                 printf("LevelSize %d %d %d %d %d %d\n", current->NumFiles(0), current->NumFiles(1), current->NumFiles(2), current->NumFiles(3),
                        current->NumFiles(4), current->NumFiles(5));
             }
@@ -507,7 +507,7 @@ int main(int argc, char *argv[]) {
         for (int s = 0; s < times.size(); ++s) {
             times[s].push_back(instance->ReportTime(s));
         }
-        leveldb::db->WaitForBackground();
+        adgMod::db->WaitForBackground();
         sleep(10);
 
 
@@ -525,7 +525,7 @@ int main(int argc, char *argv[]) {
                 it.second.end, it.second.num_lookup_pos, it.second.num_lookup_neg, it.second.size, it.first < file_data->watermark ? 0 : 1);
         }
 
-        leveldb::learn_cb_model->Report();
+        adgMod::learn_cb_model->Report();
 
         delete db_iter;
         delete db;

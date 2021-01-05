@@ -14,11 +14,11 @@ using std::string;
 
 const int buffer_size_max = 300 * 1024;
 
-namespace leveldb {
+namespace adgMod {
 
 VLog::VLog(const std::string& vlog_name) : writer(nullptr), reader(nullptr) {
-    leveldb::env->NewWritableFile(vlog_name, &writer);
-    leveldb::env->NewRandomAccessFile(vlog_name, &reader);
+    adgMod::env->NewWritableFile(vlog_name, &writer);
+    adgMod::env->NewRandomAccessFile(vlog_name, &reader);
     buffer.reserve(buffer_size_max * 2);
     struct ::stat file_stat;
     ::stat(vlog_name.c_str(), &file_stat);

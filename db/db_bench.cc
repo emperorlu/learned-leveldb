@@ -973,7 +973,7 @@ int main(int argc, char** argv) {
     } else if (sscanf(argv[i], "--open_files=%d%c", &n, &junk) == 1) {
       FLAGS_open_files = n;
     } else if (sscanf(argv[i], "--mod=%d%c", &n, &junk) == 1) {
-      leveldb::MOD = n;
+      adgMod::MOD = n;
     } else if (strncmp(argv[i], "--db=", 5) == 0) {
         FLAGS_db = argv[i] + 5;
     } else {

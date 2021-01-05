@@ -9,16 +9,16 @@ namespace leveldb {
 
 class LearnedIterator : public Iterator {
  public:
-  LearnedIterator(Table* table, RandomAccessFile* file, leveldb::LearnedIndexData* file_model) :
+  LearnedIterator(Table* table, RandomAccessFile* file, adgMod::LearnedIndexData* file_model) :
 		table(table), file(file), file_model(file_model),
     num_blocks(table->rep_->index_block->NumRestarts()),
-    last_block_num_entries(file_model->MaxPosition() + 1 - (num_blocks - 1) * leveldb::block_num_entries),
+    last_block_num_entries(file_model->MaxPosition() + 1 - (num_blocks - 1) * adgMod::block_num_entries),
     block_content(), current_block(-1), current_entry(-1), key_(), value_() { };
 
   virtual ~LearnedIterator() = default;
 
   virtual void Seek(const Slice& target) {
-		leveldb::Stats* instance = leveldb::Stats::GetInstance();
+		adgMod::Stats* instance = adgMod::Stats::GetInstance();
 
 		// read the model
 		ParsedInternalKey parsed_key;
@@ -35,8 +35,8 @@ class LearnedIterator : public Iterator {
     }
 
 		// Get the position we want to read
-		size_t index_lower = lower / leveldb::block_num_entries;
-		size_t index_upper = upper / leveldb::block_num_entries;
+		size_t index_lower = lower / adgMod::block_num_entries;
+		size_t index_upper = upper / adgMod::block_num_entries;
 		uint64_t i = index_lower;
     if (index_lower != index_upper) {
 			Block* index_block = table->rep_->index_block;
@@ -51,8 +51,8 @@ class LearnedIterator : public Iterator {
     }
 
 		// No filter block search, just read corresponding entries
-		uint64_t left = i == index_lower ? lower % leveldb::block_num_entries : 0;
-    uint64_t right = i == index_upper ? upper % leveldb::block_num_entries : leveldb::block_num_entries - 1;
+		uint64_t left = i == index_lower ? lower % adgMod::block_num_entries : 0;
+    uint64_t right = i == index_upper ? upper % adgMod::block_num_entries : adgMod::block_num_entries - 1;
     if (current_block != i) {
       current_block = i;
       ReadDataBlock();
@@ -63,8 +63,8 @@ class LearnedIterator : public Iterator {
     while (left < right) {
       uint32_t mid = (left + right) / 2;
       uint32_t shared, non_shared, value_length;
-      const char* key_ptr = DecodeEntry(block_content.data() + mid * leveldb::entry_size,
-              block_content.data() + leveldb::block_size, &shared, &non_shared, &value_length);
+      const char* key_ptr = DecodeEntry(block_content.data() + mid * adgMod::entry_size,
+              block_content.data() + adgMod::block_size, &shared, &non_shared, &value_length);
       assert(key_ptr != nullptr && shared == 0 && "Entry Corruption");
       Slice mid_key(key_ptr, non_shared);
       int comp = table->rep_->options.comparator->Compare(mid_key, target);
@@ -100,7 +100,7 @@ class LearnedIterator : public Iterator {
         return;
       }
     } else {
-      if (current_entry >= leveldb::block_num_entries) {
+      if (current_entry >= adgMod::block_num_entries) {
         ++current_block;
         current_entry = 0;
         ReadDataBlock();
@@ -126,7 +126,7 @@ class LearnedIterator : public Iterator {
  private:
 	Table* table;
 	RandomAccessFile* file;
-	leveldb::LearnedIndexData* file_model;
+	adgMod::LearnedIndexData* file_model;
   
   char* scratch = nullptr;
   const uint32_t num_blocks;  
@@ -142,17 +142,17 @@ class LearnedIterator : public Iterator {
   void ParseEntry() {
     assert(Valid());
     uint32_t shared, non_shared, value_length;
-    const char* key_ptr = DecodeEntry(block_content.data() + current_entry * leveldb::entry_size,
-            block_content.data() + leveldb::block_size, &shared, &non_shared, &value_length);
+    const char* key_ptr = DecodeEntry(block_content.data() + current_entry * adgMod::entry_size,
+            block_content.data() + adgMod::block_size, &shared, &non_shared, &value_length);
     assert(key_ptr != nullptr && shared == 0 && "Entry Corruption");
     key_ = Slice(key_ptr, non_shared);
     value_ = Slice(key_ptr + non_shared, value_length);
   }
 
   void ReadDataBlock() {
-    uint64_t read_size = current_block == num_blocks - 1 ? last_block_num_entries : leveldb::block_num_entries;
-    read_size *= leveldb::entry_size;
-    Status s = file->Read(current_block * leveldb::block_size, read_size, &block_content, scratch);
+    uint64_t read_size = current_block == num_blocks - 1 ? last_block_num_entries : adgMod::block_num_entries;
+    read_size *= adgMod::entry_size;
+    Status s = file->Read(current_block * adgMod::block_size, read_size, &block_content, scratch);
     assert(s.ok());
   }
 };

@@ -784,7 +784,7 @@ class PosixEnv : public Env {
   }
 
   void PrepareLearn() {
-    leveldb::Stats* instance = leveldb::Stats::GetInstance();
+    adgMod::Stats* instance = adgMod::Stats::GetInstance();
     std::priority_queue<std::pair<double, LearnParam>> learn_pq;
     bool wait_for_time = false;
     int64_t time_diff = 1000000;
@@ -796,20 +796,20 @@ class PosixEnv : public Env {
         }
 
         uint32_t dummy;
-        uint64_t time_start = (__rdtscp(&dummy) - instance->initial_time) / leveldb::reference_frequency;// - leveldb::learn_trigger_time * 1000;
+        uint64_t time_start = (__rdtscp(&dummy) - instance->initial_time) / adgMod::reference_frequency;// - adgMod::learn_trigger_time * 1000;
 
         while (!learning_prepare.empty()) {
             auto front = learning_prepare.front();
             int level = front.second.first;
             uint64_t wait_time = 100;
-            time_diff = front.first + leveldb::learn_trigger_time * wait_time - time_start;
+            time_diff = front.first + adgMod::learn_trigger_time * wait_time - time_start;
             if (time_diff > 0) {
                 wait_for_time = true;
                 break;
             }
 
             learning_prepare.pop();
-            double score = leveldb::learn_cb_model->CalculateCB(level, front.second.second->file_size);
+            double score = adgMod::learn_cb_model->CalculateCB(level, front.second.second->file_size);
             if (score > CBModel_Learn::const_size_to_cost) learn_pq.push(std::make_pair(score, front));
         }
 
@@ -817,9 +817,9 @@ class PosixEnv : public Env {
             auto& top = learn_pq.top().second;
             int level = top.second.first;
             FileMetaData* meta = top.second.second;
-            leveldb::LearnedIndexData* model = leveldb::file_data->GetModel(meta->number);
+            adgMod::LearnedIndexData* model = adgMod::file_data->GetModel(meta->number);
             prepare_queue_mutex.Unlock();
-            leveldb::LearnedIndexData::FileLearn(new leveldb::MetaAndSelf{nullptr, 0, meta, model, level});
+            adgMod::LearnedIndexData::FileLearn(new adgMod::MetaAndSelf{nullptr, 0, meta, model, level});
             prepare_queue_mutex.Lock();
             learn_pq.pop();
         }
@@ -838,7 +838,7 @@ class PosixEnv : public Env {
   }
 
   void PrepareLearning(uint64_t time_start, int level, FileMetaData* meta) {
-    if (leveldb::fresh_write || (leveldb::MOD != 6 && leveldb::MOD != 7)) return;
+    if (adgMod::fresh_write || (adgMod::MOD != 6 && adgMod::MOD != 7)) return;
     MutexLock guard(&prepare_queue_mutex);
     if (!preparing_thread_started) {
         preparing_thread_started = true;
@@ -939,7 +939,7 @@ PosixEnv::PosixEnv()
       started_learn_thread_(false),
       preparing_queue_cv(&prepare_queue_mutex),
       preparing_thread_started(false),
-      mmap_limiter_(/*MaxMmaps()*/ leveldb::fd_limit),
+      mmap_limiter_(/*MaxMmaps()*/ adgMod::fd_limit),
       fd_limiter_(MaxOpenFiles()) {
         compaction_awaiting.store(0);
       }

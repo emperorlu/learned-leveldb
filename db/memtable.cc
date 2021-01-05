@@ -98,7 +98,7 @@ void MemTable::Add(SequenceNumber s, ValueType type, const Slice& key,
 }
 
 bool MemTable::Get(const LookupKey& key, std::string* value, Status* s) {
-  leveldb::Stats* instance = leveldb::Stats::GetInstance();
+  adgMod::Stats* instance = adgMod::Stats::GetInstance();
   Slice memkey = key.memtable_key();
   Table::Iterator iter(&table_);
   iter.Seek(memkey.data());

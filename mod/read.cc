@@ -21,7 +21,7 @@
 
 
 using namespace leveldb;
-using namespace leveldb;
+using namespace adgMod;
 using std::string;
 using std::cout;
 using std::endl;
@@ -38,10 +38,10 @@ int num_pairs_base = 1024;
 class NumericalComparator : public Comparator {
 public:
     NumericalComparator() = default;
-    virtual const char* Name() const {return "leveldb:NumericalComparator";}
+    virtual const char* Name() const {return "adgMod:NumericalComparator";}
     virtual int Compare(const Slice& a, const Slice& b) const {
-        uint64_t ia = leveldb::ExtractInteger(a.data(), a.size());
-        uint64_t ib = leveldb::ExtractInteger(b.data(), b.size());
+        uint64_t ia = adgMod::ExtractInteger(a.data(), a.size());
+        uint64_t ib = adgMod::ExtractInteger(b.data(), b.size());
         if (ia < ib) return -1;
         else if (ia == ib) return 0;
         else return 1;
@@ -52,7 +52,7 @@ public:
 
 
 void PutAndPrefetch(int lower, int higher, vector<string>& keys, int largest) {
-    leveldb::Stats* instance = leveldb::Stats::GetInstance();
+    adgMod::Stats* instance = adgMod::Stats::GetInstance();
 
     Status status;
 
@@ -65,7 +65,7 @@ void PutAndPrefetch(int lower, int higher, vector<string>& keys, int largest) {
     instance->PauseTimer(9, true);
 
     //cout << "Put Complete" << endl;
-    //if (lower == 0) leveldb::level_learning_enabled = true;
+    //if (lower == 0) adgMod::level_learning_enabled = true;
 
     instance->StartTimer(10);
     for (int i = lower; i < higher; ++i) {
@@ -94,19 +94,19 @@ int main(int argc, char *argv[]) {
             ("u,upper_bound", "the upper bound of the loop of the size of db", cxxopts::value<float>(num_pair_upper)->default_value("10"))
             ("s,step", "the step of the loop of the size of db", cxxopts::value<float>(num_pair_step)->default_value("1"))
             ("i,iteration", "the number of iterations of a same size", cxxopts::value<int>(num_iteration)->default_value("1"))
-            ("m,modification", "if set, run our modified version", cxxopts::value<int>(leveldb::MOD)->default_value("0"))
+            ("m,modification", "if set, run our modified version", cxxopts::value<int>(adgMod::MOD)->default_value("0"))
             ("h,help", "print help message", cxxopts::value<bool>()->default_value("false"))
             ("d,directory", "the directory of db", cxxopts::value<string>(db_location)->default_value("/mnt/ssd/testdb"))
-            ("k,key_size", "the size of key", cxxopts::value<int>(leveldb::key_size)->default_value("8"))
-            ("v,value_size", "the size of value", cxxopts::value<int>(leveldb::value_size)->default_value("8"))
+            ("k,key_size", "the size of key", cxxopts::value<int>(adgMod::key_size)->default_value("8"))
+            ("v,value_size", "the size of value", cxxopts::value<int>(adgMod::value_size)->default_value("8"))
             ("single_timing", "print the time of every single get", cxxopts::value<bool>(print_single_timing)->default_value("false"))
             ("p,profile_out", "the file for profiler output", cxxopts::value<string>(profiler_out)->default_value("/tmp/profiler.out"))
             ("file_info", "print the file structure info", cxxopts::value<bool>(print_file_info)->default_value("false"))
             ("test_num_segments", "test: number of segments per level", cxxopts::value<float>(test_num_segments_base)->default_value("1"))
-            ("string_mode", "test: use string or int in model", cxxopts::value<bool>(leveldb::string_mode)->default_value("false"))
-            ("e,model_error", "error in modesl", cxxopts::value<uint32_t>(leveldb::model_error)->default_value("8"))
+            ("string_mode", "test: use string or int in model", cxxopts::value<bool>(adgMod::string_mode)->default_value("false"))
+            ("e,model_error", "error in modesl", cxxopts::value<uint32_t>(adgMod::model_error)->default_value("8"))
             ("f,input_file", "the filename of input file", cxxopts::value<string>(input_filename)->default_value(""))
-            ("multiple", "test: use larger keys", cxxopts::value<uint64_t>(leveldb::key_multiple)->default_value("1"));
+            ("multiple", "test: use larger keys", cxxopts::value<uint64_t>(adgMod::key_multiple)->default_value("1"));
     auto result = commandline_options.parse(argc, argv);
     if (result.count("help")) {
         printf("%s", commandline_options.help().c_str());
@@ -129,14 +129,14 @@ int main(int argc, char *argv[]) {
         while (input >> key) {
             keys.push_back(std::move(key));
         }
-        leveldb::key_size = (int) keys.front().size();
+        adgMod::key_size = (int) keys.front().size();
         input.close();
     }
 
-    leveldb::Stats* instance = leveldb::Stats::GetInstance();
+    adgMod::Stats* instance = adgMod::Stats::GetInstance();
     for (size_t outer = 0; outer < num_pairs.size(); ++outer) {
         vector<size_t> time_sums(20, 0);
-        leveldb::test_num_level_segments =  (uint32_t) floor(num_pairs[outer] *  test_num_segments_base);
+        adgMod::test_num_level_segments =  (uint32_t) floor(num_pairs[outer] *  test_num_segments_base);
         for (size_t iteration = 0; iteration < num_iteration; ++iteration) {
             string command = "rm -rf " + db_location;
             system(command.c_str());
@@ -145,13 +145,13 @@ int main(int argc, char *argv[]) {
 
             DB* db;
             Options options;
-            ReadOptions& read_options = leveldb::read_options;
-            WriteOptions& write_options = leveldb::write_options;
+            ReadOptions& read_options = adgMod::read_options;
+            WriteOptions& write_options = adgMod::write_options;
 
             options.create_if_missing = true;
             //options.comparator = new NumericalComparator;
-            leveldb::block_restart_interval = options.block_restart_interval =
-                leveldb::MOD ? 1 : leveldb::block_restart_interval;
+            adgMod::block_restart_interval = options.block_restart_interval =
+                adgMod::MOD ? 1 : adgMod::block_restart_interval;
             //read_options.fill_cache = false;
             write_options.sync = false;
 
@@ -160,12 +160,12 @@ int main(int argc, char *argv[]) {
 
             instance->ResetAll();
 
-            leveldb::level_learning_enabled = false;
+            adgMod::level_learning_enabled = false;
             int cut_size = keys.size() / 100000;
             for (int cut = cut_size - 1; cut >= 0; --cut) {
                 PutAndPrefetch(keys.size() * cut / cut_size, keys.size() * (cut + 1) / cut_size, keys, cut_size);
             }
-            leveldb::level_learning_enabled = true;
+            adgMod::level_learning_enabled = true;
 
 
 
@@ -219,7 +219,7 @@ int main(int argc, char *argv[]) {
             for (int s = 0; s < time_sums.size(); ++s) {
                 time_sums[s] += instance->ReportTime(s);
             }
-            leveldb::db->WaitForBackground();
+            adgMod::db->WaitForBackground();
             sleep(10);
 
             delete db;

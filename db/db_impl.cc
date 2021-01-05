@@ -137,7 +137,7 @@ namespace leveldb
   static int TableCacheSize(const Options &sanitized_options)
   {
     // Reserve ten files or so for other uses and give the rest to TableCache.
-    return /*sanitized_options.max_open_files*/ (int)leveldb::fd_limit - kNumNonTableCacheFiles;
+    return /*sanitized_options.max_open_files*/ (int)adgMod::fd_limit - kNumNonTableCacheFiles;
   }
 
   DBImpl::DBImpl(const Options &raw_options, const std::string &dbname)
@@ -167,8 +167,8 @@ namespace leveldb
                                  &internal_comparator_)),
         version_count(0)
   {
-    leveldb::db = this;
-    vlog = new leveldb::VLog(dbname_ + "/vlog.txt");
+    adgMod::db = this;
+    vlog = new adgMod::VLog(dbname_ + "/vlog.txt");
   }
 
   DBImpl::~DBImpl()
@@ -181,7 +181,7 @@ namespace leveldb
       background_work_finished_signal_.Wait();
     }
 
-    if (leveldb::MOD >= 7)
+    if (adgMod::MOD >= 7)
     {
       CompactMemTable(imm_);
       CompactMemTable(mem_);
@@ -213,10 +213,10 @@ namespace leveldb
       delete options_.block_cache;
     }
 
-    delete leveldb::file_data;
-    delete leveldb::learn_cb_model;
+    delete adgMod::file_data;
+    delete adgMod::learn_cb_model;
     delete vlog;
-    leveldb::file_stats.clear();
+    adgMod::file_stats.clear();
   }
 
   Status DBImpl::NewDB()
@@ -325,21 +325,21 @@ namespace leveldb
           if (type == kTableFile)
           {
             table_cache_->Evict(number);
-            if (!leveldb::fresh_write)
+            if (!adgMod::fresh_write)
             {
-              leveldb::file_stats_mutex.Lock();
-              auto iter = leveldb::file_stats.find(number);
-              //assert(iter != leveldb::file_stats.end());
-              leveldb::FileStats &file_stat = iter->second;
+              adgMod::file_stats_mutex.Lock();
+              auto iter = adgMod::file_stats.find(number);
+              //assert(iter != adgMod::file_stats.end());
+              adgMod::FileStats &file_stat = iter->second;
               file_stat.Finish();
-              if (file_stat.end - file_stat.start >= 100 * leveldb::learn_trigger_time)
+              if (file_stat.end - file_stat.start >= 100 * adgMod::learn_trigger_time)
               {
-                leveldb::learn_cb_model->AddFileData(file_stat.level, file_stat.num_lookup_neg, file_stat.num_lookup_pos, file_stat.size);
+                adgMod::learn_cb_model->AddFileData(file_stat.level, file_stat.num_lookup_neg, file_stat.num_lookup_pos, file_stat.size);
               }
-              leveldb::file_stats_mutex.Unlock();
+              adgMod::file_stats_mutex.Unlock();
             }
 
-            //          leveldb::LearnedIndexData* model = leveldb::file_data->GetModel(number);
+            //          adgMod::LearnedIndexData* model = adgMod::file_data->GetModel(number);
             //          delete model;
           }
           Log(options_.info_log, "Delete type=%d #%lld\n", static_cast<int>(type),
@@ -637,12 +637,12 @@ namespace leveldb
       edit->AddFile(level, meta.number, meta.file_size, meta.smallest,
                     meta.largest);
 
-      if (!leveldb::fresh_write)
+      if (!adgMod::fresh_write)
       {
-        leveldb::file_stats_mutex.Lock();
-        assert(leveldb::file_stats.find(meta.number) == leveldb::file_stats.end());
-        leveldb::file_stats.insert({meta.number, leveldb::FileStats(level, meta.file_size)});
-        leveldb::file_stats_mutex.Unlock();
+        adgMod::file_stats_mutex.Lock();
+        assert(adgMod::file_stats.find(meta.number) == adgMod::file_stats.end());
+        adgMod::file_stats.insert({meta.number, adgMod::FileStats(level, meta.file_size)});
+        adgMod::file_stats_mutex.Unlock();
       }
     }
     else
@@ -661,7 +661,7 @@ namespace leveldb
     //  assert(false);
     assert(imm_ != nullptr);
 
-    leveldb::Stats *instance = leveldb::Stats::GetInstance();
+    adgMod::Stats *instance = adgMod::Stats::GetInstance();
     instance->StartTimer(16);
 
     // Save the contents of the memtable as a new Table
@@ -699,10 +699,10 @@ namespace leveldb
 
     auto time = instance->PauseTimer(16, true);
     int level = edit.new_files_[0].first;
-    leveldb::compaction_counter_mutex.Lock();
-    leveldb::events[0].push_back(new CompactionEvent(time, to_string(level)));
-    leveldb::levelled_counters[5].Increment(edit.new_files_[0].first, time.second - time.first);
-    leveldb::compaction_counter_mutex.Unlock();
+    adgMod::compaction_counter_mutex.Lock();
+    adgMod::events[0].push_back(new CompactionEvent(time, to_string(level)));
+    adgMod::levelled_counters[5].Increment(edit.new_files_[0].first, time.second - time.first);
+    adgMod::compaction_counter_mutex.Unlock();
 
     env_->PrepareLearning(time.second, level, new FileMetaData(edit.new_files_[0].second));
 
@@ -712,7 +712,7 @@ namespace leveldb
   void DBImpl::CompactMemTable(MemTable *table)
   {
     mutex_.AssertHeld();
-    if (table == nullptr || !leveldb::fresh_write)
+    if (table == nullptr || !adgMod::fresh_write)
       return;
 
     // Save the contents of the memtable as a new Table
@@ -856,7 +856,7 @@ namespace leveldb
     else
     {
       background_compaction_scheduled_ = true;
-      leveldb::Stats *instance = leveldb::Stats::GetInstance();
+      adgMod::Stats *instance = adgMod::Stats::GetInstance();
       //instance->ReportEventWithTime("CS x");
       env_->compaction_awaiting += 1;
       env_->Schedule(&DBImpl::BGWork, this);
@@ -898,7 +898,7 @@ namespace leveldb
   {
     mutex_.AssertHeld();
 
-    leveldb::Stats *instance = leveldb::Stats::GetInstance();
+    adgMod::Stats *instance = adgMod::Stats::GetInstance();
     instance->StartTimer(7);
 
     if (imm_ != nullptr)
@@ -946,16 +946,16 @@ namespace leveldb
                          f->largest);
       status = versions_->LogAndApply(c->edit(), &mutex_);
 
-      if (!leveldb::fresh_write)
+      if (!adgMod::fresh_write)
       {
-        leveldb::file_stats_mutex.Lock();
-        auto iter = leveldb::file_stats.find(f->number);
-        if (iter != leveldb::file_stats.end())
+        adgMod::file_stats_mutex.Lock();
+        auto iter = adgMod::file_stats.find(f->number);
+        if (iter != adgMod::file_stats.end())
         {
           assert(iter->second.level == c->level());
           iter->second.level += 1;
         }
-        leveldb::file_stats_mutex.Unlock();
+        adgMod::file_stats_mutex.Unlock();
       }
 
       if (!status.ok())
@@ -997,14 +997,14 @@ namespace leveldb
 
       auto time = instance->PauseTimer(7, true);
 
-      leveldb::compaction_counter_mutex.Lock();
+      adgMod::compaction_counter_mutex.Lock();
       for (auto item : changed_level)
       {
         changed_level_string += to_string(item);
-        leveldb::levelled_counters[5].Increment(item, time.second - time.first);
+        adgMod::levelled_counters[5].Increment(item, time.second - time.first);
       }
-      leveldb::events[0].push_back(new CompactionEvent(time, std::move(changed_level_string)));
-      leveldb::compaction_counter_mutex.Unlock();
+      adgMod::events[0].push_back(new CompactionEvent(time, std::move(changed_level_string)));
+      adgMod::compaction_counter_mutex.Unlock();
     }
     else
     {
@@ -1135,22 +1135,22 @@ namespace leveldb
     int level = compact->compaction->level() + 1;
     CompactionState::Output *output = compact->current_output();
 
-    if (!leveldb::fresh_write)
+    if (!adgMod::fresh_write)
     {
-      leveldb::file_stats_mutex.Lock();
-      assert(leveldb::file_stats.find(output_number) == leveldb::file_stats.end());
-      leveldb::file_stats.insert({output_number, leveldb::FileStats(compact->compaction->level() + 1, current_bytes)});
-      leveldb::file_stats_mutex.Unlock();
+      adgMod::file_stats_mutex.Lock();
+      assert(adgMod::file_stats.find(output_number) == adgMod::file_stats.end());
+      adgMod::file_stats.insert({output_number, adgMod::FileStats(compact->compaction->level() + 1, current_bytes)});
+      adgMod::file_stats_mutex.Unlock();
     }
 
     uint32_t dummy;
     FileMetaData *meta = new FileMetaData();
-    leveldb::Stats *instance = leveldb::Stats::GetInstance();
+    adgMod::Stats *instance = adgMod::Stats::GetInstance();
     meta->number = output->number;
     meta->file_size = output->file_size;
     meta->smallest = output->smallest;
     meta->largest = output->largest;
-    env_->PrepareLearning((__rdtscp(&dummy) - instance->initial_time) / leveldb::reference_frequency, level, meta);
+    env_->PrepareLearning((__rdtscp(&dummy) - instance->initial_time) / adgMod::reference_frequency, level, meta);
 
     if (s.ok() && current_entries > 0)
     {
@@ -1461,7 +1461,7 @@ namespace leveldb
                      std::string *value)
   {
 
-    leveldb::Stats *instance = leveldb::Stats::GetInstance();
+    adgMod::Stats *instance = adgMod::Stats::GetInstance();
 
     Status s;
     MutexLock l(&mutex_);
@@ -1501,7 +1501,7 @@ namespace leveldb
         instance->PauseTimer(14);
 #endif
 #ifdef RECORD_LEVEL_INFO
-        leveldb::levelled_counters[3].Increment(7);
+        adgMod::levelled_counters[3].Increment(7);
 #endif
         // Done
       }
@@ -1511,7 +1511,7 @@ namespace leveldb
         instance->PauseTimer(14);
 #endif
 #ifdef RECORD_LEVEL_INFO
-        leveldb::levelled_counters[3].Increment(7);
+        adgMod::levelled_counters[3].Increment(7);
 #endif
         // Done
       }
@@ -1523,7 +1523,7 @@ namespace leveldb
         s = current->Get(options, lkey, value, &stats);
       }
 
-      if (leveldb::MOD >= 7 && s.ok())
+      if (adgMod::MOD >= 7 && s.ok())
       {
 #ifdef INTERNAL_TIMER
         instance->StartTimer(12);
@@ -1586,9 +1586,9 @@ namespace leveldb
   // Convenience methods
   Status DBImpl::Put(const WriteOptions &o, const Slice &key, const Slice &val)
   {
-    if (leveldb::MOD >= 7)
+    if (adgMod::MOD >= 7)
     {
-      uint64_t value_address = leveldb::db->vlog->AddRecord(key, val);
+      uint64_t value_address = adgMod::db->vlog->AddRecord(key, val);
       char buffer[sizeof(uint64_t) + sizeof(uint32_t)];
       EncodeFixed64(buffer, value_address);
       EncodeFixed32(buffer + sizeof(uint64_t), val.size());
@@ -1639,7 +1639,7 @@ namespace leveldb
       // into mem_.
       {
         mutex_.Unlock();
-        if (leveldb::MOD < 7)
+        if (adgMod::MOD < 7)
         {
           status = log_->AddRecord(WriteBatchInternal::Contents(updates));
           bool sync_error = false;
@@ -1757,7 +1757,7 @@ namespace leveldb
   {
     mutex_.AssertHeld();
 
-    leveldb::Stats *instance = leveldb::Stats::GetInstance();
+    adgMod::Stats *instance = adgMod::Stats::GetInstance();
 
     assert(!writers_.empty());
     bool allow_delay = !force;
@@ -1780,7 +1780,7 @@ namespace leveldb
         // this delay hands over some CPU to the compaction thread in
         // case it is sharing the same core as the writer.
         mutex_.Unlock();
-        leveldb::levelled_counters[10].Increment(0);
+        adgMod::levelled_counters[10].Increment(0);
         env_->SleepForMicroseconds(1000);
         allow_delay = false; // Do not delay a single write more than once
         mutex_.Lock();
@@ -1795,14 +1795,14 @@ namespace leveldb
       {
         // We have filled up the current memtable, but the previous
         // one is still being compacted, so we wait.
-        leveldb::levelled_counters[10].Increment(1);
+        adgMod::levelled_counters[10].Increment(1);
         Log(options_.info_log, "Current memtable full; waiting...\n");
         background_work_finished_signal_.Wait();
       }
       else if (versions_->NumLevelFiles(0) >= config::kL0_StopWritesTrigger)
       {
         // There are too many level-0 files.
-        leveldb::levelled_counters[10].Increment(2);
+        adgMod::levelled_counters[10].Increment(2);
         Log(options_.info_log, "Too many L0 files; waiting...\n");
         background_work_finished_signal_.Wait();
       }
@@ -1962,11 +1962,11 @@ namespace leveldb
   {
     *dbptr = nullptr;
     //std::cout << "[Debug]db_impl.cc: open begin" << std::endl;
-    leveldb::env = options.env;
+    adgMod::env = options.env;
     //std::cout << "[Debug]db_impl.cc: open env" << std::endl;
-    leveldb::file_data = new leveldb::FileLearnedIndexData();
+    adgMod::file_data = new adgMod::FileLearnedIndexData();
     //std::cout << "[Debug]db_impl.cc: open file_data" << std::endl;
-    leveldb::learn_cb_model = new CBModel_Learn();
+    adgMod::learn_cb_model = new CBModel_Learn();
     //std::cout << "[Debug]db_impl.cc: open learn_cb_model" << std::endl;
     DBImpl *impl = new DBImpl(options, dbname);
     impl->mutex_.Lock();

@@ -8,7 +8,7 @@
 
 static const int file_average_limit[7] = {10, 20, 20, 20, 20, 500, 500};
 
-namespace leveldb {
+namespace adgMod {
     class LearnedIndexData;
 }
 

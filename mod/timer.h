@@ -11,7 +11,7 @@
 #include <utility>
 #include <vector>
 
-namespace leveldb {
+namespace adgMod {
 
     class Timer {
         uint64_t time_started;
