@@ -71,6 +71,11 @@ namespace adgMod {
         bool is_level;
 
         std::vector<Segment> string_segments;
+        std::vector<char> based_char;
+        std::vector<double> based_num;
+        std::string param;
+        int max_lenth;
+
         double min_key;
         double max_key;
         uint64_t size;
@@ -95,7 +100,8 @@ namespace adgMod {
 
 
         explicit LearnedIndexData(int allowed_seek) : error(adgMod::model_error), learned(false), aborted(false), learning(false),
-            learned_not_atomic(false), allowed_seek(allowed_seek), current_seek(0), filled(false), is_level(false), level(0), served(0), cost(0) {};
+            learned_not_atomic(false), allowed_seek(allowed_seek), current_seek(0), filled(false), is_level(false), level(0), served(0), cost(0),
+            max_lenth(0) {};
         LearnedIndexData(const LearnedIndexData& other) = delete;
         std::pair<uint64_t, uint64_t> GetPosition(const Slice& key) const;
         uint64_t MaxPosition() const;
@@ -111,6 +117,8 @@ namespace adgMod {
         void ReadModel(const string& filename);
         void ReportStats();
         void FillCBAStat(bool positive, bool model, uint64_t time);
+        void NewFileLearn();
+        std::vector<double> toCode();
     };
 
 
