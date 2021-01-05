@@ -172,6 +172,8 @@ target_sources(leveldb
     "${PROJECT_SOURCE_DIR}/table/iterator.cc"
     "${PROJECT_SOURCE_DIR}/table/merger.cc"
     "${PROJECT_SOURCE_DIR}/table/merger.h"
+    "${PROJECT_SOURCE_DIR}/mod/learned_index.cpp"
+    "${PROJECT_SOURCE_DIR}/mod/learned_index.h"
     "${PROJECT_SOURCE_DIR}/table/table_builder.cc"
     "${PROJECT_SOURCE_DIR}/table/table.cc"
     "${PROJECT_SOURCE_DIR}/table/two_level_iterator.cc"
@@ -200,8 +202,7 @@ target_sources(leveldb
     "${PROJECT_SOURCE_DIR}/mod/stats.h"
     "${PROJECT_SOURCE_DIR}/mod/plr.h"
     "${PROJECT_SOURCE_DIR}/mod/plr.cpp"
-    "${PROJECT_SOURCE_DIR}/mod/learned_index.cpp"
-    "${PROJECT_SOURCE_DIR}/mod/learned_index.h"
+
     "${PROJECT_SOURCE_DIR}/mod/util.cpp"
     "${PROJECT_SOURCE_DIR}/mod/util.h"
     "${PROJECT_SOURCE_DIR}/mod/Vlog.cpp"
