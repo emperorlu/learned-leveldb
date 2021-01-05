@@ -201,8 +201,8 @@ Iterator* Table::BlockReader(void* arg, const ReadOptions& options,
 }
 
 Iterator* Table::NewIterator(const ReadOptions& options, int file_num, RandomAccessFile* file) const {
-  if (file != nullptr && (adgMod::MOD == 6 || adgMod::MOD == 7)) {
-    adgMod::LearnedIndexData* model = adgMod::file_data->GetModel(file_num);
+  if (file != nullptr && (leveldb::MOD == 6 || leveldb::MOD == 7)) {
+    leveldb::LearnedIndexData* model = leveldb::file_data->GetModel(file_num);
     if (model->Learned()) return new LearnedIterator(const_cast<Table*>(this), file, model);
   }
 
@@ -214,7 +214,7 @@ Iterator* Table::NewIterator(const ReadOptions& options, int file_num, RandomAcc
 Status Table::InternalGet(const ReadOptions& options, const Slice& k, void* arg,
                           void (*handle_result)(void*, const Slice&, const Slice&), int level,
                           FileMetaData* meta, uint64_t lower, uint64_t upper, bool learned, Version* version) {
-  adgMod::Stats* instance = adgMod::Stats::GetInstance();
+  leveldb::Stats* instance = leveldb::Stats::GetInstance();
   Status s;
   Iterator* iiter = rep_->index_block->NewIterator(rep_->options.comparator);
   ParsedInternalKey parsed_key;
@@ -241,13 +241,13 @@ Status Table::InternalGet(const ReadOptions& options, const Slice& k, void* arg,
 
 #ifdef INTERNAL_TIMER
         auto time = instance->PauseTimer(15, true);
-        adgMod::levelled_counters[9].Increment(level, time.second - time.first);
+        leveldb::levelled_counters[9].Increment(level, time.second - time.first);
 #endif
         // Not found
       } else {
 #ifdef INTERNAL_TIMER
         auto time = instance->PauseTimer(15, true);
-        adgMod::levelled_counters[9].Increment(level, time.second - time.first);
+        leveldb::levelled_counters[9].Increment(level, time.second - time.first);
         instance->StartTimer(5);
 #endif
         Iterator* block_iter = BlockReader(this, options, iiter->value());
@@ -300,7 +300,7 @@ uint64_t Table::ApproximateOffsetOf(const Slice& key) const {
   return result;
 }
 
-void Table::FillData(const ReadOptions& options, adgMod::LearnedIndexData* data) {
+void Table::FillData(const ReadOptions& options, leveldb::LearnedIndexData* data) {
     if (data->filled) return;
     //data->string_keys.clear();
     //data->num_entries_accumulated.array.clear();
@@ -321,14 +321,14 @@ void Table::FillData(const ReadOptions& options, adgMod::LearnedIndexData* data)
     }
     //num_points += num_entries_this_block;
 
-    if (!adgMod::block_num_entries_recorded) {
-        adgMod::block_num_entries = num_entries_this_block;
-        adgMod::block_num_entries_recorded = true;
-        adgMod::entry_size = block_iter->restarts_ / num_entries_this_block;
+    if (!leveldb::block_num_entries_recorded) {
+        leveldb::block_num_entries = num_entries_this_block;
+        leveldb::block_num_entries_recorded = true;
+        leveldb::entry_size = block_iter->restarts_ / num_entries_this_block;
         BlockHandle temp;
         Slice temp_slice = index_iter->value();
         temp.DecodeFrom(&temp_slice);
-        adgMod::block_size = temp.size() + kBlockTrailerSize;
+        leveldb::block_size = temp.size() + kBlockTrailerSize;
     }
 
     uint64_t current_total = data->num_entries_accumulated.NumEntries();

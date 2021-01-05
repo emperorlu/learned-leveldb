@@ -10,7 +10,7 @@
 
 using std::to_string;
 
-namespace adgMod {
+namespace leveldb {
 
     int MOD = 5;
     bool string_mode = true;

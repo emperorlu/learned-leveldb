@@ -46,7 +46,7 @@ TableCache::~TableCache() { delete cache_; }
 Status TableCache::FindTable(uint64_t file_number, uint64_t file_size,
                              Cache::Handle** handle) {
 
-//  adgMod::Stats* instance = adgMod::Stats::GetInstance();
+//  leveldb::Stats* instance = leveldb::Stats::GetInstance();
 //
 //
 //  Status s;
@@ -160,14 +160,14 @@ Status TableCache::Get(const ReadOptions& options, uint64_t file_number,
                        uint64_t file_size, const Slice& k, void* arg,
                        void (*handle_result)(void*, const Slice&, const Slice&), int level,
                        FileMetaData* meta, uint64_t lower, uint64_t upper, bool learned, Version* version,
-                       adgMod::LearnedIndexData** model, bool* file_learned) {
+                       leveldb::LearnedIndexData** model, bool* file_learned) {
   Cache::Handle* handle = nullptr;
-  adgMod::Stats* instance = adgMod::Stats::GetInstance();
+  leveldb::Stats* instance = leveldb::Stats::GetInstance();
   //std::cout << __func__ << " " << (void*)k.data() << std::endl;
 
-  if ((adgMod::MOD == 6 || adgMod::MOD == 7)) {
+  if ((leveldb::MOD == 6 || leveldb::MOD == 7)) {
       //std::cout << "[Debug] table_cache.cc: GetModel" << std::endl;
-      *model = adgMod::file_data->GetModel(meta->number);
+      *model = leveldb::file_data->GetModel(meta->number);
       assert(file_learned != nullptr);
       //std::cout << "[Debug] table_cache.cc: Learned" << std::endl;
       *file_learned = (*model)->Learned();
@@ -192,7 +192,7 @@ Status TableCache::Get(const ReadOptions& options, uint64_t file_number,
       cache_->Release(handle);
   }
 #ifdef RECORD_LEVEL_INFO
-  adgMod::levelled_counters[2].Increment(level);
+  leveldb::levelled_counters[2].Increment(level);
 #endif
   return s;
 }
@@ -203,7 +203,7 @@ void TableCache::Evict(uint64_t file_number) {
   cache_->Erase(Slice(buf, sizeof(buf)));
 }
 
-bool TableCache::FillData(const ReadOptions& options, FileMetaData *meta, adgMod::LearnedIndexData* data) {
+bool TableCache::FillData(const ReadOptions& options, FileMetaData *meta, leveldb::LearnedIndexData* data) {
     Cache::Handle* handle = nullptr;
     Status s = FindTable(meta->number, meta->file_size, &handle);
 
@@ -244,7 +244,7 @@ Cache::Handle* TableCache::FindFile(const ReadOptions& options, uint64_t file_nu
         std::string filename = TableFileName(dbname_, file_number);
         env_->NewRandomAccessFileLearned(filename, &file);
 
-//        if (adgMod::use_filter) {
+//        if (leveldb::use_filter) {
 //
 //            // Load footer
 //            char footer_scratch[Footer::kEncodedLength];
@@ -294,7 +294,7 @@ void TableCache::LevelRead(const ReadOptions &options, uint64_t file_number,
                             void (*handle_result)(void *, const Slice &, const Slice &), int level,
                             FileMetaData *meta, uint64_t lower, uint64_t upper, bool learned, Version *version) {
 
-    adgMod::Stats* instance = adgMod::Stats::GetInstance();
+    leveldb::Stats* instance = leveldb::Stats::GetInstance();
 
     // Get the file
 #ifdef INTERNAL_TIMER
@@ -319,7 +319,7 @@ void TableCache::LevelRead(const ReadOptions &options, uint64_t file_number,
         ParsedInternalKey parsed_key;
         ParseInternalKey(k, &parsed_key);
         //std::cout << "[Debug] table_cache.cc: LevelRead: GetModel" << std::endl;
-        adgMod::LearnedIndexData* model = adgMod::file_data->GetModel(meta->number);
+        leveldb::LearnedIndexData* model = leveldb::file_data->GetModel(meta->number);
         //std::cout << "[Debug] table_cache.cc: LevelRead: GetPosition" << std::endl;
         auto bounds = model->GetPosition(parsed_key.user_key);
         lower = bounds.first;
@@ -329,16 +329,16 @@ void TableCache::LevelRead(const ReadOptions &options, uint64_t file_number,
 #endif
         if (lower > model->MaxPosition()) return;
 #ifdef RECORD_LEVEL_INFO
-        adgMod::levelled_counters[1].Increment(level);
+        leveldb::levelled_counters[1].Increment(level);
     } else {
-        adgMod::levelled_counters[0].Increment(level);
+        leveldb::levelled_counters[0].Increment(level);
 #endif
     }
 
 
     // Get the position we want to read
-    size_t index_lower = lower / adgMod::block_num_entries;
-    size_t index_upper = upper / adgMod::block_num_entries;
+    size_t index_lower = lower / leveldb::block_num_entries;
+    size_t index_upper = upper / leveldb::block_num_entries;
 
     uint64_t i = index_lower;
     //std::cout << "[Debug] table_cache.cc: LevelRead: GetPosition" << std::endl;
@@ -356,33 +356,33 @@ void TableCache::LevelRead(const ReadOptions &options, uint64_t file_number,
 
 
     // Check Filter Block
-    uint64_t block_offset = i * adgMod::block_size;
+    uint64_t block_offset = i * leveldb::block_size;
 #ifdef INTERNAL_TIMER
     instance->StartTimer(15);
 #endif
     if (filter != nullptr && !filter->KeyMayMatch(block_offset, k)) {
 #ifdef INTERNAL_TIMER
         auto time = instance->PauseTimer(15, true);
-        adgMod::levelled_counters[9].Increment(level, time.second - time.first);
+        leveldb::levelled_counters[9].Increment(level, time.second - time.first);
 #endif
         cache_->Release(cache_handle);
         return;
     }
 #ifdef INTERNAL_TIMER
     auto time = instance->PauseTimer(15, true);
-    adgMod::levelled_counters[9].Increment(level, time.second - time.first);
+    leveldb::levelled_counters[9].Increment(level, time.second - time.first);
     instance->StartTimer(5);
 #endif
 
-    size_t pos_block_lower = i == index_lower ? lower % adgMod::block_num_entries : 0;
-    size_t pos_block_upper = i == index_upper ? upper % adgMod::block_num_entries : adgMod::block_num_entries - 1;
+    size_t pos_block_lower = i == index_lower ? lower % leveldb::block_num_entries : 0;
+    size_t pos_block_upper = i == index_upper ? upper % leveldb::block_num_entries : leveldb::block_num_entries - 1;
 
     // Read corresponding entries
-    size_t read_size = (pos_block_upper - pos_block_lower + 1) * adgMod::entry_size;
+    size_t read_size = (pos_block_upper - pos_block_lower + 1) * leveldb::entry_size;
     static char scratch[4096];
     Slice entries;
     
-    s = file->Read(block_offset + pos_block_lower * adgMod::entry_size, read_size, &entries, scratch);
+    s = file->Read(block_offset + pos_block_lower * leveldb::entry_size, read_size, &entries, scratch);
     assert(s.ok());
 
 #ifdef INTERNAL_TIMER
@@ -395,7 +395,7 @@ void TableCache::LevelRead(const ReadOptions &options, uint64_t file_number,
     while (left < right) {
         uint32_t mid = (left + right) / 2;
         uint32_t shared, non_shared, value_length;
-        const char* key_ptr = DecodeEntry(entries.data() + (mid - pos_block_lower) * adgMod::entry_size,
+        const char* key_ptr = DecodeEntry(entries.data() + (mid - pos_block_lower) * leveldb::entry_size,
                 entries.data() + read_size, &shared, &non_shared, &value_length);
         assert(key_ptr != nullptr && shared == 0 && "Entry Corruption");
 
@@ -419,7 +419,7 @@ void TableCache::LevelRead(const ReadOptions &options, uint64_t file_number,
 
     //std::cout << "[Debug] table_cache.cc: LevelRead: GetPosition" << std::endl;
     uint32_t shared, non_shared, value_length;
-    const char* key_ptr = DecodeEntry(entries.data() + (left - pos_block_lower) * adgMod::entry_size,
+    const char* key_ptr = DecodeEntry(entries.data() + (left - pos_block_lower) * leveldb::entry_size,
             entries.data() + read_size, &shared, &non_shared, &value_length);
     
     assert(key_ptr != nullptr && shared == 0 && "Entry Corruption");

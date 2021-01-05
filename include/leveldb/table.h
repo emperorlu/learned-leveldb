@@ -96,7 +96,7 @@ class LEVELDB_EXPORT Table {
   void ReadMeta(const Footer& footer);
   void ReadFilter(const Slice& filter_handle_value);
 
-  void FillData(const ReadOptions& options, adgMod::LearnedIndexData* data);
+  void FillData(const ReadOptions& options, leveldb::LearnedIndexData* data);
 
   Rep* const rep_;
 };

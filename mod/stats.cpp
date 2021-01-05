@@ -12,7 +12,7 @@
 
 using std::stoull;
 
-namespace adgMod {
+namespace leveldb {
 
     Stats* Stats::singleton = nullptr;
 

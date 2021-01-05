@@ -79,7 +79,7 @@ class DBImpl : public DB {
   void ReturnCurrentVersion(Version* version);
   void WaitForBackground();
   std::atomic<int> version_count;
-  adgMod::VLog* vlog;
+  leveldb::VLog* vlog;
 
 
 

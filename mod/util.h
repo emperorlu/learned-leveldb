@@ -24,7 +24,7 @@ using std::map;
 using leveldb::Slice;
 
 
-namespace adgMod {
+namespace leveldb {
 
     class FileLearnedIndexData;
     class LearnedIndexData;
@@ -98,15 +98,15 @@ namespace adgMod {
         uint64_t size;
 
         explicit FileStats(int level_, uint64_t size_) : start(0), end(0), level(level_), num_lookup_pos(0), num_lookup_neg(0), size(size_) {
-            adgMod::Stats* instance = adgMod::Stats::GetInstance();
+            leveldb::Stats* instance = leveldb::Stats::GetInstance();
             uint32_t dummy;
-            start = (__rdtscp(&dummy) - instance->initial_time) / adgMod::reference_frequency;
+            start = (__rdtscp(&dummy) - instance->initial_time) / leveldb::reference_frequency;
         };
 
         void Finish() {
-            adgMod::Stats* instance = adgMod::Stats::GetInstance();
+            leveldb::Stats* instance = leveldb::Stats::GetInstance();
             uint32_t dummy;
-            end = (__rdtscp(&dummy) - instance->initial_time) / adgMod::reference_frequency;
+            end = (__rdtscp(&dummy) - instance->initial_time) / leveldb::reference_frequency;
         }
     };
 }

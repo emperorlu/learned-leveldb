@@ -9,7 +9,7 @@
 
 using namespace leveldb;
 
-namespace adgMod {
+namespace leveldb {
 
 class VLog {
 private:

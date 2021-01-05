@@ -4,7 +4,7 @@
 #include "str_int.h"
 
 using namespace std;
-using namespace adgMod;
+using namespace leveldb;
 
 int main(){
 

@@ -5,7 +5,7 @@
 #include <cstring>  
 using  namespace std;
 
-namespace adgMod {
+namespace leveldb {
 
 vector<double> toCode(vector<string> keys){
     vector<char> based_char;

@@ -19,7 +19,7 @@
 #include "leveldb/options.h"
 #include "leveldb/status.h"
 
-using adgMod::LearnedIndexData;
+// using leveldb::LearnedIndexData;
 namespace leveldb {
 
 class BlockBuilder;

@@ -17,7 +17,7 @@
 #include "util/coding.h"
 #include "util/crc32c.h"
 
-using namespace adgMod;
+using namespace leveldb;
 namespace leveldb {
 
 struct TableBuilder::Rep {
@@ -69,7 +69,7 @@ TableBuilder::TableBuilder(const Options& options, WritableFile* file)
   if (rep_->filter_block != nullptr) {
     rep_->filter_block->StartBlock(0);
   }
-  LearnedMod = new adgMod::LearnedIndexData(file_allowed_seek);
+  LearnedMod = new leveldb::LearnedIndexData(file_allowed_seek);
 }
 
 TableBuilder::~TableBuilder() {
@@ -105,7 +105,7 @@ void TableBuilder::Add(const Slice& key, const Slice& value) {
   }
 
   //Google 
-  // if (adgMod::MOD == 6 || adgMod::MOD == 7) {
+  // if (leveldb::MOD == 6 || leveldb::MOD == 7) {
   //   std::string handle_encoding;  
   //   r->index_block.Add(r->last_key, Slice(handle_encoding));
   //   r->filter_block->AddKey(r->last_key);
@@ -113,7 +113,7 @@ void TableBuilder::Add(const Slice& key, const Slice& value) {
 
   //   r->pending_handle.EncodeTo(&handle_encoding);
   //   LearnedIndexData::Learn(new VersionAndSelf{});
-  //   //LearnedIndexData::Learn(new VersionAndSelf{current, adgMod::db->version_count, current->learned_index_data_[i].get(), i});
+  //   //LearnedIndexData::Learn(new VersionAndSelf{current, leveldb::db->version_count, current->learned_index_data_[i].get(), i});
   // }
 
   if (r->pending_index_entry) {
