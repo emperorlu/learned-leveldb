@@ -15,7 +15,8 @@
 #include "table/two_level_iterator.h"
 #include "util/coding.h"
 #include "mod/stats.h"
-#include "mod/learned_index.h"
+// #include "mod/learned_index.h"
+#include "leveldb/learned_index.h"
 #include "mod/LearnedIterator.h"
 #include "../db/version_set.h"
 

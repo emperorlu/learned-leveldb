@@ -39,7 +39,8 @@
 #include "util/posix_logger.h"
 #include "mutexlock.h"
 #include "mod/util.h"
-#include "mod/learned_index.h"
+// #include "mod/learned_index.h"
+#include "leveldb/learned_index.h"
 
 namespace leveldb {
 

@@ -21,7 +21,8 @@
 #include "util/coding.h"
 #include "util/logging.h"
 #include "mod/stats.h"
-#include "mod/learned_index.h"
+// #include "mod/learned_index.h"
+#include "leveldb/learned_index.h"
 
 namespace leveldb
 {
