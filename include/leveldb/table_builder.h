@@ -14,11 +14,12 @@
 #define STORAGE_LEVELDB_INCLUDE_TABLE_BUILDER_H_
 
 #include <stdint.h>
-
+#include "mod/learned_index.h"
 #include "leveldb/export.h"
 #include "leveldb/options.h"
 #include "leveldb/status.h"
 
+using adgMod::LearnedIndexData;
 namespace leveldb {
 
 class BlockBuilder;
@@ -34,7 +35,7 @@ class LEVELDB_EXPORT TableBuilder {
 
   TableBuilder(const TableBuilder&) = delete;
   TableBuilder& operator=(const TableBuilder&) = delete;
-  adgMod::LearnedIndexData* LearnedMod;
+  LearnedIndexData* LearnedMod;
   // REQUIRES: Either Finish() or Abandon() has been called.
   ~TableBuilder();
 
