@@ -14,7 +14,7 @@
 #define STORAGE_LEVELDB_INCLUDE_TABLE_BUILDER_H_
 
 #include <stdint.h>
-#include "leveldb/learned_index.h"
+// #include "leveldb/learned_index.h"
 #include "leveldb/export.h"
 #include "leveldb/options.h"
 #include "leveldb/status.h"
@@ -35,7 +35,7 @@ class LEVELDB_EXPORT TableBuilder {
 
   TableBuilder(const TableBuilder&) = delete;
   TableBuilder& operator=(const TableBuilder&) = delete;
-  LearnedIndexData* LearnedMod;
+  // LearnedIndexData* LearnedMod;
   // REQUIRES: Either Finish() or Abandon() has been called.
   ~TableBuilder();
 

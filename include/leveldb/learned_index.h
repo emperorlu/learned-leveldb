@@ -15,9 +15,9 @@
 
 
 using std::string;
-using leveldb::Slice;
-using leveldb::Version;
-using leveldb::FileMetaData;
+// using leveldb::Slice;
+// using leveldb::Version;
+// using leveldb::FileMetaData;
 
 
 
@@ -41,7 +41,7 @@ namespace adgMod {
 
     class VersionAndSelf {
     public:
-        Version* version;
+        // Version* version;
         int v_count;
         LearnedIndexData* self;
         int level;
