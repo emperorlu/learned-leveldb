@@ -15,9 +15,9 @@
 
 
 using std::string;
-// using leveldb::Slice;
-// using leveldb::Version;
-// using leveldb::FileMetaData;
+using leveldb::Slice;
+using leveldb::Version;
+using leveldb::FileMetaData;
 
 
 
