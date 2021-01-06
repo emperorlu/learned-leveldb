@@ -41,7 +41,7 @@ namespace adgMod {
 
     class VersionAndSelf {
     public:
-        // Version* version;
+        Version* version;
         int v_count;
         LearnedIndexData* self;
         int level;
