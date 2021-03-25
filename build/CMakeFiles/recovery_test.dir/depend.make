@@ -17,6 +17,7 @@ CMakeFiles/recovery_test.dir/db/recovery_test.cc.o: ../include/leveldb/env.h
 CMakeFiles/recovery_test.dir/db/recovery_test.cc.o: ../include/leveldb/export.h
 CMakeFiles/recovery_test.dir/db/recovery_test.cc.o: ../include/leveldb/filter_policy.h
 CMakeFiles/recovery_test.dir/db/recovery_test.cc.o: ../include/leveldb/iterator.h
+CMakeFiles/recovery_test.dir/db/recovery_test.cc.o: ../include/leveldb/learned_index.h
 CMakeFiles/recovery_test.dir/db/recovery_test.cc.o: ../include/leveldb/options.h
 CMakeFiles/recovery_test.dir/db/recovery_test.cc.o: ../include/leveldb/slice.h
 CMakeFiles/recovery_test.dir/db/recovery_test.cc.o: ../include/leveldb/status.h
@@ -26,7 +27,6 @@ CMakeFiles/recovery_test.dir/db/recovery_test.cc.o: ../mod/CBMode_Learn.h
 CMakeFiles/recovery_test.dir/db/recovery_test.cc.o: ../mod/Counter.h
 CMakeFiles/recovery_test.dir/db/recovery_test.cc.o: ../mod/Vlog.h
 CMakeFiles/recovery_test.dir/db/recovery_test.cc.o: ../mod/event.h
-CMakeFiles/recovery_test.dir/db/recovery_test.cc.o: ../mod/learned_index.h
 CMakeFiles/recovery_test.dir/db/recovery_test.cc.o: ../mod/plr.h
 CMakeFiles/recovery_test.dir/db/recovery_test.cc.o: ../mod/stats.h
 CMakeFiles/recovery_test.dir/db/recovery_test.cc.o: ../mod/timer.h

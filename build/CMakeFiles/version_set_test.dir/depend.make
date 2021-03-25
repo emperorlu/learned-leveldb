@@ -15,6 +15,7 @@ CMakeFiles/version_set_test.dir/db/version_set_test.cc.o: ../include/leveldb/env
 CMakeFiles/version_set_test.dir/db/version_set_test.cc.o: ../include/leveldb/export.h
 CMakeFiles/version_set_test.dir/db/version_set_test.cc.o: ../include/leveldb/filter_policy.h
 CMakeFiles/version_set_test.dir/db/version_set_test.cc.o: ../include/leveldb/iterator.h
+CMakeFiles/version_set_test.dir/db/version_set_test.cc.o: ../include/leveldb/learned_index.h
 CMakeFiles/version_set_test.dir/db/version_set_test.cc.o: ../include/leveldb/options.h
 CMakeFiles/version_set_test.dir/db/version_set_test.cc.o: ../include/leveldb/slice.h
 CMakeFiles/version_set_test.dir/db/version_set_test.cc.o: ../include/leveldb/status.h
@@ -23,7 +24,6 @@ CMakeFiles/version_set_test.dir/db/version_set_test.cc.o: ../mod/CBMode_Learn.h
 CMakeFiles/version_set_test.dir/db/version_set_test.cc.o: ../mod/Counter.h
 CMakeFiles/version_set_test.dir/db/version_set_test.cc.o: ../mod/Vlog.h
 CMakeFiles/version_set_test.dir/db/version_set_test.cc.o: ../mod/event.h
-CMakeFiles/version_set_test.dir/db/version_set_test.cc.o: ../mod/learned_index.h
 CMakeFiles/version_set_test.dir/db/version_set_test.cc.o: ../mod/plr.h
 CMakeFiles/version_set_test.dir/db/version_set_test.cc.o: ../mod/stats.h
 CMakeFiles/version_set_test.dir/db/version_set_test.cc.o: ../mod/timer.h

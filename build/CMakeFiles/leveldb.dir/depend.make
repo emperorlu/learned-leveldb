@@ -17,6 +17,7 @@ CMakeFiles/leveldb.dir/db/builder.cc.o: ../include/leveldb/env.h
 CMakeFiles/leveldb.dir/db/builder.cc.o: ../include/leveldb/export.h
 CMakeFiles/leveldb.dir/db/builder.cc.o: ../include/leveldb/filter_policy.h
 CMakeFiles/leveldb.dir/db/builder.cc.o: ../include/leveldb/iterator.h
+CMakeFiles/leveldb.dir/db/builder.cc.o: ../include/leveldb/learned_index.h
 CMakeFiles/leveldb.dir/db/builder.cc.o: ../include/leveldb/options.h
 CMakeFiles/leveldb.dir/db/builder.cc.o: ../include/leveldb/slice.h
 CMakeFiles/leveldb.dir/db/builder.cc.o: ../include/leveldb/status.h
@@ -26,7 +27,6 @@ CMakeFiles/leveldb.dir/db/builder.cc.o: ../mod/CBMode_Learn.h
 CMakeFiles/leveldb.dir/db/builder.cc.o: ../mod/Counter.h
 CMakeFiles/leveldb.dir/db/builder.cc.o: ../mod/Vlog.h
 CMakeFiles/leveldb.dir/db/builder.cc.o: ../mod/event.h
-CMakeFiles/leveldb.dir/db/builder.cc.o: ../mod/learned_index.h
 CMakeFiles/leveldb.dir/db/builder.cc.o: ../mod/plr.h
 CMakeFiles/leveldb.dir/db/builder.cc.o: ../mod/stats.h
 CMakeFiles/leveldb.dir/db/builder.cc.o: ../mod/timer.h
@@ -80,6 +80,7 @@ CMakeFiles/leveldb.dir/db/db_impl.cc.o: ../include/leveldb/env.h
 CMakeFiles/leveldb.dir/db/db_impl.cc.o: ../include/leveldb/export.h
 CMakeFiles/leveldb.dir/db/db_impl.cc.o: ../include/leveldb/filter_policy.h
 CMakeFiles/leveldb.dir/db/db_impl.cc.o: ../include/leveldb/iterator.h
+CMakeFiles/leveldb.dir/db/db_impl.cc.o: ../include/leveldb/learned_index.h
 CMakeFiles/leveldb.dir/db/db_impl.cc.o: ../include/leveldb/options.h
 CMakeFiles/leveldb.dir/db/db_impl.cc.o: ../include/leveldb/slice.h
 CMakeFiles/leveldb.dir/db/db_impl.cc.o: ../include/leveldb/status.h
@@ -90,7 +91,6 @@ CMakeFiles/leveldb.dir/db/db_impl.cc.o: ../mod/CBMode_Learn.h
 CMakeFiles/leveldb.dir/db/db_impl.cc.o: ../mod/Counter.h
 CMakeFiles/leveldb.dir/db/db_impl.cc.o: ../mod/Vlog.h
 CMakeFiles/leveldb.dir/db/db_impl.cc.o: ../mod/event.h
-CMakeFiles/leveldb.dir/db/db_impl.cc.o: ../mod/learned_index.h
 CMakeFiles/leveldb.dir/db/db_impl.cc.o: ../mod/plr.h
 CMakeFiles/leveldb.dir/db/db_impl.cc.o: ../mod/stats.h
 CMakeFiles/leveldb.dir/db/db_impl.cc.o: ../mod/timer.h
@@ -182,6 +182,7 @@ CMakeFiles/leveldb.dir/db/dumpfile.cc.o: ../include/leveldb/env.h
 CMakeFiles/leveldb.dir/db/dumpfile.cc.o: ../include/leveldb/export.h
 CMakeFiles/leveldb.dir/db/dumpfile.cc.o: ../include/leveldb/filter_policy.h
 CMakeFiles/leveldb.dir/db/dumpfile.cc.o: ../include/leveldb/iterator.h
+CMakeFiles/leveldb.dir/db/dumpfile.cc.o: ../include/leveldb/learned_index.h
 CMakeFiles/leveldb.dir/db/dumpfile.cc.o: ../include/leveldb/options.h
 CMakeFiles/leveldb.dir/db/dumpfile.cc.o: ../include/leveldb/slice.h
 CMakeFiles/leveldb.dir/db/dumpfile.cc.o: ../include/leveldb/status.h
@@ -192,7 +193,6 @@ CMakeFiles/leveldb.dir/db/dumpfile.cc.o: ../mod/CBMode_Learn.h
 CMakeFiles/leveldb.dir/db/dumpfile.cc.o: ../mod/Counter.h
 CMakeFiles/leveldb.dir/db/dumpfile.cc.o: ../mod/Vlog.h
 CMakeFiles/leveldb.dir/db/dumpfile.cc.o: ../mod/event.h
-CMakeFiles/leveldb.dir/db/dumpfile.cc.o: ../mod/learned_index.h
 CMakeFiles/leveldb.dir/db/dumpfile.cc.o: ../mod/plr.h
 CMakeFiles/leveldb.dir/db/dumpfile.cc.o: ../mod/stats.h
 CMakeFiles/leveldb.dir/db/dumpfile.cc.o: ../mod/timer.h
@@ -301,6 +301,7 @@ CMakeFiles/leveldb.dir/db/repair.cc.o: ../include/leveldb/env.h
 CMakeFiles/leveldb.dir/db/repair.cc.o: ../include/leveldb/export.h
 CMakeFiles/leveldb.dir/db/repair.cc.o: ../include/leveldb/filter_policy.h
 CMakeFiles/leveldb.dir/db/repair.cc.o: ../include/leveldb/iterator.h
+CMakeFiles/leveldb.dir/db/repair.cc.o: ../include/leveldb/learned_index.h
 CMakeFiles/leveldb.dir/db/repair.cc.o: ../include/leveldb/options.h
 CMakeFiles/leveldb.dir/db/repair.cc.o: ../include/leveldb/slice.h
 CMakeFiles/leveldb.dir/db/repair.cc.o: ../include/leveldb/status.h
@@ -311,7 +312,6 @@ CMakeFiles/leveldb.dir/db/repair.cc.o: ../mod/CBMode_Learn.h
 CMakeFiles/leveldb.dir/db/repair.cc.o: ../mod/Counter.h
 CMakeFiles/leveldb.dir/db/repair.cc.o: ../mod/Vlog.h
 CMakeFiles/leveldb.dir/db/repair.cc.o: ../mod/event.h
-CMakeFiles/leveldb.dir/db/repair.cc.o: ../mod/learned_index.h
 CMakeFiles/leveldb.dir/db/repair.cc.o: ../mod/plr.h
 CMakeFiles/leveldb.dir/db/repair.cc.o: ../mod/stats.h
 CMakeFiles/leveldb.dir/db/repair.cc.o: ../mod/timer.h
@@ -345,6 +345,7 @@ CMakeFiles/leveldb.dir/db/table_cache.cc.o: ../include/leveldb/env.h
 CMakeFiles/leveldb.dir/db/table_cache.cc.o: ../include/leveldb/export.h
 CMakeFiles/leveldb.dir/db/table_cache.cc.o: ../include/leveldb/filter_policy.h
 CMakeFiles/leveldb.dir/db/table_cache.cc.o: ../include/leveldb/iterator.h
+CMakeFiles/leveldb.dir/db/table_cache.cc.o: ../include/leveldb/learned_index.h
 CMakeFiles/leveldb.dir/db/table_cache.cc.o: ../include/leveldb/options.h
 CMakeFiles/leveldb.dir/db/table_cache.cc.o: ../include/leveldb/slice.h
 CMakeFiles/leveldb.dir/db/table_cache.cc.o: ../include/leveldb/status.h
@@ -354,7 +355,6 @@ CMakeFiles/leveldb.dir/db/table_cache.cc.o: ../mod/CBMode_Learn.h
 CMakeFiles/leveldb.dir/db/table_cache.cc.o: ../mod/Counter.h
 CMakeFiles/leveldb.dir/db/table_cache.cc.o: ../mod/Vlog.h
 CMakeFiles/leveldb.dir/db/table_cache.cc.o: ../mod/event.h
-CMakeFiles/leveldb.dir/db/table_cache.cc.o: ../mod/learned_index.h
 CMakeFiles/leveldb.dir/db/table_cache.cc.o: ../mod/plr.h
 CMakeFiles/leveldb.dir/db/table_cache.cc.o: ../mod/stats.h
 CMakeFiles/leveldb.dir/db/table_cache.cc.o: ../mod/timer.h
@@ -384,6 +384,7 @@ CMakeFiles/leveldb.dir/db/version_edit.cc.o: ../include/leveldb/env.h
 CMakeFiles/leveldb.dir/db/version_edit.cc.o: ../include/leveldb/export.h
 CMakeFiles/leveldb.dir/db/version_edit.cc.o: ../include/leveldb/filter_policy.h
 CMakeFiles/leveldb.dir/db/version_edit.cc.o: ../include/leveldb/iterator.h
+CMakeFiles/leveldb.dir/db/version_edit.cc.o: ../include/leveldb/learned_index.h
 CMakeFiles/leveldb.dir/db/version_edit.cc.o: ../include/leveldb/options.h
 CMakeFiles/leveldb.dir/db/version_edit.cc.o: ../include/leveldb/slice.h
 CMakeFiles/leveldb.dir/db/version_edit.cc.o: ../include/leveldb/status.h
@@ -392,7 +393,6 @@ CMakeFiles/leveldb.dir/db/version_edit.cc.o: ../mod/CBMode_Learn.h
 CMakeFiles/leveldb.dir/db/version_edit.cc.o: ../mod/Counter.h
 CMakeFiles/leveldb.dir/db/version_edit.cc.o: ../mod/Vlog.h
 CMakeFiles/leveldb.dir/db/version_edit.cc.o: ../mod/event.h
-CMakeFiles/leveldb.dir/db/version_edit.cc.o: ../mod/learned_index.h
 CMakeFiles/leveldb.dir/db/version_edit.cc.o: ../mod/plr.h
 CMakeFiles/leveldb.dir/db/version_edit.cc.o: ../mod/stats.h
 CMakeFiles/leveldb.dir/db/version_edit.cc.o: ../mod/timer.h
@@ -424,6 +424,7 @@ CMakeFiles/leveldb.dir/db/version_set.cc.o: ../include/leveldb/env.h
 CMakeFiles/leveldb.dir/db/version_set.cc.o: ../include/leveldb/export.h
 CMakeFiles/leveldb.dir/db/version_set.cc.o: ../include/leveldb/filter_policy.h
 CMakeFiles/leveldb.dir/db/version_set.cc.o: ../include/leveldb/iterator.h
+CMakeFiles/leveldb.dir/db/version_set.cc.o: ../include/leveldb/learned_index.h
 CMakeFiles/leveldb.dir/db/version_set.cc.o: ../include/leveldb/options.h
 CMakeFiles/leveldb.dir/db/version_set.cc.o: ../include/leveldb/slice.h
 CMakeFiles/leveldb.dir/db/version_set.cc.o: ../include/leveldb/status.h
@@ -433,7 +434,6 @@ CMakeFiles/leveldb.dir/db/version_set.cc.o: ../mod/CBMode_Learn.h
 CMakeFiles/leveldb.dir/db/version_set.cc.o: ../mod/Counter.h
 CMakeFiles/leveldb.dir/db/version_set.cc.o: ../mod/Vlog.h
 CMakeFiles/leveldb.dir/db/version_set.cc.o: ../mod/event.h
-CMakeFiles/leveldb.dir/db/version_set.cc.o: ../mod/learned_index.h
 CMakeFiles/leveldb.dir/db/version_set.cc.o: ../mod/plr.h
 CMakeFiles/leveldb.dir/db/version_set.cc.o: ../mod/stats.h
 CMakeFiles/leveldb.dir/db/version_set.cc.o: ../mod/timer.h
@@ -502,13 +502,17 @@ CMakeFiles/leveldb.dir/mod/CBMode_Learn.cpp.o: ../include/leveldb/env.h
 CMakeFiles/leveldb.dir/mod/CBMode_Learn.cpp.o: ../include/leveldb/export.h
 CMakeFiles/leveldb.dir/mod/CBMode_Learn.cpp.o: ../include/leveldb/filter_policy.h
 CMakeFiles/leveldb.dir/mod/CBMode_Learn.cpp.o: ../include/leveldb/iterator.h
+CMakeFiles/leveldb.dir/mod/CBMode_Learn.cpp.o: ../include/leveldb/learned_index.h
 CMakeFiles/leveldb.dir/mod/CBMode_Learn.cpp.o: ../include/leveldb/options.h
 CMakeFiles/leveldb.dir/mod/CBMode_Learn.cpp.o: ../include/leveldb/slice.h
 CMakeFiles/leveldb.dir/mod/CBMode_Learn.cpp.o: ../include/leveldb/status.h
 CMakeFiles/leveldb.dir/mod/CBMode_Learn.cpp.o: ../include/leveldb/table_builder.h
 CMakeFiles/leveldb.dir/mod/CBMode_Learn.cpp.o: ../mod/Vlog.h
+CMakeFiles/leveldb.dir/mod/CBMode_Learn.cpp.o: ../mod/event.h
+CMakeFiles/leveldb.dir/mod/CBMode_Learn.cpp.o: ../mod/plr.h
 CMakeFiles/leveldb.dir/mod/CBMode_Learn.cpp.o: ../mod/stats.h
 CMakeFiles/leveldb.dir/mod/CBMode_Learn.cpp.o: ../mod/timer.h
+CMakeFiles/leveldb.dir/mod/CBMode_Learn.cpp.o: ../mod/util.h
 CMakeFiles/leveldb.dir/mod/CBMode_Learn.cpp.o: ../port/port.h
 CMakeFiles/leveldb.dir/mod/CBMode_Learn.cpp.o: ../port/port_stdcxx.h
 CMakeFiles/leveldb.dir/mod/CBMode_Learn.cpp.o: ../port/thread_annotations.h
@@ -519,10 +523,6 @@ CMakeFiles/leveldb.dir/mod/CBMode_Learn.cpp.o: ../db/dbformat.h
 CMakeFiles/leveldb.dir/mod/CBMode_Learn.cpp.o: ../mod/CBMode_Learn.cpp
 CMakeFiles/leveldb.dir/mod/CBMode_Learn.cpp.o: ../mod/CBMode_Learn.h
 CMakeFiles/leveldb.dir/mod/CBMode_Learn.cpp.o: ../mod/Counter.h
-CMakeFiles/leveldb.dir/mod/CBMode_Learn.cpp.o: ../mod/event.h
-CMakeFiles/leveldb.dir/mod/CBMode_Learn.cpp.o: ../mod/learned_index.h
-CMakeFiles/leveldb.dir/mod/CBMode_Learn.cpp.o: ../mod/plr.h
-CMakeFiles/leveldb.dir/mod/CBMode_Learn.cpp.o: ../mod/util.h
 CMakeFiles/leveldb.dir/mod/CBMode_Learn.cpp.o: include/port/port_config.h
 
 CMakeFiles/leveldb.dir/mod/Counter.cpp.o: ../include/leveldb/comparator.h
@@ -594,14 +594,16 @@ CMakeFiles/leveldb.dir/mod/learned_index.cpp.o: ../include/leveldb/env.h
 CMakeFiles/leveldb.dir/mod/learned_index.cpp.o: ../include/leveldb/export.h
 CMakeFiles/leveldb.dir/mod/learned_index.cpp.o: ../include/leveldb/filter_policy.h
 CMakeFiles/leveldb.dir/mod/learned_index.cpp.o: ../include/leveldb/iterator.h
+CMakeFiles/leveldb.dir/mod/learned_index.cpp.o: ../include/leveldb/learned_index.h
 CMakeFiles/leveldb.dir/mod/learned_index.cpp.o: ../include/leveldb/options.h
 CMakeFiles/leveldb.dir/mod/learned_index.cpp.o: ../include/leveldb/slice.h
 CMakeFiles/leveldb.dir/mod/learned_index.cpp.o: ../include/leveldb/status.h
 CMakeFiles/leveldb.dir/mod/learned_index.cpp.o: ../include/leveldb/table_builder.h
 CMakeFiles/leveldb.dir/mod/learned_index.cpp.o: ../mod/Vlog.h
-CMakeFiles/leveldb.dir/mod/learned_index.cpp.o: ../mod/learned_index.h
+CMakeFiles/leveldb.dir/mod/learned_index.cpp.o: ../mod/plr.h
 CMakeFiles/leveldb.dir/mod/learned_index.cpp.o: ../mod/stats.h
 CMakeFiles/leveldb.dir/mod/learned_index.cpp.o: ../mod/timer.h
+CMakeFiles/leveldb.dir/mod/learned_index.cpp.o: ../mod/util.h
 CMakeFiles/leveldb.dir/mod/learned_index.cpp.o: ../port/port.h
 CMakeFiles/leveldb.dir/mod/learned_index.cpp.o: ../port/port_stdcxx.h
 CMakeFiles/leveldb.dir/mod/learned_index.cpp.o: ../port/thread_annotations.h
@@ -613,8 +615,6 @@ CMakeFiles/leveldb.dir/mod/learned_index.cpp.o: ../mod/CBMode_Learn.h
 CMakeFiles/leveldb.dir/mod/learned_index.cpp.o: ../mod/Counter.h
 CMakeFiles/leveldb.dir/mod/learned_index.cpp.o: ../mod/event.h
 CMakeFiles/leveldb.dir/mod/learned_index.cpp.o: ../mod/learned_index.cpp
-CMakeFiles/leveldb.dir/mod/learned_index.cpp.o: ../mod/learned_index.h
-CMakeFiles/leveldb.dir/mod/learned_index.cpp.o: ../mod/plr.h
 CMakeFiles/leveldb.dir/mod/learned_index.cpp.o: ../mod/util.h
 CMakeFiles/leveldb.dir/mod/learned_index.cpp.o: include/port/port_config.h
 
@@ -725,13 +725,16 @@ CMakeFiles/leveldb.dir/mod/util.cpp.o: ../include/leveldb/env.h
 CMakeFiles/leveldb.dir/mod/util.cpp.o: ../include/leveldb/export.h
 CMakeFiles/leveldb.dir/mod/util.cpp.o: ../include/leveldb/filter_policy.h
 CMakeFiles/leveldb.dir/mod/util.cpp.o: ../include/leveldb/iterator.h
+CMakeFiles/leveldb.dir/mod/util.cpp.o: ../include/leveldb/learned_index.h
 CMakeFiles/leveldb.dir/mod/util.cpp.o: ../include/leveldb/options.h
 CMakeFiles/leveldb.dir/mod/util.cpp.o: ../include/leveldb/slice.h
 CMakeFiles/leveldb.dir/mod/util.cpp.o: ../include/leveldb/status.h
 CMakeFiles/leveldb.dir/mod/util.cpp.o: ../include/leveldb/table_builder.h
 CMakeFiles/leveldb.dir/mod/util.cpp.o: ../mod/Vlog.h
+CMakeFiles/leveldb.dir/mod/util.cpp.o: ../mod/plr.h
 CMakeFiles/leveldb.dir/mod/util.cpp.o: ../mod/stats.h
 CMakeFiles/leveldb.dir/mod/util.cpp.o: ../mod/timer.h
+CMakeFiles/leveldb.dir/mod/util.cpp.o: ../mod/util.h
 CMakeFiles/leveldb.dir/mod/util.cpp.o: ../port/port.h
 CMakeFiles/leveldb.dir/mod/util.cpp.o: ../port/port_stdcxx.h
 CMakeFiles/leveldb.dir/mod/util.cpp.o: ../port/thread_annotations.h
@@ -742,8 +745,6 @@ CMakeFiles/leveldb.dir/mod/util.cpp.o: ../db/dbformat.h
 CMakeFiles/leveldb.dir/mod/util.cpp.o: ../mod/CBMode_Learn.h
 CMakeFiles/leveldb.dir/mod/util.cpp.o: ../mod/Counter.h
 CMakeFiles/leveldb.dir/mod/util.cpp.o: ../mod/event.h
-CMakeFiles/leveldb.dir/mod/util.cpp.o: ../mod/learned_index.h
-CMakeFiles/leveldb.dir/mod/util.cpp.o: ../mod/plr.h
 CMakeFiles/leveldb.dir/mod/util.cpp.o: ../mod/util.cpp
 CMakeFiles/leveldb.dir/mod/util.cpp.o: ../mod/util.h
 CMakeFiles/leveldb.dir/mod/util.cpp.o: include/port/port_config.h
@@ -884,6 +885,7 @@ CMakeFiles/leveldb.dir/table/table.cc.o: ../include/leveldb/env.h
 CMakeFiles/leveldb.dir/table/table.cc.o: ../include/leveldb/export.h
 CMakeFiles/leveldb.dir/table/table.cc.o: ../include/leveldb/filter_policy.h
 CMakeFiles/leveldb.dir/table/table.cc.o: ../include/leveldb/iterator.h
+CMakeFiles/leveldb.dir/table/table.cc.o: ../include/leveldb/learned_index.h
 CMakeFiles/leveldb.dir/table/table.cc.o: ../include/leveldb/options.h
 CMakeFiles/leveldb.dir/table/table.cc.o: ../include/leveldb/slice.h
 CMakeFiles/leveldb.dir/table/table.cc.o: ../include/leveldb/status.h
@@ -894,7 +896,6 @@ CMakeFiles/leveldb.dir/table/table.cc.o: ../mod/Counter.h
 CMakeFiles/leveldb.dir/table/table.cc.o: ../mod/LearnedIterator.h
 CMakeFiles/leveldb.dir/table/table.cc.o: ../mod/Vlog.h
 CMakeFiles/leveldb.dir/table/table.cc.o: ../mod/event.h
-CMakeFiles/leveldb.dir/table/table.cc.o: ../mod/learned_index.h
 CMakeFiles/leveldb.dir/table/table.cc.o: ../mod/plr.h
 CMakeFiles/leveldb.dir/table/table.cc.o: ../mod/stats.h
 CMakeFiles/leveldb.dir/table/table.cc.o: ../mod/timer.h
@@ -913,14 +914,22 @@ CMakeFiles/leveldb.dir/table/table.cc.o: ../db/version_set.h
 CMakeFiles/leveldb.dir/table/table.cc.o: ../table/table.cc
 CMakeFiles/leveldb.dir/table/table.cc.o: include/port/port_config.h
 
+CMakeFiles/leveldb.dir/table/table_builder.cc.o: ../db/db_impl.h
+CMakeFiles/leveldb.dir/table/table_builder.cc.o: ../db/dbformat.h
+CMakeFiles/leveldb.dir/table/table_builder.cc.o: ../db/log_format.h
+CMakeFiles/leveldb.dir/table/table_builder.cc.o: ../db/log_writer.h
+CMakeFiles/leveldb.dir/table/table_builder.cc.o: ../db/snapshot.h
 CMakeFiles/leveldb.dir/table/table_builder.cc.o: ../include/leveldb/comparator.h
+CMakeFiles/leveldb.dir/table/table_builder.cc.o: ../include/leveldb/db.h
 CMakeFiles/leveldb.dir/table/table_builder.cc.o: ../include/leveldb/env.h
 CMakeFiles/leveldb.dir/table/table_builder.cc.o: ../include/leveldb/export.h
 CMakeFiles/leveldb.dir/table/table_builder.cc.o: ../include/leveldb/filter_policy.h
+CMakeFiles/leveldb.dir/table/table_builder.cc.o: ../include/leveldb/iterator.h
 CMakeFiles/leveldb.dir/table/table_builder.cc.o: ../include/leveldb/options.h
 CMakeFiles/leveldb.dir/table/table_builder.cc.o: ../include/leveldb/slice.h
 CMakeFiles/leveldb.dir/table/table_builder.cc.o: ../include/leveldb/status.h
 CMakeFiles/leveldb.dir/table/table_builder.cc.o: ../include/leveldb/table_builder.h
+CMakeFiles/leveldb.dir/table/table_builder.cc.o: ../mod/Vlog.h
 CMakeFiles/leveldb.dir/table/table_builder.cc.o: ../mod/stats.h
 CMakeFiles/leveldb.dir/table/table_builder.cc.o: ../mod/timer.h
 CMakeFiles/leveldb.dir/table/table_builder.cc.o: ../port/port.h
@@ -932,6 +941,12 @@ CMakeFiles/leveldb.dir/table/table_builder.cc.o: ../table/format.h
 CMakeFiles/leveldb.dir/table/table_builder.cc.o: ../util/coding.h
 CMakeFiles/leveldb.dir/table/table_builder.cc.o: ../util/crc32c.h
 CMakeFiles/leveldb.dir/table/table_builder.cc.o: ../util/hash.h
+CMakeFiles/leveldb.dir/table/table_builder.cc.o: ../util/logging.h
+CMakeFiles/leveldb.dir/table/table_builder.cc.o: ../db/dbformat.h
+CMakeFiles/leveldb.dir/table/table_builder.cc.o: ../mod/CBMode_Learn.h
+CMakeFiles/leveldb.dir/table/table_builder.cc.o: ../mod/Counter.h
+CMakeFiles/leveldb.dir/table/table_builder.cc.o: ../mod/event.h
+CMakeFiles/leveldb.dir/table/table_builder.cc.o: ../mod/util.h
 CMakeFiles/leveldb.dir/table/table_builder.cc.o: ../table/table_builder.cc
 CMakeFiles/leveldb.dir/table/table_builder.cc.o: include/port/port_config.h
 
@@ -947,6 +962,7 @@ CMakeFiles/leveldb.dir/table/two_level_iterator.cc.o: ../include/leveldb/env.h
 CMakeFiles/leveldb.dir/table/two_level_iterator.cc.o: ../include/leveldb/export.h
 CMakeFiles/leveldb.dir/table/two_level_iterator.cc.o: ../include/leveldb/filter_policy.h
 CMakeFiles/leveldb.dir/table/two_level_iterator.cc.o: ../include/leveldb/iterator.h
+CMakeFiles/leveldb.dir/table/two_level_iterator.cc.o: ../include/leveldb/learned_index.h
 CMakeFiles/leveldb.dir/table/two_level_iterator.cc.o: ../include/leveldb/options.h
 CMakeFiles/leveldb.dir/table/two_level_iterator.cc.o: ../include/leveldb/slice.h
 CMakeFiles/leveldb.dir/table/two_level_iterator.cc.o: ../include/leveldb/status.h
@@ -956,7 +972,6 @@ CMakeFiles/leveldb.dir/table/two_level_iterator.cc.o: ../mod/CBMode_Learn.h
 CMakeFiles/leveldb.dir/table/two_level_iterator.cc.o: ../mod/Counter.h
 CMakeFiles/leveldb.dir/table/two_level_iterator.cc.o: ../mod/Vlog.h
 CMakeFiles/leveldb.dir/table/two_level_iterator.cc.o: ../mod/event.h
-CMakeFiles/leveldb.dir/table/two_level_iterator.cc.o: ../mod/learned_index.h
 CMakeFiles/leveldb.dir/table/two_level_iterator.cc.o: ../mod/plr.h
 CMakeFiles/leveldb.dir/table/two_level_iterator.cc.o: ../mod/stats.h
 CMakeFiles/leveldb.dir/table/two_level_iterator.cc.o: ../mod/timer.h
@@ -1041,6 +1056,7 @@ CMakeFiles/leveldb.dir/util/env_posix.cc.o: ../include/leveldb/env.h
 CMakeFiles/leveldb.dir/util/env_posix.cc.o: ../include/leveldb/export.h
 CMakeFiles/leveldb.dir/util/env_posix.cc.o: ../include/leveldb/filter_policy.h
 CMakeFiles/leveldb.dir/util/env_posix.cc.o: ../include/leveldb/iterator.h
+CMakeFiles/leveldb.dir/util/env_posix.cc.o: ../include/leveldb/learned_index.h
 CMakeFiles/leveldb.dir/util/env_posix.cc.o: ../include/leveldb/options.h
 CMakeFiles/leveldb.dir/util/env_posix.cc.o: ../include/leveldb/slice.h
 CMakeFiles/leveldb.dir/util/env_posix.cc.o: ../include/leveldb/status.h
@@ -1049,7 +1065,6 @@ CMakeFiles/leveldb.dir/util/env_posix.cc.o: ../mod/CBMode_Learn.h
 CMakeFiles/leveldb.dir/util/env_posix.cc.o: ../mod/Counter.h
 CMakeFiles/leveldb.dir/util/env_posix.cc.o: ../mod/Vlog.h
 CMakeFiles/leveldb.dir/util/env_posix.cc.o: ../mod/event.h
-CMakeFiles/leveldb.dir/util/env_posix.cc.o: ../mod/learned_index.h
 CMakeFiles/leveldb.dir/util/env_posix.cc.o: ../mod/plr.h
 CMakeFiles/leveldb.dir/util/env_posix.cc.o: ../mod/stats.h
 CMakeFiles/leveldb.dir/util/env_posix.cc.o: ../mod/timer.h

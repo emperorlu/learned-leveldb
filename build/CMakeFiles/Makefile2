@@ -64,10 +64,10 @@ RM = /usr/bin/cmake3 -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/lk/learned_index/learned-leveldb
+CMAKE_SOURCE_DIR = /home/lk/index_rocksdb/learned-leveldb
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/lk/learned_index/learned-leveldb/build
+CMAKE_BINARY_DIR = /home/lk/index_rocksdb/learned-leveldb/build
 
 #=============================================================================
 # Directory level rules for the build root directory
@@ -162,14 +162,14 @@ clean: CMakeFiles/version_edit_test.dir/clean
 CMakeFiles/db_bench.dir/all: CMakeFiles/leveldb.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/db_bench.dir/build.make CMakeFiles/db_bench.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/db_bench.dir/build.make CMakeFiles/db_bench.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lk/learned_index/learned-leveldb/build/CMakeFiles --progress-num=18,19,20 "Built target db_bench"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lk/index_rocksdb/learned-leveldb/build/CMakeFiles --progress-num=18,19,20 "Built target db_bench"
 .PHONY : CMakeFiles/db_bench.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/db_bench.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/lk/learned_index/learned-leveldb/build/CMakeFiles 29
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lk/index_rocksdb/learned-leveldb/build/CMakeFiles 29
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/db_bench.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/lk/learned_index/learned-leveldb/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lk/index_rocksdb/learned-leveldb/build/CMakeFiles 0
 .PHONY : CMakeFiles/db_bench.dir/rule
 
 # Convenience name for target.
@@ -189,14 +189,14 @@ CMakeFiles/db_bench.dir/clean:
 CMakeFiles/env_posix_test.dir/all: CMakeFiles/leveldb.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/env_posix_test.dir/build.make CMakeFiles/env_posix_test.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/env_posix_test.dir/build.make CMakeFiles/env_posix_test.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lk/learned_index/learned-leveldb/build/CMakeFiles --progress-num=25,26 "Built target env_posix_test"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lk/index_rocksdb/learned-leveldb/build/CMakeFiles --progress-num=25,26 "Built target env_posix_test"
 .PHONY : CMakeFiles/env_posix_test.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/env_posix_test.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/lk/learned_index/learned-leveldb/build/CMakeFiles 28
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lk/index_rocksdb/learned-leveldb/build/CMakeFiles 28
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/env_posix_test.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/lk/learned_index/learned-leveldb/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lk/index_rocksdb/learned-leveldb/build/CMakeFiles 0
 .PHONY : CMakeFiles/env_posix_test.dir/rule
 
 # Convenience name for target.
@@ -216,14 +216,14 @@ CMakeFiles/env_posix_test.dir/clean:
 CMakeFiles/read.dir/all: CMakeFiles/leveldb.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/read.dir/build.make CMakeFiles/read.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/read.dir/build.make CMakeFiles/read.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lk/learned_index/learned-leveldb/build/CMakeFiles --progress-num=81,82 "Built target read"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lk/index_rocksdb/learned-leveldb/build/CMakeFiles --progress-num=81,82 "Built target read"
 .PHONY : CMakeFiles/read.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/read.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/lk/learned_index/learned-leveldb/build/CMakeFiles 28
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lk/index_rocksdb/learned-leveldb/build/CMakeFiles 28
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/read.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/lk/learned_index/learned-leveldb/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lk/index_rocksdb/learned-leveldb/build/CMakeFiles 0
 .PHONY : CMakeFiles/read.dir/rule
 
 # Convenience name for target.
@@ -243,14 +243,14 @@ CMakeFiles/read.dir/clean:
 CMakeFiles/logging_test.dir/all: CMakeFiles/leveldb.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/logging_test.dir/build.make CMakeFiles/logging_test.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/logging_test.dir/build.make CMakeFiles/logging_test.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lk/learned_index/learned-leveldb/build/CMakeFiles --progress-num=74,75 "Built target logging_test"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lk/index_rocksdb/learned-leveldb/build/CMakeFiles --progress-num=74,75 "Built target logging_test"
 .PHONY : CMakeFiles/logging_test.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/logging_test.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/lk/learned_index/learned-leveldb/build/CMakeFiles 28
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lk/index_rocksdb/learned-leveldb/build/CMakeFiles 28
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/logging_test.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/lk/learned_index/learned-leveldb/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lk/index_rocksdb/learned-leveldb/build/CMakeFiles 0
 .PHONY : CMakeFiles/logging_test.dir/rule
 
 # Convenience name for target.
@@ -270,14 +270,14 @@ CMakeFiles/logging_test.dir/clean:
 CMakeFiles/hash_test.dir/all: CMakeFiles/leveldb.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/hash_test.dir/build.make CMakeFiles/hash_test.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/hash_test.dir/build.make CMakeFiles/hash_test.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lk/learned_index/learned-leveldb/build/CMakeFiles --progress-num=36,37 "Built target hash_test"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lk/index_rocksdb/learned-leveldb/build/CMakeFiles --progress-num=36,37 "Built target hash_test"
 .PHONY : CMakeFiles/hash_test.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/hash_test.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/lk/learned_index/learned-leveldb/build/CMakeFiles 28
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lk/index_rocksdb/learned-leveldb/build/CMakeFiles 28
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/hash_test.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/lk/learned_index/learned-leveldb/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lk/index_rocksdb/learned-leveldb/build/CMakeFiles 0
 .PHONY : CMakeFiles/hash_test.dir/rule
 
 # Convenience name for target.
@@ -297,14 +297,14 @@ CMakeFiles/hash_test.dir/clean:
 CMakeFiles/coding_test.dir/all: CMakeFiles/leveldb.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/coding_test.dir/build.make CMakeFiles/coding_test.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/coding_test.dir/build.make CMakeFiles/coding_test.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lk/learned_index/learned-leveldb/build/CMakeFiles --progress-num=11,12,13 "Built target coding_test"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lk/index_rocksdb/learned-leveldb/build/CMakeFiles --progress-num=11,12,13 "Built target coding_test"
 .PHONY : CMakeFiles/coding_test.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/coding_test.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/lk/learned_index/learned-leveldb/build/CMakeFiles 29
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lk/index_rocksdb/learned-leveldb/build/CMakeFiles 29
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/coding_test.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/lk/learned_index/learned-leveldb/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lk/index_rocksdb/learned-leveldb/build/CMakeFiles 0
 .PHONY : CMakeFiles/coding_test.dir/rule
 
 # Convenience name for target.
@@ -324,14 +324,14 @@ CMakeFiles/coding_test.dir/clean:
 CMakeFiles/bloom_test.dir/all: CMakeFiles/leveldb.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/bloom_test.dir/build.make CMakeFiles/bloom_test.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/bloom_test.dir/build.make CMakeFiles/bloom_test.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lk/learned_index/learned-leveldb/build/CMakeFiles --progress-num=5,6 "Built target bloom_test"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lk/index_rocksdb/learned-leveldb/build/CMakeFiles --progress-num=5,6 "Built target bloom_test"
 .PHONY : CMakeFiles/bloom_test.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/bloom_test.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/lk/learned_index/learned-leveldb/build/CMakeFiles 28
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lk/index_rocksdb/learned-leveldb/build/CMakeFiles 28
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/bloom_test.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/lk/learned_index/learned-leveldb/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lk/index_rocksdb/learned-leveldb/build/CMakeFiles 0
 .PHONY : CMakeFiles/bloom_test.dir/rule
 
 # Convenience name for target.
@@ -351,14 +351,14 @@ CMakeFiles/bloom_test.dir/clean:
 CMakeFiles/arena_test.dir/all: CMakeFiles/leveldb.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/arena_test.dir/build.make CMakeFiles/arena_test.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/arena_test.dir/build.make CMakeFiles/arena_test.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lk/learned_index/learned-leveldb/build/CMakeFiles --progress-num=1,2 "Built target arena_test"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lk/index_rocksdb/learned-leveldb/build/CMakeFiles --progress-num=1,2 "Built target arena_test"
 .PHONY : CMakeFiles/arena_test.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/arena_test.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/lk/learned_index/learned-leveldb/build/CMakeFiles 28
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lk/index_rocksdb/learned-leveldb/build/CMakeFiles 28
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/arena_test.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/lk/learned_index/learned-leveldb/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lk/index_rocksdb/learned-leveldb/build/CMakeFiles 0
 .PHONY : CMakeFiles/arena_test.dir/rule
 
 # Convenience name for target.
@@ -378,14 +378,14 @@ CMakeFiles/arena_test.dir/clean:
 CMakeFiles/no_destructor_test.dir/all: CMakeFiles/leveldb.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/no_destructor_test.dir/build.make CMakeFiles/no_destructor_test.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/no_destructor_test.dir/build.make CMakeFiles/no_destructor_test.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lk/learned_index/learned-leveldb/build/CMakeFiles --progress-num=79,80 "Built target no_destructor_test"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lk/index_rocksdb/learned-leveldb/build/CMakeFiles --progress-num=79,80 "Built target no_destructor_test"
 .PHONY : CMakeFiles/no_destructor_test.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/no_destructor_test.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/lk/learned_index/learned-leveldb/build/CMakeFiles 28
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lk/index_rocksdb/learned-leveldb/build/CMakeFiles 28
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/no_destructor_test.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/lk/learned_index/learned-leveldb/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lk/index_rocksdb/learned-leveldb/build/CMakeFiles 0
 .PHONY : CMakeFiles/no_destructor_test.dir/rule
 
 # Convenience name for target.
@@ -405,14 +405,14 @@ CMakeFiles/no_destructor_test.dir/clean:
 CMakeFiles/filter_block_test.dir/all: CMakeFiles/leveldb.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/filter_block_test.dir/build.make CMakeFiles/filter_block_test.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/filter_block_test.dir/build.make CMakeFiles/filter_block_test.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lk/learned_index/learned-leveldb/build/CMakeFiles --progress-num=34,35 "Built target filter_block_test"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lk/index_rocksdb/learned-leveldb/build/CMakeFiles --progress-num=34,35 "Built target filter_block_test"
 .PHONY : CMakeFiles/filter_block_test.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/filter_block_test.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/lk/learned_index/learned-leveldb/build/CMakeFiles 28
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lk/index_rocksdb/learned-leveldb/build/CMakeFiles 28
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/filter_block_test.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/lk/learned_index/learned-leveldb/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lk/index_rocksdb/learned-leveldb/build/CMakeFiles 0
 .PHONY : CMakeFiles/filter_block_test.dir/rule
 
 # Convenience name for target.
@@ -432,14 +432,14 @@ CMakeFiles/filter_block_test.dir/clean:
 CMakeFiles/corruption_test.dir/all: CMakeFiles/leveldb.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/corruption_test.dir/build.make CMakeFiles/corruption_test.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/corruption_test.dir/build.make CMakeFiles/corruption_test.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lk/learned_index/learned-leveldb/build/CMakeFiles --progress-num=14,15 "Built target corruption_test"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lk/index_rocksdb/learned-leveldb/build/CMakeFiles --progress-num=14,15 "Built target corruption_test"
 .PHONY : CMakeFiles/corruption_test.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/corruption_test.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/lk/learned_index/learned-leveldb/build/CMakeFiles 28
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lk/index_rocksdb/learned-leveldb/build/CMakeFiles 28
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/corruption_test.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/lk/learned_index/learned-leveldb/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lk/index_rocksdb/learned-leveldb/build/CMakeFiles 0
 .PHONY : CMakeFiles/corruption_test.dir/rule
 
 # Convenience name for target.
@@ -459,14 +459,14 @@ CMakeFiles/corruption_test.dir/clean:
 CMakeFiles/env_test.dir/all: CMakeFiles/leveldb.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/env_test.dir/build.make CMakeFiles/env_test.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/env_test.dir/build.make CMakeFiles/env_test.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lk/learned_index/learned-leveldb/build/CMakeFiles --progress-num=27,28 "Built target env_test"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lk/index_rocksdb/learned-leveldb/build/CMakeFiles --progress-num=27,28 "Built target env_test"
 .PHONY : CMakeFiles/env_test.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/env_test.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/lk/learned_index/learned-leveldb/build/CMakeFiles 28
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lk/index_rocksdb/learned-leveldb/build/CMakeFiles 28
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/env_test.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/lk/learned_index/learned-leveldb/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lk/index_rocksdb/learned-leveldb/build/CMakeFiles 0
 .PHONY : CMakeFiles/env_test.dir/rule
 
 # Convenience name for target.
@@ -486,14 +486,14 @@ CMakeFiles/env_test.dir/clean:
 CMakeFiles/status_test.dir/all: CMakeFiles/leveldb.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/status_test.dir/build.make CMakeFiles/status_test.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/status_test.dir/build.make CMakeFiles/status_test.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lk/learned_index/learned-leveldb/build/CMakeFiles --progress-num=90,91 "Built target status_test"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lk/index_rocksdb/learned-leveldb/build/CMakeFiles --progress-num=90,91 "Built target status_test"
 .PHONY : CMakeFiles/status_test.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/status_test.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/lk/learned_index/learned-leveldb/build/CMakeFiles 28
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lk/index_rocksdb/learned-leveldb/build/CMakeFiles 28
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/status_test.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/lk/learned_index/learned-leveldb/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lk/index_rocksdb/learned-leveldb/build/CMakeFiles 0
 .PHONY : CMakeFiles/status_test.dir/rule
 
 # Convenience name for target.
@@ -513,14 +513,14 @@ CMakeFiles/status_test.dir/clean:
 CMakeFiles/issue320_test.dir/all: CMakeFiles/leveldb.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/issue320_test.dir/build.make CMakeFiles/issue320_test.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/issue320_test.dir/build.make CMakeFiles/issue320_test.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lk/learned_index/learned-leveldb/build/CMakeFiles --progress-num=43,44 "Built target issue320_test"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lk/index_rocksdb/learned-leveldb/build/CMakeFiles --progress-num=43,44 "Built target issue320_test"
 .PHONY : CMakeFiles/issue320_test.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/issue320_test.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/lk/learned_index/learned-leveldb/build/CMakeFiles 28
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lk/index_rocksdb/learned-leveldb/build/CMakeFiles 28
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/issue320_test.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/lk/learned_index/learned-leveldb/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lk/index_rocksdb/learned-leveldb/build/CMakeFiles 0
 .PHONY : CMakeFiles/issue320_test.dir/rule
 
 # Convenience name for target.
@@ -540,14 +540,14 @@ CMakeFiles/issue320_test.dir/clean:
 CMakeFiles/leveldb.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/leveldb.dir/build.make CMakeFiles/leveldb.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/leveldb.dir/build.make CMakeFiles/leveldb.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lk/learned_index/learned-leveldb/build/CMakeFiles --progress-num=45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70 "Built target leveldb"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lk/index_rocksdb/learned-leveldb/build/CMakeFiles --progress-num=45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70 "Built target leveldb"
 .PHONY : CMakeFiles/leveldb.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/leveldb.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/lk/learned_index/learned-leveldb/build/CMakeFiles 26
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lk/index_rocksdb/learned-leveldb/build/CMakeFiles 26
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/leveldb.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/lk/learned_index/learned-leveldb/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lk/index_rocksdb/learned-leveldb/build/CMakeFiles 0
 .PHONY : CMakeFiles/leveldb.dir/rule
 
 # Convenience name for target.
@@ -567,14 +567,14 @@ CMakeFiles/leveldb.dir/clean:
 CMakeFiles/issue200_test.dir/all: CMakeFiles/leveldb.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/issue200_test.dir/build.make CMakeFiles/issue200_test.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/issue200_test.dir/build.make CMakeFiles/issue200_test.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lk/learned_index/learned-leveldb/build/CMakeFiles --progress-num=40,41,42 "Built target issue200_test"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lk/index_rocksdb/learned-leveldb/build/CMakeFiles --progress-num=40,41,42 "Built target issue200_test"
 .PHONY : CMakeFiles/issue200_test.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/issue200_test.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/lk/learned_index/learned-leveldb/build/CMakeFiles 29
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lk/index_rocksdb/learned-leveldb/build/CMakeFiles 29
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/issue200_test.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/lk/learned_index/learned-leveldb/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lk/index_rocksdb/learned-leveldb/build/CMakeFiles 0
 .PHONY : CMakeFiles/issue200_test.dir/rule
 
 # Convenience name for target.
@@ -594,14 +594,14 @@ CMakeFiles/issue200_test.dir/clean:
 CMakeFiles/autocompact_test.dir/all: CMakeFiles/leveldb.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/autocompact_test.dir/build.make CMakeFiles/autocompact_test.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/autocompact_test.dir/build.make CMakeFiles/autocompact_test.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lk/learned_index/learned-leveldb/build/CMakeFiles --progress-num=3,4 "Built target autocompact_test"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lk/index_rocksdb/learned-leveldb/build/CMakeFiles --progress-num=3,4 "Built target autocompact_test"
 .PHONY : CMakeFiles/autocompact_test.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/autocompact_test.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/lk/learned_index/learned-leveldb/build/CMakeFiles 28
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lk/index_rocksdb/learned-leveldb/build/CMakeFiles 28
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/autocompact_test.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/lk/learned_index/learned-leveldb/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lk/index_rocksdb/learned-leveldb/build/CMakeFiles 0
 .PHONY : CMakeFiles/autocompact_test.dir/rule
 
 # Convenience name for target.
@@ -621,14 +621,14 @@ CMakeFiles/autocompact_test.dir/clean:
 CMakeFiles/read_cold.dir/all: CMakeFiles/leveldb.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/read_cold.dir/build.make CMakeFiles/read_cold.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/read_cold.dir/build.make CMakeFiles/read_cold.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lk/learned_index/learned-leveldb/build/CMakeFiles --progress-num=83,84 "Built target read_cold"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lk/index_rocksdb/learned-leveldb/build/CMakeFiles --progress-num=83,84 "Built target read_cold"
 .PHONY : CMakeFiles/read_cold.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/read_cold.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/lk/learned_index/learned-leveldb/build/CMakeFiles 28
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lk/index_rocksdb/learned-leveldb/build/CMakeFiles 28
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/read_cold.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/lk/learned_index/learned-leveldb/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lk/index_rocksdb/learned-leveldb/build/CMakeFiles 0
 .PHONY : CMakeFiles/read_cold.dir/rule
 
 # Convenience name for target.
@@ -648,14 +648,14 @@ CMakeFiles/read_cold.dir/clean:
 CMakeFiles/db_test.dir/all: CMakeFiles/leveldb.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/db_test.dir/build.make CMakeFiles/db_test.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/db_test.dir/build.make CMakeFiles/db_test.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lk/learned_index/learned-leveldb/build/CMakeFiles --progress-num=21,22 "Built target db_test"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lk/index_rocksdb/learned-leveldb/build/CMakeFiles --progress-num=21,22 "Built target db_test"
 .PHONY : CMakeFiles/db_test.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/db_test.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/lk/learned_index/learned-leveldb/build/CMakeFiles 28
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lk/index_rocksdb/learned-leveldb/build/CMakeFiles 28
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/db_test.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/lk/learned_index/learned-leveldb/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lk/index_rocksdb/learned-leveldb/build/CMakeFiles 0
 .PHONY : CMakeFiles/db_test.dir/rule
 
 # Convenience name for target.
@@ -675,14 +675,14 @@ CMakeFiles/db_test.dir/clean:
 CMakeFiles/c_test.dir/all: CMakeFiles/leveldb.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/c_test.dir/build.make CMakeFiles/c_test.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/c_test.dir/build.make CMakeFiles/c_test.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lk/learned_index/learned-leveldb/build/CMakeFiles --progress-num=7,8 "Built target c_test"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lk/index_rocksdb/learned-leveldb/build/CMakeFiles --progress-num=7,8 "Built target c_test"
 .PHONY : CMakeFiles/c_test.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/c_test.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/lk/learned_index/learned-leveldb/build/CMakeFiles 28
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lk/index_rocksdb/learned-leveldb/build/CMakeFiles 28
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/c_test.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/lk/learned_index/learned-leveldb/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lk/index_rocksdb/learned-leveldb/build/CMakeFiles 0
 .PHONY : CMakeFiles/c_test.dir/rule
 
 # Convenience name for target.
@@ -702,14 +702,14 @@ CMakeFiles/c_test.dir/clean:
 CMakeFiles/issue178_test.dir/all: CMakeFiles/leveldb.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/issue178_test.dir/build.make CMakeFiles/issue178_test.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/issue178_test.dir/build.make CMakeFiles/issue178_test.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lk/learned_index/learned-leveldb/build/CMakeFiles --progress-num=38,39 "Built target issue178_test"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lk/index_rocksdb/learned-leveldb/build/CMakeFiles --progress-num=38,39 "Built target issue178_test"
 .PHONY : CMakeFiles/issue178_test.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/issue178_test.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/lk/learned_index/learned-leveldb/build/CMakeFiles 28
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lk/index_rocksdb/learned-leveldb/build/CMakeFiles 28
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/issue178_test.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/lk/learned_index/learned-leveldb/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lk/index_rocksdb/learned-leveldb/build/CMakeFiles 0
 .PHONY : CMakeFiles/issue178_test.dir/rule
 
 # Convenience name for target.
@@ -729,14 +729,14 @@ CMakeFiles/issue178_test.dir/clean:
 CMakeFiles/leveldbutil.dir/all: CMakeFiles/leveldb.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/leveldbutil.dir/build.make CMakeFiles/leveldbutil.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/leveldbutil.dir/build.make CMakeFiles/leveldbutil.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lk/learned_index/learned-leveldb/build/CMakeFiles --progress-num=71 "Built target leveldbutil"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lk/index_rocksdb/learned-leveldb/build/CMakeFiles --progress-num=71 "Built target leveldbutil"
 .PHONY : CMakeFiles/leveldbutil.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/leveldbutil.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/lk/learned_index/learned-leveldb/build/CMakeFiles 27
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lk/index_rocksdb/learned-leveldb/build/CMakeFiles 27
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/leveldbutil.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/lk/learned_index/learned-leveldb/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lk/index_rocksdb/learned-leveldb/build/CMakeFiles 0
 .PHONY : CMakeFiles/leveldbutil.dir/rule
 
 # Convenience name for target.
@@ -756,14 +756,14 @@ CMakeFiles/leveldbutil.dir/clean:
 CMakeFiles/write_batch_test.dir/all: CMakeFiles/leveldb.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/write_batch_test.dir/build.make CMakeFiles/write_batch_test.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/write_batch_test.dir/build.make CMakeFiles/write_batch_test.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lk/learned_index/learned-leveldb/build/CMakeFiles --progress-num=98,99,100 "Built target write_batch_test"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lk/index_rocksdb/learned-leveldb/build/CMakeFiles --progress-num=98,99,100 "Built target write_batch_test"
 .PHONY : CMakeFiles/write_batch_test.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/write_batch_test.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/lk/learned_index/learned-leveldb/build/CMakeFiles 29
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lk/index_rocksdb/learned-leveldb/build/CMakeFiles 29
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/write_batch_test.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/lk/learned_index/learned-leveldb/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lk/index_rocksdb/learned-leveldb/build/CMakeFiles 0
 .PHONY : CMakeFiles/write_batch_test.dir/rule
 
 # Convenience name for target.
@@ -783,14 +783,14 @@ CMakeFiles/write_batch_test.dir/clean:
 CMakeFiles/fault_injection_test.dir/all: CMakeFiles/leveldb.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/fault_injection_test.dir/build.make CMakeFiles/fault_injection_test.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/fault_injection_test.dir/build.make CMakeFiles/fault_injection_test.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lk/learned_index/learned-leveldb/build/CMakeFiles --progress-num=29,30,31 "Built target fault_injection_test"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lk/index_rocksdb/learned-leveldb/build/CMakeFiles --progress-num=29,30,31 "Built target fault_injection_test"
 .PHONY : CMakeFiles/fault_injection_test.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/fault_injection_test.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/lk/learned_index/learned-leveldb/build/CMakeFiles 29
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lk/index_rocksdb/learned-leveldb/build/CMakeFiles 29
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/fault_injection_test.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/lk/learned_index/learned-leveldb/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lk/index_rocksdb/learned-leveldb/build/CMakeFiles 0
 .PHONY : CMakeFiles/fault_injection_test.dir/rule
 
 # Convenience name for target.
@@ -810,14 +810,14 @@ CMakeFiles/fault_injection_test.dir/clean:
 CMakeFiles/filename_test.dir/all: CMakeFiles/leveldb.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/filename_test.dir/build.make CMakeFiles/filename_test.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/filename_test.dir/build.make CMakeFiles/filename_test.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lk/learned_index/learned-leveldb/build/CMakeFiles --progress-num=32,33 "Built target filename_test"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lk/index_rocksdb/learned-leveldb/build/CMakeFiles --progress-num=32,33 "Built target filename_test"
 .PHONY : CMakeFiles/filename_test.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/filename_test.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/lk/learned_index/learned-leveldb/build/CMakeFiles 28
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lk/index_rocksdb/learned-leveldb/build/CMakeFiles 28
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/filename_test.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/lk/learned_index/learned-leveldb/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lk/index_rocksdb/learned-leveldb/build/CMakeFiles 0
 .PHONY : CMakeFiles/filename_test.dir/rule
 
 # Convenience name for target.
@@ -837,14 +837,14 @@ CMakeFiles/filename_test.dir/clean:
 CMakeFiles/dbformat_test.dir/all: CMakeFiles/leveldb.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/dbformat_test.dir/build.make CMakeFiles/dbformat_test.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/dbformat_test.dir/build.make CMakeFiles/dbformat_test.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lk/learned_index/learned-leveldb/build/CMakeFiles --progress-num=23,24 "Built target dbformat_test"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lk/index_rocksdb/learned-leveldb/build/CMakeFiles --progress-num=23,24 "Built target dbformat_test"
 .PHONY : CMakeFiles/dbformat_test.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/dbformat_test.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/lk/learned_index/learned-leveldb/build/CMakeFiles 28
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lk/index_rocksdb/learned-leveldb/build/CMakeFiles 28
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/dbformat_test.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/lk/learned_index/learned-leveldb/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lk/index_rocksdb/learned-leveldb/build/CMakeFiles 0
 .PHONY : CMakeFiles/dbformat_test.dir/rule
 
 # Convenience name for target.
@@ -864,14 +864,14 @@ CMakeFiles/dbformat_test.dir/clean:
 CMakeFiles/memenv_test.dir/all: CMakeFiles/leveldb.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/memenv_test.dir/build.make CMakeFiles/memenv_test.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/memenv_test.dir/build.make CMakeFiles/memenv_test.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lk/learned_index/learned-leveldb/build/CMakeFiles --progress-num=76,77,78 "Built target memenv_test"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lk/index_rocksdb/learned-leveldb/build/CMakeFiles --progress-num=76,77,78 "Built target memenv_test"
 .PHONY : CMakeFiles/memenv_test.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/memenv_test.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/lk/learned_index/learned-leveldb/build/CMakeFiles 29
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lk/index_rocksdb/learned-leveldb/build/CMakeFiles 29
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/memenv_test.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/lk/learned_index/learned-leveldb/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lk/index_rocksdb/learned-leveldb/build/CMakeFiles 0
 .PHONY : CMakeFiles/memenv_test.dir/rule
 
 # Convenience name for target.
@@ -891,14 +891,14 @@ CMakeFiles/memenv_test.dir/clean:
 CMakeFiles/table_test.dir/all: CMakeFiles/leveldb.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/table_test.dir/build.make CMakeFiles/table_test.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/table_test.dir/build.make CMakeFiles/table_test.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lk/learned_index/learned-leveldb/build/CMakeFiles --progress-num=92,93 "Built target table_test"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lk/index_rocksdb/learned-leveldb/build/CMakeFiles --progress-num=92,93 "Built target table_test"
 .PHONY : CMakeFiles/table_test.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/table_test.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/lk/learned_index/learned-leveldb/build/CMakeFiles 28
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lk/index_rocksdb/learned-leveldb/build/CMakeFiles 28
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/table_test.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/lk/learned_index/learned-leveldb/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lk/index_rocksdb/learned-leveldb/build/CMakeFiles 0
 .PHONY : CMakeFiles/table_test.dir/rule
 
 # Convenience name for target.
@@ -918,14 +918,14 @@ CMakeFiles/table_test.dir/clean:
 CMakeFiles/log_test.dir/all: CMakeFiles/leveldb.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/log_test.dir/build.make CMakeFiles/log_test.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/log_test.dir/build.make CMakeFiles/log_test.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lk/learned_index/learned-leveldb/build/CMakeFiles --progress-num=72,73 "Built target log_test"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lk/index_rocksdb/learned-leveldb/build/CMakeFiles --progress-num=72,73 "Built target log_test"
 .PHONY : CMakeFiles/log_test.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/log_test.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/lk/learned_index/learned-leveldb/build/CMakeFiles 28
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lk/index_rocksdb/learned-leveldb/build/CMakeFiles 28
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/log_test.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/lk/learned_index/learned-leveldb/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lk/index_rocksdb/learned-leveldb/build/CMakeFiles 0
 .PHONY : CMakeFiles/log_test.dir/rule
 
 # Convenience name for target.
@@ -945,14 +945,14 @@ CMakeFiles/log_test.dir/clean:
 CMakeFiles/recovery_test.dir/all: CMakeFiles/leveldb.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/recovery_test.dir/build.make CMakeFiles/recovery_test.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/recovery_test.dir/build.make CMakeFiles/recovery_test.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lk/learned_index/learned-leveldb/build/CMakeFiles --progress-num=85,86 "Built target recovery_test"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lk/index_rocksdb/learned-leveldb/build/CMakeFiles --progress-num=85,86 "Built target recovery_test"
 .PHONY : CMakeFiles/recovery_test.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/recovery_test.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/lk/learned_index/learned-leveldb/build/CMakeFiles 28
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lk/index_rocksdb/learned-leveldb/build/CMakeFiles 28
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/recovery_test.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/lk/learned_index/learned-leveldb/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lk/index_rocksdb/learned-leveldb/build/CMakeFiles 0
 .PHONY : CMakeFiles/recovery_test.dir/rule
 
 # Convenience name for target.
@@ -972,14 +972,14 @@ CMakeFiles/recovery_test.dir/clean:
 CMakeFiles/version_set_test.dir/all: CMakeFiles/leveldb.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/version_set_test.dir/build.make CMakeFiles/version_set_test.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/version_set_test.dir/build.make CMakeFiles/version_set_test.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lk/learned_index/learned-leveldb/build/CMakeFiles --progress-num=96,97 "Built target version_set_test"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lk/index_rocksdb/learned-leveldb/build/CMakeFiles --progress-num=96,97 "Built target version_set_test"
 .PHONY : CMakeFiles/version_set_test.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/version_set_test.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/lk/learned_index/learned-leveldb/build/CMakeFiles 28
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lk/index_rocksdb/learned-leveldb/build/CMakeFiles 28
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/version_set_test.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/lk/learned_index/learned-leveldb/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lk/index_rocksdb/learned-leveldb/build/CMakeFiles 0
 .PHONY : CMakeFiles/version_set_test.dir/rule
 
 # Convenience name for target.
@@ -999,14 +999,14 @@ CMakeFiles/version_set_test.dir/clean:
 CMakeFiles/crc32c_test.dir/all: CMakeFiles/leveldb.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/crc32c_test.dir/build.make CMakeFiles/crc32c_test.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/crc32c_test.dir/build.make CMakeFiles/crc32c_test.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lk/learned_index/learned-leveldb/build/CMakeFiles --progress-num=16,17 "Built target crc32c_test"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lk/index_rocksdb/learned-leveldb/build/CMakeFiles --progress-num=16,17 "Built target crc32c_test"
 .PHONY : CMakeFiles/crc32c_test.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/crc32c_test.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/lk/learned_index/learned-leveldb/build/CMakeFiles 28
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lk/index_rocksdb/learned-leveldb/build/CMakeFiles 28
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/crc32c_test.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/lk/learned_index/learned-leveldb/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lk/index_rocksdb/learned-leveldb/build/CMakeFiles 0
 .PHONY : CMakeFiles/crc32c_test.dir/rule
 
 # Convenience name for target.
@@ -1026,14 +1026,14 @@ CMakeFiles/crc32c_test.dir/clean:
 CMakeFiles/cache_test.dir/all: CMakeFiles/leveldb.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/cache_test.dir/build.make CMakeFiles/cache_test.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/cache_test.dir/build.make CMakeFiles/cache_test.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lk/learned_index/learned-leveldb/build/CMakeFiles --progress-num=9,10 "Built target cache_test"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lk/index_rocksdb/learned-leveldb/build/CMakeFiles --progress-num=9,10 "Built target cache_test"
 .PHONY : CMakeFiles/cache_test.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/cache_test.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/lk/learned_index/learned-leveldb/build/CMakeFiles 28
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lk/index_rocksdb/learned-leveldb/build/CMakeFiles 28
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/cache_test.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/lk/learned_index/learned-leveldb/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lk/index_rocksdb/learned-leveldb/build/CMakeFiles 0
 .PHONY : CMakeFiles/cache_test.dir/rule
 
 # Convenience name for target.
@@ -1053,14 +1053,14 @@ CMakeFiles/cache_test.dir/clean:
 CMakeFiles/skiplist_test.dir/all: CMakeFiles/leveldb.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/skiplist_test.dir/build.make CMakeFiles/skiplist_test.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/skiplist_test.dir/build.make CMakeFiles/skiplist_test.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lk/learned_index/learned-leveldb/build/CMakeFiles --progress-num=87,88,89 "Built target skiplist_test"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lk/index_rocksdb/learned-leveldb/build/CMakeFiles --progress-num=87,88,89 "Built target skiplist_test"
 .PHONY : CMakeFiles/skiplist_test.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/skiplist_test.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/lk/learned_index/learned-leveldb/build/CMakeFiles 29
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lk/index_rocksdb/learned-leveldb/build/CMakeFiles 29
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/skiplist_test.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/lk/learned_index/learned-leveldb/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lk/index_rocksdb/learned-leveldb/build/CMakeFiles 0
 .PHONY : CMakeFiles/skiplist_test.dir/rule
 
 # Convenience name for target.
@@ -1080,14 +1080,14 @@ CMakeFiles/skiplist_test.dir/clean:
 CMakeFiles/version_edit_test.dir/all: CMakeFiles/leveldb.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/version_edit_test.dir/build.make CMakeFiles/version_edit_test.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/version_edit_test.dir/build.make CMakeFiles/version_edit_test.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lk/learned_index/learned-leveldb/build/CMakeFiles --progress-num=94,95 "Built target version_edit_test"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lk/index_rocksdb/learned-leveldb/build/CMakeFiles --progress-num=94,95 "Built target version_edit_test"
 .PHONY : CMakeFiles/version_edit_test.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/version_edit_test.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/lk/learned_index/learned-leveldb/build/CMakeFiles 28
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lk/index_rocksdb/learned-leveldb/build/CMakeFiles 28
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/version_edit_test.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/lk/learned_index/learned-leveldb/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lk/index_rocksdb/learned-leveldb/build/CMakeFiles 0
 .PHONY : CMakeFiles/version_edit_test.dir/rule
 
 # Convenience name for target.

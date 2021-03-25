@@ -134,15 +134,15 @@ leveldb/slice.h
 util/random.h
 ../util/util/random.h
 
-/home/lk/learned_index/learned-leveldb/issues/issue200_test.cc
+/home/lk/index_rocksdb/learned-leveldb/issues/issue200_test.cc
 leveldb/db.h
-/home/lk/learned_index/learned-leveldb/issues/leveldb/db.h
+/home/lk/index_rocksdb/learned-leveldb/issues/leveldb/db.h
 util/testharness.h
-/home/lk/learned_index/learned-leveldb/issues/util/testharness.h
+/home/lk/index_rocksdb/learned-leveldb/issues/util/testharness.h
 
-/home/lk/learned_index/learned-leveldb/util/testharness.cc
+/home/lk/index_rocksdb/learned-leveldb/util/testharness.cc
 util/testharness.h
-/home/lk/learned_index/learned-leveldb/util/util/testharness.h
+/home/lk/index_rocksdb/learned-leveldb/util/util/testharness.h
 stdlib.h
 -
 sys/stat.h
@@ -154,11 +154,11 @@ string
 vector
 -
 leveldb/env.h
-/home/lk/learned_index/learned-leveldb/util/leveldb/env.h
+/home/lk/index_rocksdb/learned-leveldb/util/leveldb/env.h
 
-/home/lk/learned_index/learned-leveldb/util/testutil.cc
+/home/lk/index_rocksdb/learned-leveldb/util/testutil.cc
 util/testutil.h
-/home/lk/learned_index/learned-leveldb/util/util/testutil.h
+/home/lk/index_rocksdb/learned-leveldb/util/util/testutil.h
 util/random.h
-/home/lk/learned_index/learned-leveldb/util/util/random.h
+/home/lk/index_rocksdb/learned-leveldb/util/util/random.h
 

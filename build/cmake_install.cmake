@@ -1,4 +1,4 @@
-# Install script for directory: /home/lk/learned_index/learned-leveldb
+# Install script for directory: /home/lk/index_rocksdb/learned-leveldb
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -38,26 +38,27 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib64" TYPE STATIC_LIBRARY FILES "/home/lk/learned_index/learned-leveldb/build/libleveldb.a")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib64" TYPE STATIC_LIBRARY FILES "/home/lk/index_rocksdb/learned-leveldb/build/libleveldb.a")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include/leveldb" TYPE FILE FILES
-    "/home/lk/learned_index/learned-leveldb/include/leveldb/c.h"
-    "/home/lk/learned_index/learned-leveldb/include/leveldb/cache.h"
-    "/home/lk/learned_index/learned-leveldb/include/leveldb/comparator.h"
-    "/home/lk/learned_index/learned-leveldb/include/leveldb/db.h"
-    "/home/lk/learned_index/learned-leveldb/include/leveldb/dumpfile.h"
-    "/home/lk/learned_index/learned-leveldb/include/leveldb/env.h"
-    "/home/lk/learned_index/learned-leveldb/include/leveldb/export.h"
-    "/home/lk/learned_index/learned-leveldb/include/leveldb/filter_policy.h"
-    "/home/lk/learned_index/learned-leveldb/include/leveldb/iterator.h"
-    "/home/lk/learned_index/learned-leveldb/include/leveldb/options.h"
-    "/home/lk/learned_index/learned-leveldb/include/leveldb/slice.h"
-    "/home/lk/learned_index/learned-leveldb/include/leveldb/status.h"
-    "/home/lk/learned_index/learned-leveldb/include/leveldb/table_builder.h"
-    "/home/lk/learned_index/learned-leveldb/include/leveldb/table.h"
-    "/home/lk/learned_index/learned-leveldb/include/leveldb/write_batch.h"
+    "/home/lk/index_rocksdb/learned-leveldb/include/leveldb/c.h"
+    "/home/lk/index_rocksdb/learned-leveldb/include/leveldb/cache.h"
+    "/home/lk/index_rocksdb/learned-leveldb/include/leveldb/comparator.h"
+    "/home/lk/index_rocksdb/learned-leveldb/include/leveldb/db.h"
+    "/home/lk/index_rocksdb/learned-leveldb/include/leveldb/dumpfile.h"
+    "/home/lk/index_rocksdb/learned-leveldb/include/leveldb/env.h"
+    "/home/lk/index_rocksdb/learned-leveldb/include/leveldb/export.h"
+    "/home/lk/index_rocksdb/learned-leveldb/include/leveldb/filter_policy.h"
+    "/home/lk/index_rocksdb/learned-leveldb/include/leveldb/iterator.h"
+    "/home/lk/index_rocksdb/learned-leveldb/include/leveldb/options.h"
+    "/home/lk/index_rocksdb/learned-leveldb/include/leveldb/slice.h"
+    "/home/lk/index_rocksdb/learned-leveldb/include/leveldb/status.h"
+    "/home/lk/index_rocksdb/learned-leveldb/include/leveldb/learned_index.h"
+    "/home/lk/index_rocksdb/learned-leveldb/include/leveldb/table_builder.h"
+    "/home/lk/index_rocksdb/learned-leveldb/include/leveldb/table.h"
+    "/home/lk/index_rocksdb/learned-leveldb/include/leveldb/write_batch.h"
     )
 endif()
 
@@ -65,7 +66,7 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib64/cmake/leveldb/leveldbTargets.cmake")
     file(DIFFERENT EXPORT_FILE_CHANGED FILES
          "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib64/cmake/leveldb/leveldbTargets.cmake"
-         "/home/lk/learned_index/learned-leveldb/build/CMakeFiles/Export/lib64/cmake/leveldb/leveldbTargets.cmake")
+         "/home/lk/index_rocksdb/learned-leveldb/build/CMakeFiles/Export/lib64/cmake/leveldb/leveldbTargets.cmake")
     if(EXPORT_FILE_CHANGED)
       file(GLOB OLD_CONFIG_FILES "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib64/cmake/leveldb/leveldbTargets-*.cmake")
       if(OLD_CONFIG_FILES)
@@ -74,16 +75,16 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
       endif()
     endif()
   endif()
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib64/cmake/leveldb" TYPE FILE FILES "/home/lk/learned_index/learned-leveldb/build/CMakeFiles/Export/lib64/cmake/leveldb/leveldbTargets.cmake")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib64/cmake/leveldb" TYPE FILE FILES "/home/lk/index_rocksdb/learned-leveldb/build/CMakeFiles/Export/lib64/cmake/leveldb/leveldbTargets.cmake")
   if("${CMAKE_INSTALL_CONFIG_NAME}" MATCHES "^([Rr][Ee][Ll][Ee][Aa][Ss][Ee])$")
-    file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib64/cmake/leveldb" TYPE FILE FILES "/home/lk/learned_index/learned-leveldb/build/CMakeFiles/Export/lib64/cmake/leveldb/leveldbTargets-release.cmake")
+    file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib64/cmake/leveldb" TYPE FILE FILES "/home/lk/index_rocksdb/learned-leveldb/build/CMakeFiles/Export/lib64/cmake/leveldb/leveldbTargets-release.cmake")
   endif()
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib64/cmake/leveldb" TYPE FILE FILES
-    "/home/lk/learned_index/learned-leveldb/cmake/leveldbConfig.cmake"
-    "/home/lk/learned_index/learned-leveldb/build/leveldbConfigVersion.cmake"
+    "/home/lk/index_rocksdb/learned-leveldb/cmake/leveldbConfig.cmake"
+    "/home/lk/index_rocksdb/learned-leveldb/build/leveldbConfigVersion.cmake"
     )
 endif()
 
@@ -95,5 +96,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/lk/learned_index/learned-leveldb/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/lk/index_rocksdb/learned-leveldb/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

@@ -17,6 +17,7 @@ CMakeFiles/table_test.dir/table/table_test.cc.o: ../include/leveldb/env.h
 CMakeFiles/table_test.dir/table/table_test.cc.o: ../include/leveldb/export.h
 CMakeFiles/table_test.dir/table/table_test.cc.o: ../include/leveldb/filter_policy.h
 CMakeFiles/table_test.dir/table/table_test.cc.o: ../include/leveldb/iterator.h
+CMakeFiles/table_test.dir/table/table_test.cc.o: ../include/leveldb/learned_index.h
 CMakeFiles/table_test.dir/table/table_test.cc.o: ../include/leveldb/options.h
 CMakeFiles/table_test.dir/table/table_test.cc.o: ../include/leveldb/slice.h
 CMakeFiles/table_test.dir/table/table_test.cc.o: ../include/leveldb/status.h
@@ -27,7 +28,6 @@ CMakeFiles/table_test.dir/table/table_test.cc.o: ../mod/CBMode_Learn.h
 CMakeFiles/table_test.dir/table/table_test.cc.o: ../mod/Counter.h
 CMakeFiles/table_test.dir/table/table_test.cc.o: ../mod/Vlog.h
 CMakeFiles/table_test.dir/table/table_test.cc.o: ../mod/event.h
-CMakeFiles/table_test.dir/table/table_test.cc.o: ../mod/learned_index.h
 CMakeFiles/table_test.dir/table/table_test.cc.o: ../mod/plr.h
 CMakeFiles/table_test.dir/table/table_test.cc.o: ../mod/stats.h
 CMakeFiles/table_test.dir/table/table_test.cc.o: ../mod/timer.h

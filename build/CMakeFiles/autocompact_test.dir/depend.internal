@@ -30,7 +30,7 @@ CMakeFiles/autocompact_test.dir/db/autocompact_test.cc.o
  ../util/random.h
  ../util/testharness.h
  ../util/testutil.h
- /home/lk/learned_index/learned-leveldb/db/autocompact_test.cc
+ /home/lk/index_rocksdb/learned-leveldb/db/autocompact_test.cc
  include/port/port_config.h
 CMakeFiles/autocompact_test.dir/util/testharness.cc.o
  ../include/leveldb/env.h
@@ -38,7 +38,7 @@ CMakeFiles/autocompact_test.dir/util/testharness.cc.o
  ../include/leveldb/slice.h
  ../include/leveldb/status.h
  ../util/testharness.h
- /home/lk/learned_index/learned-leveldb/util/testharness.cc
+ /home/lk/index_rocksdb/learned-leveldb/util/testharness.cc
 CMakeFiles/autocompact_test.dir/util/testutil.cc.o
  ../helpers/memenv/memenv.h
  ../include/leveldb/env.h
@@ -47,4 +47,4 @@ CMakeFiles/autocompact_test.dir/util/testutil.cc.o
  ../include/leveldb/status.h
  ../util/random.h
  ../util/testutil.h
- /home/lk/learned_index/learned-leveldb/util/testutil.cc
+ /home/lk/index_rocksdb/learned-leveldb/util/testutil.cc

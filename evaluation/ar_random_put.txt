@@ -1,0 +1,12 @@
+Run begin
+[Debug] run first
+[Debug] run second
+/mnt/ssd: 931.1 GiB (999710355456 bytes) trimmed
+3
+delete and trim complete
+[Debug]db_impl.cc 1964: open
+Put Complete
+[Debug]db_impl.cc 1964: open
+Shutting down
+Starting up
+[Debug]db_impl.cc 1964: open

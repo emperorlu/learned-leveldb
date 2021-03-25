@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/lk/learned_index/learned-leveldb/db/leveldbutil.cc" "/home/lk/learned_index/learned-leveldb/build/CMakeFiles/leveldbutil.dir/db/leveldbutil.cc.o"
+  "/home/lk/index_rocksdb/learned-leveldb/db/leveldbutil.cc" "/home/lk/index_rocksdb/learned-leveldb/build/CMakeFiles/leveldbutil.dir/db/leveldbutil.cc.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
@@ -22,7 +22,7 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
 
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
-  "/home/lk/learned_index/learned-leveldb/build/CMakeFiles/leveldb.dir/DependInfo.cmake"
+  "/home/lk/index_rocksdb/learned-leveldb/build/CMakeFiles/leveldb.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.

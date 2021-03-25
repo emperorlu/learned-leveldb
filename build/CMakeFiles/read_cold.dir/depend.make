@@ -13,13 +13,15 @@ CMakeFiles/read_cold.dir/mod/read_cold.cc.o: ../include/leveldb/env.h
 CMakeFiles/read_cold.dir/mod/read_cold.cc.o: ../include/leveldb/export.h
 CMakeFiles/read_cold.dir/mod/read_cold.cc.o: ../include/leveldb/filter_policy.h
 CMakeFiles/read_cold.dir/mod/read_cold.cc.o: ../include/leveldb/iterator.h
+CMakeFiles/read_cold.dir/mod/read_cold.cc.o: ../include/leveldb/learned_index.h
 CMakeFiles/read_cold.dir/mod/read_cold.cc.o: ../include/leveldb/options.h
 CMakeFiles/read_cold.dir/mod/read_cold.cc.o: ../include/leveldb/slice.h
 CMakeFiles/read_cold.dir/mod/read_cold.cc.o: ../include/leveldb/status.h
 CMakeFiles/read_cold.dir/mod/read_cold.cc.o: ../include/leveldb/table_builder.h
 CMakeFiles/read_cold.dir/mod/read_cold.cc.o: ../mod/Vlog.h
-CMakeFiles/read_cold.dir/mod/read_cold.cc.o: ../mod/learned_index.h
+CMakeFiles/read_cold.dir/mod/read_cold.cc.o: ../mod/plr.h
 CMakeFiles/read_cold.dir/mod/read_cold.cc.o: ../mod/stats.h
+CMakeFiles/read_cold.dir/mod/read_cold.cc.o: ../mod/util.h
 CMakeFiles/read_cold.dir/mod/read_cold.cc.o: ../port/port.h
 CMakeFiles/read_cold.dir/mod/read_cold.cc.o: ../port/port_stdcxx.h
 CMakeFiles/read_cold.dir/mod/read_cold.cc.o: ../port/thread_annotations.h
@@ -31,8 +33,6 @@ CMakeFiles/read_cold.dir/mod/read_cold.cc.o: ../mod/CBMode_Learn.h
 CMakeFiles/read_cold.dir/mod/read_cold.cc.o: ../mod/Counter.h
 CMakeFiles/read_cold.dir/mod/read_cold.cc.o: ../mod/cxxopts.hpp
 CMakeFiles/read_cold.dir/mod/read_cold.cc.o: ../mod/event.h
-CMakeFiles/read_cold.dir/mod/read_cold.cc.o: ../mod/learned_index.h
-CMakeFiles/read_cold.dir/mod/read_cold.cc.o: ../mod/plr.h
 CMakeFiles/read_cold.dir/mod/read_cold.cc.o: ../mod/read_cold.cc
 CMakeFiles/read_cold.dir/mod/read_cold.cc.o: ../mod/stats.h
 CMakeFiles/read_cold.dir/mod/read_cold.cc.o: ../mod/timer.h

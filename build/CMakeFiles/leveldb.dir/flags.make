@@ -6,5 +6,5 @@ CXX_FLAGS = -O2 -DNDEBUG   -std=c++11
 
 CXX_DEFINES = -DLEVELDB_COMPILE_LIBRARY -DLEVELDB_PLATFORM_POSIX=1 -DNDEBUG
 
-CXX_INCLUDES = -I/home/lk/learned_index/learned-leveldb/build/include -I/home/lk/learned_index/learned-leveldb -I/home/lk/learned_index/learned-leveldb/include 
+CXX_INCLUDES = -I/home/lk/index_rocksdb/learned-leveldb/build/include -I/home/lk/index_rocksdb/learned-leveldb -I/home/lk/index_rocksdb/learned-leveldb/include 
 

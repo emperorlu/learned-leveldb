@@ -7,11 +7,11 @@ C_FLAGS = -O2 -DNDEBUG   -std=c11
 
 C_DEFINES = -DLEVELDB_PLATFORM_POSIX=1 -DNDEBUG
 
-C_INCLUDES = -I/home/lk/learned_index/learned-leveldb/build/include -I/home/lk/learned_index/learned-leveldb -I/home/lk/learned_index/learned-leveldb/include 
+C_INCLUDES = -I/home/lk/index_rocksdb/learned-leveldb/build/include -I/home/lk/index_rocksdb/learned-leveldb -I/home/lk/index_rocksdb/learned-leveldb/include 
 
 CXX_FLAGS = -O2 -DNDEBUG   -std=c++11
 
 CXX_DEFINES = -DLEVELDB_PLATFORM_POSIX=1 -DNDEBUG
 
-CXX_INCLUDES = -I/home/lk/learned_index/learned-leveldb/build/include -I/home/lk/learned_index/learned-leveldb -I/home/lk/learned_index/learned-leveldb/include 
+CXX_INCLUDES = -I/home/lk/index_rocksdb/learned-leveldb/build/include -I/home/lk/index_rocksdb/learned-leveldb -I/home/lk/index_rocksdb/learned-leveldb/include 
 

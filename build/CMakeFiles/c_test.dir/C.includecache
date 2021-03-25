@@ -18,9 +18,9 @@ leveldb/export.h
 
 ../include/leveldb/export.h
 
-/home/lk/learned_index/learned-leveldb/db/c_test.c
+/home/lk/index_rocksdb/learned-leveldb/db/c_test.c
 leveldb/c.h
-/home/lk/learned_index/learned-leveldb/db/leveldb/c.h
+/home/lk/index_rocksdb/learned-leveldb/db/leveldb/c.h
 stddef.h
 -
 stdio.h

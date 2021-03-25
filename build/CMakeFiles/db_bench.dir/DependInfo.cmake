@@ -4,10 +4,10 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/lk/learned_index/learned-leveldb/db/db_bench.cc" "/home/lk/learned_index/learned-leveldb/build/CMakeFiles/db_bench.dir/db/db_bench.cc.o"
-  "/home/lk/learned_index/learned-leveldb/util/histogram.cc" "/home/lk/learned_index/learned-leveldb/build/CMakeFiles/db_bench.dir/util/histogram.cc.o"
-  "/home/lk/learned_index/learned-leveldb/util/testharness.cc" "/home/lk/learned_index/learned-leveldb/build/CMakeFiles/db_bench.dir/util/testharness.cc.o"
-  "/home/lk/learned_index/learned-leveldb/util/testutil.cc" "/home/lk/learned_index/learned-leveldb/build/CMakeFiles/db_bench.dir/util/testutil.cc.o"
+  "/home/lk/index_rocksdb/learned-leveldb/db/db_bench.cc" "/home/lk/index_rocksdb/learned-leveldb/build/CMakeFiles/db_bench.dir/db/db_bench.cc.o"
+  "/home/lk/index_rocksdb/learned-leveldb/util/histogram.cc" "/home/lk/index_rocksdb/learned-leveldb/build/CMakeFiles/db_bench.dir/util/histogram.cc.o"
+  "/home/lk/index_rocksdb/learned-leveldb/util/testharness.cc" "/home/lk/index_rocksdb/learned-leveldb/build/CMakeFiles/db_bench.dir/util/testharness.cc.o"
+  "/home/lk/index_rocksdb/learned-leveldb/util/testutil.cc" "/home/lk/index_rocksdb/learned-leveldb/build/CMakeFiles/db_bench.dir/util/testutil.cc.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
@@ -26,7 +26,7 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
 
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
-  "/home/lk/learned_index/learned-leveldb/build/CMakeFiles/leveldb.dir/DependInfo.cmake"
+  "/home/lk/index_rocksdb/learned-leveldb/build/CMakeFiles/leveldb.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.

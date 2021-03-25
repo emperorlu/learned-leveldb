@@ -5,7 +5,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "/home/lk/learned_index/learned-leveldb/db/c_test.c" "/home/lk/learned_index/learned-leveldb/build/CMakeFiles/c_test.dir/db/c_test.c.o"
+  "/home/lk/index_rocksdb/learned-leveldb/db/c_test.c" "/home/lk/index_rocksdb/learned-leveldb/build/CMakeFiles/c_test.dir/db/c_test.c.o"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
 
@@ -22,8 +22,8 @@ set(CMAKE_C_TARGET_INCLUDE_PATH
   "../include"
   )
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/lk/learned_index/learned-leveldb/util/testharness.cc" "/home/lk/learned_index/learned-leveldb/build/CMakeFiles/c_test.dir/util/testharness.cc.o"
-  "/home/lk/learned_index/learned-leveldb/util/testutil.cc" "/home/lk/learned_index/learned-leveldb/build/CMakeFiles/c_test.dir/util/testutil.cc.o"
+  "/home/lk/index_rocksdb/learned-leveldb/util/testharness.cc" "/home/lk/index_rocksdb/learned-leveldb/build/CMakeFiles/c_test.dir/util/testharness.cc.o"
+  "/home/lk/index_rocksdb/learned-leveldb/util/testutil.cc" "/home/lk/index_rocksdb/learned-leveldb/build/CMakeFiles/c_test.dir/util/testutil.cc.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
@@ -42,7 +42,7 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
 
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
-  "/home/lk/learned_index/learned-leveldb/build/CMakeFiles/leveldb.dir/DependInfo.cmake"
+  "/home/lk/index_rocksdb/learned-leveldb/build/CMakeFiles/leveldb.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.

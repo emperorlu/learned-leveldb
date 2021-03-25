@@ -58,13 +58,13 @@ leveldb/export.h
 leveldb/slice.h
 ../include/leveldb/leveldb/slice.h
 
-/home/lk/learned_index/learned-leveldb/db/leveldbutil.cc
+/home/lk/index_rocksdb/learned-leveldb/db/leveldbutil.cc
 stdio.h
 -
 leveldb/dumpfile.h
-/home/lk/learned_index/learned-leveldb/db/leveldb/dumpfile.h
+/home/lk/index_rocksdb/learned-leveldb/db/leveldb/dumpfile.h
 leveldb/env.h
-/home/lk/learned_index/learned-leveldb/db/leveldb/env.h
+/home/lk/index_rocksdb/learned-leveldb/db/leveldb/env.h
 leveldb/status.h
-/home/lk/learned_index/learned-leveldb/db/leveldb/status.h
+/home/lk/index_rocksdb/learned-leveldb/db/leveldb/status.h
 

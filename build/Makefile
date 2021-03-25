@@ -68,10 +68,10 @@ RM = /usr/bin/cmake3 -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/lk/learned_index/learned-leveldb
+CMAKE_SOURCE_DIR = /home/lk/index_rocksdb/learned-leveldb
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/lk/learned_index/learned-leveldb/build
+CMAKE_BINARY_DIR = /home/lk/index_rocksdb/learned-leveldb/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -157,9 +157,9 @@ test/fast: test
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/lk/learned_index/learned-leveldb/build/CMakeFiles /home/lk/learned_index/learned-leveldb/build/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lk/index_rocksdb/learned-leveldb/build/CMakeFiles /home/lk/index_rocksdb/learned-leveldb/build/CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/lk/learned_index/learned-leveldb/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lk/index_rocksdb/learned-leveldb/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target

@@ -17,6 +17,7 @@ CMakeFiles/fault_injection_test.dir/db/fault_injection_test.cc.o: ../include/lev
 CMakeFiles/fault_injection_test.dir/db/fault_injection_test.cc.o: ../include/leveldb/export.h
 CMakeFiles/fault_injection_test.dir/db/fault_injection_test.cc.o: ../include/leveldb/filter_policy.h
 CMakeFiles/fault_injection_test.dir/db/fault_injection_test.cc.o: ../include/leveldb/iterator.h
+CMakeFiles/fault_injection_test.dir/db/fault_injection_test.cc.o: ../include/leveldb/learned_index.h
 CMakeFiles/fault_injection_test.dir/db/fault_injection_test.cc.o: ../include/leveldb/options.h
 CMakeFiles/fault_injection_test.dir/db/fault_injection_test.cc.o: ../include/leveldb/slice.h
 CMakeFiles/fault_injection_test.dir/db/fault_injection_test.cc.o: ../include/leveldb/status.h
@@ -27,7 +28,6 @@ CMakeFiles/fault_injection_test.dir/db/fault_injection_test.cc.o: ../mod/CBMode_
 CMakeFiles/fault_injection_test.dir/db/fault_injection_test.cc.o: ../mod/Counter.h
 CMakeFiles/fault_injection_test.dir/db/fault_injection_test.cc.o: ../mod/Vlog.h
 CMakeFiles/fault_injection_test.dir/db/fault_injection_test.cc.o: ../mod/event.h
-CMakeFiles/fault_injection_test.dir/db/fault_injection_test.cc.o: ../mod/learned_index.h
 CMakeFiles/fault_injection_test.dir/db/fault_injection_test.cc.o: ../mod/plr.h
 CMakeFiles/fault_injection_test.dir/db/fault_injection_test.cc.o: ../mod/stats.h
 CMakeFiles/fault_injection_test.dir/db/fault_injection_test.cc.o: ../mod/timer.h

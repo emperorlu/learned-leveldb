@@ -1,7 +1,9 @@
 ## A Learned Index for Log-Structured Merge Trees
 
-This repository contains code implementing the paper 
-[here](https://www.usenix.org/conference/osdi20/presentation/dai).
+The learned index for Leveldb.
 
-Please check out [ARTIFACT_README](ARTIFACT_README) to reproduce
-our experiments.
+It is different from Bourbon, please see the paper "From WiscKey to Bourbon: A Learned Index for
+Log-Structured Merge Trees" for the details.
+
+It uses the idea of google, please see the paper "Learned Indexes for a Google-scale Disk-based
+Database" for the details.
